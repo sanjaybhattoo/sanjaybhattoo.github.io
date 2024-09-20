@@ -2,61 +2,82 @@
 # Welcome to My Page
 
 Hi! I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, Data Engineering and Coding. 
-Below are some of the projects I have worked on:
+
+## Education
+
+### Arizona State University, Tempe, AZ
+**M.S. in Computer Science, Artificial Intelligence**  
+_August 2024 – May 2026_
+
+### Jaypee University of Information Technology, Solan, India
+**B.Tech. Honors in Computer Science, Artificial Intelligence (8.39/10)**  
+_July 2018 – May 2022_
+
+Below are some of the Technologies I have worked or know:
 
 ---
 
 ## 🛠️ Technologies I Work With
-- **Languages**: Python, Java, JavaScript
-- **Cloud**: AWS, Azure, Google Cloud
-- **Tools**: Kafka, Scapy, Ghidra, TensorFlow, D3.js
-- **Topics**: Data Engineering, Neural Networks, Deep Learning, AI, Network Traffic Analysis
+## Technical Skills
+
+- **Languages**: Java, Microservices, Python, MySQL, MongoDB, Oracle SQL, HTML, CSS, Data Structure and Algorithms, Scala
+- **Methodologies/Technologies**: Data Modeling, Data ETL, Exploratory Data Analysis, Data Warehouse, Big Data, SDLC, Agile, Critical Thinking, Design Patterns, Flink
+- **Frameworks/Libraries**: Pandas, Scikit-learn, Spring Boot, Excel, API, Hadoop, Plotly, D3.js, Git, Postman
+- **Software/Platforms**: Linux, Tableau, PowerBI, ADLS 2, Databricks, Kafka, Airflow, Data Factory, Synapse Analytics, Spark, Docker
+- **Certificates**: Azure Data Engineer Associate, Azure Developer Associate, Google Cloud Digital Leader
 
 ---
 
-## 🛠️ Experience
-- **Programmer Analyst August 2022 – June 2024**
--Cognizant Bengaluru, KA
-- Designed and executed Data Pipelines using Java Spring Boot ,Oracle SQL and Apache Kafka to migrate data (27+ million records)
-efficiently across multiple resources .Managed multiple triggers on 250,000+ records daily, ensuring smooth and timely updates.
-- Implemented feature enhancements based on client requirements, including adding new columns, indexes, and constraints to
-improve data handling and query performance.
-- Conducted data modifications, including cleaning, mapping, and formatting, to align with the requirements of over 7 target
-systems. Ensured data consistency and accuracy, facilitating seamless integration across multiple platforms.
-- Collaborated with 2+ cross-functional teams and integrated a variety of applications to optimize data processing workflows,
-ensuring seamless and high-quality data delivery across multiple regions while maintaining Data Warehouses.
-- Automated 5+ tasks using python related to data extraction ,improving querying time by 17% ,reducing manual efforts.
-- Initiated the migration of all servers to Azure across regions, including the setup of cloud pipelines and infrastructure.
-- Prepared, cleaned, and transformed data to ensure accuracy and reliability for downstream analysis. Utilized data processing
-techniques to convert raw data into structured formats, facilitating efficient and effective data utilization.
-Programmer Intern March 2022 – July 2022
-Cognizant Bengaluru, KA
-- Gained proficiency in Python and MySQL, including utilizing libraries such as Seaborn, Matplotlib, Plotly for creating interactive
-data visualizations and dashboards.
-- Acquired skills in Azure services like Azure Data Lake, Data Factory, Synapse Analytics, Active Directory, ARM,.Built data pipelines
-to streamline data processing and integration. Earned the DP 203 Certification with a 930+ score.
-Industrial Training February 2021 – April 2021
-Think Next Mohali, PB
-- Acquired solid understanding of mathematical concepts underlying AI, such as linear algebra, calculus, and probability theory.
-- Contributed to team projects by analyzing datasets, performing data pre processing, feature engineering, and implementing ML
-algorithms to extract actionable insights
+## Experience
 
----
+### Programmer Analyst, Cognizant, Bengaluru, KA  
+_August 2022 – June 2024_
+
+- Designed and executed Data Pipelines using Java Spring Boot, Oracle SQL, and Apache Kafka to migrate data (27+ million records) efficiently across multiple resources.
+- Managed multiple triggers on 250,000+ records daily, ensuring smooth and timely updates.
+- Implemented feature enhancements based on client requirements, improving data handling and query performance.
+- Conducted data modifications, ensuring data consistency and accuracy for 7+ target systems.
+- Collaborated with cross-functional teams, optimized data processing workflows, and maintained Data Warehouses.
+- Automated tasks using Python, improving querying time by 17%.
+- Migrated servers to Azure, setting up cloud pipelines and infrastructure.
+
+### Programmer Intern, Cognizant, Bengaluru, KA  
+_March 2022 – July 2022_
+
+- Gained proficiency in Python, MySQL, and data visualization libraries (Seaborn, Matplotlib, Plotly).
+- Acquired skills in Azure services and built data pipelines for efficient data processing.
+- Earned the DP 203 Certification with a 930+ score.
+
+### Industrial Training, Think Next, Mohali, PB  
+_February 2021 – April 2021_
+
+- Developed a solid understanding of AI mathematics (linear algebra, calculus, probability theory).
+- Analyzed datasets and implemented ML algorithms to extract insights.
 
 
-## 💼 Projects
 
-### 1. **[Interactive Lollipop Chart](https://github.com/yourusername/lollipop-chart)**
-- Created an interactive chart using D3.js to visualize employment rates from CSV files.
-- Technologies: D3.js, JavaScript, HTML.
+## Projects
 
-### 2. **[Network Traffic Analysis](https://github.com/yourusername/network-traffic-analysis)**
-- Analyzed network traffic using Python's Scapy library.
-- Technologies: Python, Scapy.
+### Virtual Assistant for Claims Compensability Evaluation  
+**Artificial Intelligence Project** – _Python, ML, LLM_  
+_January 2023 – Present_
 
-### 3. **[Data Pipelines using Kafka](https://github.com/yourusername/data-pipelines-kafka)**
-- Built robust data pipelines across multiple regions using Kafka and Java.
-- Technologies: Kafka, Java, Python.
+- Developed a LLM-based Virtual Assistant to assess compensability based on legal knowledge and state-specific laws.
+- Achieved 95% accuracy in identifying missing information and 50% accuracy in flagging legal violations.
+
+### YouTube Data Analysis and Optimization  
+**Cloud Project** – _Python, AWS, S3, Athena_  
+_August 2022 – December 2022_
+
+- Utilized AWS services (Lambda, Glue, S3) to automate YouTube data processing.
+- Visualized data using AWS Athena and Quicksight, and deployed APIs on a cloud platform.
+
+### Second Hand Car Price Prediction  
+**Data Science Prediction Model** – _Python, Machine Learning_  
+_August 2021 – December 2021_
+
+- Achieved an accuracy rate exceeding 85% using data manipulation and machine learning techniques.
+
 
 ---
 
