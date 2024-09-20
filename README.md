@@ -1,7 +1,7 @@
 
 # Welcome to My Portfolio
 
-Hi! I’m **Your Name**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, and Data Engineering. Below are some of the projects I have worked on:
+Hi! I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, Data Engineering and Coding. Below are some of the projects I have worked on:
 
 ---
 
@@ -37,5 +37,5 @@ Hi! I’m **Your Name**, currently pursuing a Master's in Computer Science. I'm 
 ---
 
 ## 📫 Contact Me
-- [LinkedIn](https://www.linkedin.com/in/yourusername)
-- [Email](mailto:your.email@example.com)
+- [LinkedIn](https://www.linkedin.com/in/sanjay-bhattoo/)
+- [Email](mailto:bhattoo70@gmail.com)
