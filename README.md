@@ -1,7 +1,8 @@
 
 # Welcome to My Page
 
-Hi! I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, Data Engineering and Coding. Below are some of the projects I have worked on:
+Hi! I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, Data Engineering and Coding. 
+Below are some of the projects I have worked on:
 
 ---
 
@@ -68,3 +69,4 @@ algorithms to extract actionable insights
 ## 📫 Contact Me
 - [LinkedIn](https://www.linkedin.com/in/sanjay-bhattoo/)
 - [Email](mailto:bhattoo70@gmail.com)
+- [page](https://sanjaybhattoo.github.io)
