@@ -8,11 +8,13 @@ Hi! I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I
 
 ### Arizona State University, Tempe, AZ
 **M.S. in Computer Science, Artificial Intelligence**  
+Course: Data Visualization, Software security, Pattern Recognization in stats learning
 _August 2024 – May 2026_
 
 ### Jaypee University of Information Technology, Solan, India
 **B.Tech. Honors in Computer Science, Artificial Intelligence (8.39/10)**  
-_July 2018 – May 2022_
+Course : Calculus, Discrete Math, Machine learning, Data Structure and Algorithms, Operating system, Reinforcement Learning
+[8.39/10]_July 2018 – May 2022_
 
 Below are some of the Technologies I have worked or know:
 
@@ -66,7 +68,7 @@ _January 2023 – Present_
 - Developed a LLM-based Virtual Assistant to assess compensability based on legal knowledge and state-specific laws.
 - Achieved 95% accuracy in identifying missing information and 50% accuracy in flagging legal violations.
 
-### YouTube Data Analysis and Optimization  
+### [YouTube Data Analysis and Optimization](/sanjaybhattoo/sanjaybhattoo.github.io/assets)
 **Cloud Project** – _Python, AWS, S3, Athena_  
 _August 2022 – December 2022_
 
