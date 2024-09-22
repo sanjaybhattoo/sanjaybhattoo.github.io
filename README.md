@@ -68,7 +68,7 @@ _January 2023 – Present_
 - Developed a LLM-based Virtual Assistant to assess compensability based on legal knowledge and state-specific laws.
 - Achieved 95% accuracy in identifying missing information and 50% accuracy in flagging legal violations.
 
-### [YouTube Data Analysis and Optimization](/sanjaybhattoo/sanjaybhattoo.github.io/assets)
+### YouTube Data Analysis and Optimization
 **Cloud Project** – _Python, AWS, S3, Athena_  
 _August 2022 – December 2022_
 
@@ -86,7 +86,7 @@ _August 2021 – December 2021_
 
 ## 📚 Certifications
 - AWS Certified Solutions Architect
-- Google Cloud Professional Data Engineer
+- [Google Cloud Professional Data Engineer](assets/images/certifications/CloudDigitalLeader_sanjaykumar_23.pdf)
 - Microsoft Azure AI Engineer
 
 ---
