@@ -75,7 +75,7 @@ _August 2022 – December 2022_
 - Utilized AWS services (Lambda, Glue, S3) to automate YouTube data processing.
 - Visualized data using AWS Athena and Quicksight, and deployed APIs on a cloud platform.
 
-### Second Hand Car Price Prediction  
+### [Second Hand Car Price Prediction](https://github.com/sanjaybhattoo/Project-Old-CarPrice-prediction)  
 **Data Science Prediction Model** – _Python, Machine Learning_  
 _August 2021 – December 2021_
 
@@ -85,9 +85,9 @@ _August 2021 – December 2021_
 ---
 
 ## 📚 Certifications
-- AWS Certified Solutions Architect
-- [Google Cloud Professional Data Engineer](assets/images/certifications/CloudDigitalLeader_sanjaykumar_23.pdf)
-- Microsoft Azure AI Engineer
+- [Microsoft Data Engineer Associate](assets/images/certifications/data engineer 24.pdf)
+- [Google Cloud Digital Leader](assets/images/certifications/CloudDigitalLeader_sanjaykumar_23.pdf)
+- [Microsoft Azure Developer Associate](assets/images/certifications/azure dev.pdf)
 
 ---
 
