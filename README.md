@@ -85,9 +85,9 @@ _August 2021 – December 2021_
 ---
 
 ## 📚 Certifications
-- [Microsoft Data Engineer Associate](assets/images/certifications/data engineer 24.pdf)
+- [Microsoft Data Engineer Associate](assets/images/certifications/dataengineer24.pdf)
 - [Google Cloud Digital Leader](assets/images/certifications/CloudDigitalLeader_sanjaykumar_23.pdf)
-- [Microsoft Azure Developer Associate](assets/images/certifications/azure dev.pdf)
+- [Microsoft Azure Developer Associate](assets/images/certifications/azure%20dev.pdf)
 
 ---
 
