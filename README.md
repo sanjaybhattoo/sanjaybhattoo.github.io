@@ -1,6 +1,6 @@
 
 # Welcome to My Page
---Updation under progress , Please come after few days .For more info use mail or linkdn given below.
+--Updation under progress, Please come after a few days. For more info use the mail or LinkedIn given below.
 
 Hi! I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, Data Engineering and Coding. 
 
@@ -9,14 +9,12 @@ Hi! I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I
 ### Arizona State University, Tempe, AZ
 **M.S. in Computer Science, Artificial Intelligence**  
 Course: Data Visualization, Software security, Pattern Recognization in stats learning
-_August 2024 – May 2026_
+                                                              _August 2024 – May 2026_
 
 ### Jaypee University of Information Technology, Solan, India
 **B.Tech. Honors in Computer Science, Artificial Intelligence (8.39/10)**  
-Course : Calculus, Discrete Math, Machine learning, Data Structure and Algorithms, Operating system, Reinforcement Learning
-[8.39/10]_July 2018 – May 2022_
-
-Below are some of the Technologies I have worked or know:
+Course: Calculus, Discrete Math, Machine learning, Data Structure and Algorithms, Operating system, Reinforcement Learning
+[8.39/10]                                                       _July 2018 – May 2022_
 
 ---
 
@@ -44,18 +42,27 @@ _August 2022 – June 2024_
 - Automated tasks using Python, improving querying time by 17%.
 - Migrated servers to Azure, setting up cloud pipelines and infrastructure.
 
-### Programmer Intern, Cognizant, Bengaluru, KA  
-_March 2022 – July 2022_
+###Programmer Intern March 2022 – July 2022
+Cognizant [ - Python, MySQL, Plotly, Data Factory, Datalake] Bengaluru, KA
+- Designed and implemented robust ETL pipelines for consumer transaction data, leveraging Python, MySQL, and Azure services
+(Data Factory) to seamlessly migrate on-premises data to Azure Data Lake. Completed the DP 203 Certification(930+).
+- Created interactive dashboards and compelling plots using Seaborn, matplotlib, and Plotly to visualize insights from large-scale
+datasets, empowering executives to make informed, data-driven decisions for project structure improvements and enhancements.
+Industrial Training February 2021 – April 2021
 
-- Gained proficiency in Python, MySQL, and data visualization libraries (Seaborn, Matplotlib, Plotly).
-- Acquired skills in Azure services and built data pipelines for efficient data processing.
-- Earned the DP 203 Certification with a 930+ score.
+###Think Next [ - Python, ML, Jyupter, Pandas, Matlab] Mohali, PB
+- Acquired a solid understanding of mathematical concepts underlying AI, such as linear algebra, calculus, and probability theory.
+- Contributed to team projects by analyzing datasets, performing pre-processing, feature engineering, and implementing ML
+algorithms to extract actionable insights.
 
-### Industrial Training, Think Next, Mohali, PB  
-_February 2021 – April 2021_
 
-- Developed a solid understanding of AI mathematics (linear algebra, calculus, probability theory).
-- Analyzed datasets and implemented ML algorithms to extract insights.
+
+## 📚 Certifications
+- [Microsoft Data Engineer Associate](assets/images/certifications/dataengineer24.pdf)
+- [Google Cloud Digital Leader](assets/images/certifications/CloudDigitalLeader_sanjaykumar_23.pdf)
+- [Microsoft Azure Developer Associate](assets/images/certifications/azure%20dev.pdf)
+
+---
 
 
 
@@ -68,12 +75,10 @@ _January 2023 – Present_
 - Developed a LLM-based Virtual Assistant to assess compensability based on legal knowledge and state-specific laws.
 - Achieved 95% accuracy in identifying missing information and 50% accuracy in flagging legal violations.
 
-### YouTube Data Analysis and Optimization
-**Cloud Project** – _Python, AWS, S3, Athena_  
-_August 2022 – December 2022_
-
-- Utilized AWS services (Lambda, Glue, S3) to automate YouTube data processing.
-- Visualized data using AWS Athena and Quicksight, and deployed APIs on a cloud platform.
+### [Kafka_Java Pipeline Wikimedia Changes](https://github.com/sanjaybhattoo/kafka_springboot_pipeline)
+**Basic Pipeline** – Java, Springboot, Kafka, Zookeeper  
+_June 2024 – August 2024_
+- Used Kafka and Java to read the recent changes in the Wikimedia page and stored it in the local database.
 
 ### [Second Hand Car Price Prediction](https://github.com/sanjaybhattoo/Project-Old-CarPrice-prediction)  
 **Data Science Prediction Model** – _Python, Machine Learning_  
@@ -81,15 +86,31 @@ _August 2021 – December 2021_
 
 - Achieved an accuracy rate exceeding 85% using data manipulation and machine learning techniques.
 
+##Extra Curricular
+
+- Received an appreciation letter from the minister of education, India for remarkable performance in high school for the central education board.
+- Captained the Volleyball team and was captain of House in the school
+- Represented the school for a traffic-related hackathon in the district.
+
+-Volunteer, Rotaract Club, Jaypee University of Information Technology, solan			   August 2018 – Present 
+-I have tutored 10-15 underprivileged people from nearby areas for high school.
+-Visited nearby villages with kids to celebrate Rakhi festivals with them.
+-participated in various cleanliness drives on campus and in nearby villages.
+-Contributed to hosting a Blood donation camp in the city of Shimla and donated blood.
+
+Member, Jaypee University of Information Technology, Solan				              August 2018 – July 2020
+Event Club: Coordinated events like Concerts, and brand campaigns as a member for 3000 people.
+IEEE: Collaborated with teammates to host 5-7 workshops for the first year about DBMS.
+Class Representative: worked as class representative for Professor Amit Jakhar for 1 semester.
+Volunteer: Volunteered in a government scheme to visit nearby villages and gave KTs to farmers related to the latest Technologies and collected statistical data for 30+ houses.
+
+Extras: 
+-Collaborated on a family farming initiative, contributing to the development and implementation of an optimized crop cycle plan that improved fertilization efficiency, resulting in a 16% increase in yield per acre.
+-Implemented a plan to transition my home to 100% renewable energy by installing 2 kW solar panels. Applied the same sustainable approach to family farms by leveraging government schemes to enhance energy efficiency.
+-Developing an application to streamline and manage cattle-related data, optimizing data tracking for improved farm management and decision-making.
 
 ---
 
-## 📚 Certifications
-- [Microsoft Data Engineer Associate](assets/images/certifications/dataengineer24.pdf)
-- [Google Cloud Digital Leader](assets/images/certifications/CloudDigitalLeader_sanjaykumar_23.pdf)
-- [Microsoft Azure Developer Associate](assets/images/certifications/azure%20dev.pdf)
-
----
 
 ## Quotes
 
