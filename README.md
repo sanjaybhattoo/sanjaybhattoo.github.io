@@ -61,6 +61,7 @@ algorithms to extract actionable insights.
 - [Microsoft Data Engineer Associate](assets/images/certifications/dataengineer24.pdf)
 - [Google Cloud Digital Leader](assets/images/certifications/CloudDigitalLeader_sanjaykumar_23.pdf)
 - [Microsoft Azure Developer Associate](assets/images/certifications/azure%20dev.pdf)
+- [UdemyCertifications(20+)](assets/images/certifications/udemy)
 
 ---
 
