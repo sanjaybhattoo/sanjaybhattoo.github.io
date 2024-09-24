@@ -68,23 +68,23 @@ algorithms to extract actionable insights.
 
 ### Projects
 
-### Virtual Assistant for Claims Compensability Evaluation  
-**Artificial Intelligence Project** – _Python, ML, LLM_  
+**Virtual Assistant for Claims Compensability Evaluation**  
+_Artificial Intelligence Project – Python, ML, LLM_  
 _January 2023 – Present_
+- Developed an LLM-based Virtual Assistant to assess compensability based on legal knowledge and state-specific laws, achieving 95% accuracy in identifying missing information and 50% accuracy in flagging legal violations.
 
-- Developed a LLM-based Virtual Assistant to assess compensability based on legal knowledge and state-specific laws.
-- Achieved 95% accuracy in identifying missing information and 50% accuracy in flagging legal violations.
-
-### [Kafka_Java Pipeline Wikimedia Changes](https://github.com/sanjaybhattoo/kafka_springboot_pipeline)
-**Basic Pipeline** – Java, Springboot, Kafka, Zookeeper  
+**[Kafka_Java Pipeline Wikimedia Changes](https://github.com/sanjaybhattoo/kafka_springboot_pipeline)**  
+_Basic Pipeline – Java, Spring Boot, Kafka, Zookeeper_  
 _June 2024 – August 2024_
-- Used Kafka and Java to read the recent changes in the Wikimedia page and stored it in the local database.
+- Utilized Kafka and Java to read recent changes in Wikimedia pages and store them in a local database.
 
-### [Second Hand Car Price Prediction](https://github.com/sanjaybhattoo/Project-Old-CarPrice-prediction)  
-**Data Science Prediction Model** – _Python, Machine Learning_  
+**[Second Hand Car Price Prediction](https://github.com/sanjaybhattoo/Project-Old-CarPrice-prediction)**  
+_Data Science Prediction Model – Python, Machine Learning_  
 _August 2021 – December 2021_
-
 - Achieved an accuracy rate exceeding 85% using data manipulation and machine learning techniques.
+
+---
+
 
 ### Extra Curricular Activities
 
