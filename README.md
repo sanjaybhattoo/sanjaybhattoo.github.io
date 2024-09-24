@@ -86,32 +86,37 @@ _August 2021 – December 2021_
 
 - Achieved an accuracy rate exceeding 85% using data manipulation and machine learning techniques.
 
-### Extra Curricular
+### Extra Curricular Activities
 
-- **Volunteer, Rotaract Club**, Jaypee University of Information Technology, solan			   August 2018 – Present 
--I have tutored 10-15 underprivileged people from nearby areas for high school.
--Visited nearby villages with kids to celebrate Rakhi festivals with them.
--participated in various cleanliness drives on campus and in nearby villages.
--Contributed to hosting a Blood donation camp in the city of Shimla and donated blood.
+- **Volunteer, Rotaract Club**, Jaypee University of Information Technology, Solan  
+  _August 2018 – Present_
+  - Tutored 10-15 underprivileged individuals from nearby areas for high school.
+  - Celebrated Rakhi festivals with kids in nearby villages.
+  - Participated in various cleanliness drives on campus and in surrounding villages.
+  - Contributed to hosting a blood donation camp in Shimla and donated blood.
 
-**Member**, Jaypee University of Information Technology, Solan				              August 2018 – July 2020
--*Event Club*: Coordinated events like Concerts, and brand campaigns as a member for 3000 people.
--*IEEE*: Collaborated with teammates to host 5-7 workshops for the first year about DBMS.
--Class Representative: worked as class representative for Professor Amit Jakhar for 1 semester.
--Volunteer: Volunteered in a government scheme to visit nearby villages and gave KTs to farmers related to the latest Technologies and collected statistical data for 30+ houses.
+- **Member**, Jaypee University of Information Technology, Solan  
+  _August 2018 – July 2020_
+  - **Event Club**: Coordinated events such as concerts and brand campaigns for an audience of 3,000 people.
+  - **IEEE**: Hosted 5-7 workshops for first-year students on DBMS.
+  - **Class Representative**: Served as class representative for Professor Amit Jakhar for one semester.
+  - **Volunteer**: Assisted in a government scheme to visit nearby villages, providing knowledge transfer to farmers regarding the latest technologies and collected statistical data from 30+ households.
 
-**School** 
--- Received an appreciation letter from the minister of education, India for remarkable performance in high school for the central education board.
--- Captained the Volleyball team and was captain of House in the school
--- Represented the school for a traffic-related hackathon in the district.
-
-
-# Extras: 
--- Collaborated on a family farming initiative, contributing to the development and implementation of an optimized crop cycle plan that improved fertilization efficiency, resulting in a 16% increase in yield per acre.
--- Implemented a plan to transition my home to 100% renewable energy by installing 2 kW solar panels. Applied the same sustainable approach to family farms by leveraging government schemes to enhance energy efficiency.
--- Developing an application to streamline and manage cattle-related data, optimizing data tracking for improved farm management and decision-making.
+- **School Achievements**
+  - Received an appreciation letter from the Minister of Education, India, for remarkable performance in high school under the central education board.
+  - Captained the Volleyball team and served as House Captain.
+  - Represented the school in a district-level traffic-related hackathon.
 
 ---
+
+## Extras
+
+- Collaborated on a family farming initiative, contributing to the development and implementation of an optimized crop cycle plan that improved fertilization efficiency, resulting in a 16% increase in yield per acre.
+- Implemented a plan to transition my home to 100% renewable energy by installing 2 kW solar panels and applied the same approach to family farms, leveraging government schemes to enhance energy efficiency.
+- Developing an application to streamline and manage cattle-related data, optimizing data tracking for improved farm management and decision-making.
+
+---
+
 
 
 ## Quotes
