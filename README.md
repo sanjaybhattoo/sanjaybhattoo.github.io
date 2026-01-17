@@ -24,6 +24,7 @@ Course: Data Visualization,
 ### Jaypee University of Information Technology, Solan, India
 **B.Tech. Honors in Computer Science, Artificial Intelligence (8.39/10)**  
 Course: Calculus, Discrete Math, Machine learning, Data Structure and Algorithms, Operating system, Reinforcement Learning
+
 [8.39/10]                                                       _July 2018 – May 2022_
 
 ---
@@ -41,6 +42,16 @@ Course: Calculus, Discrete Math, Machine learning, Data Structure and Algorithms
 
 ## Experience
 
+### Data Engineer Intern, Amazon, Irvine, CA 
+_May 2025 – August 2025_
+
+- Collaborated with Data Science team to design and deliver a real-time data orchestration system integrating LLMs(AWS Bedrock)
+to automate schema detection and system alerts, implemented modular, unit-tested components with CI/CD pipelines.
+- Built AI-powered schema cataloging and monitoring framework using Glue + Bedrock for proactive drift detection and compliance
+analytics in Redshift external tables to support Data team’s analytics.
+- Designed scalable, production grade data pipelines that reduced costs by 30–40% and replaced 10+ existing workflows through
+automation and improved orchestration; additionally secured 2nd place in an org. level hackathon for AI in AWS.
+
 ### Programmer Analyst, Cognizant, Bengaluru, KA  
 _August 2022 – June 2024_
 
@@ -52,15 +63,17 @@ _August 2022 – June 2024_
 - Automated tasks using Python, improving querying time by 17%.
 - Migrated servers to Azure, setting up cloud pipelines and infrastructure.
 
-### Programmer Intern March 2022 – July 2022
-Cognizant [ - Python, MySQL, Plotly, Data Factory, Datalake] Bengaluru, KA
+### Programmer Intern, Cognizant, Bengaluru, KA
+_March 2022 – July 2022_
+
 - Designed and implemented robust ETL pipelines for consumer transaction data, leveraging Python, MySQL, and Azure services
 (Data Factory) to seamlessly migrate on-premises data to Azure Data Lake. Completed the DP 203 Certification(930+).
 - Created interactive dashboards and compelling plots using Seaborn, matplotlib, and Plotly to visualize insights from large-scale
 datasets, empowering executives to make informed, data-driven decisions for project structure improvements and enhancements.
 Industrial Training February 2021 – April 2021
 
-### Think Next [ - Python, ML, Jyupter, Pandas, Matlab] Mohali, PB
+### Industrial Trainee, Think Next, Mohali, PB
+
 - Acquired a solid understanding of mathematical concepts underlying AI, such as linear algebra, calculus, and probability theory.
 - Contributed to team projects by analyzing datasets, performing pre-processing, feature engineering, and implementing ML
 algorithms to extract actionable insights.
@@ -68,6 +81,7 @@ algorithms to extract actionable insights.
 
 
 ### 📚 Certifications
+
 - [Microsoft Data Engineer Associate](assets/images/certifications/dataengineer24.pdf)
 - [Google Cloud Digital Leader](assets/images/certifications/CloudDigitalLeader_sanjaykumar_23.pdf)
 - [Microsoft Azure Developer Associate](assets/images/certifications/azure%20dev.pdf)
