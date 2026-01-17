@@ -1,15 +1,25 @@
 
-# Welcome to My Page
---Updation under progress, Please come after a few days. For more info use the mail or LinkedIn given below.
+# Hi!
 
-Hi! I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, Data Engineering and Coding. 
+ I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, Data Engineering and Coding. 
 
 ## Education
 
 ### Arizona State University, Tempe, AZ
 **M.S. in Computer Science, Artificial Intelligence**  
-Course: Data Visualization, Software security, Pattern Recognization in stats learning
-                                                              _August 2024 – May 2026_
+Course: Data Visualization,
+        Software security, 
+        Pattern Recognization in stats learning,
+        Data Processing at Scale,
+        Natural Language Processing,
+        Sementic Web Mining,
+        Inforamtion assurance and security,
+        Machine Learning,
+        Knowledge representation,
+        Data Mining.
+
+[3.9/4.0]                                                     _August 2024 – May 2026_
+                                                              
 
 ### Jaypee University of Information Technology, Solan, India
 **B.Tech. Honors in Computer Science, Artificial Intelligence (8.39/10)**  
