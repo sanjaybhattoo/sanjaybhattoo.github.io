@@ -1,12 +1,12 @@
 
 # Hi!
 
- I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about AI, Machine Learning, Data Engineering and Coding. 
+ I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about Data Engineering, AI, Machine Learning and Coding. 
 
 ## Education
 
 ### Arizona State University, Tempe, AZ
-**M.S. in Computer Science, Artificial Intelligence**  
+**M.S. in Computer Science, Artificial Intelligence (3.9/4.0)**  
 Course: Data Visualization,
         Software security, 
         Pattern Recognization in stats learning,
