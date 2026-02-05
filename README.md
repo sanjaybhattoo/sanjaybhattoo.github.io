@@ -46,33 +46,40 @@ Course: Calculus, Discrete Math, Machine learning, Data Structure and Algorithms
 _May 2025 – August 2025_
 
 - Collaborated with Data Science team to design and deliver a real-time data orchestration system integrating LLMs(AWS Bedrock)
-to automate schema detection and system alerts, implemented modular, unit-tested components with CI/CD pipelines.
-- Built AI-powered schema cataloging and monitoring framework using Glue + Bedrock for proactive drift detection and compliance
-analytics in Redshift external tables to support Data team’s analytics.
-- Designed scalable, production grade data pipelines that reduced costs by 30–40% and replaced 10+ existing workflows through
-automation and improved orchestration; additionally secured 2nd place in an org. level hackathon for AI in AWS.
+to automate schema detection and system alerts.
+
+- participated into an AI hackathon at org level with my team( placed 2nd out of 18 teams).
+
+- Was selected to present my internship work at Seattle head office.
+
 
 ### Programmer Analyst, Cognizant, Bengaluru, KA  
 _August 2022 – June 2024_
 
-- Designed and executed Data Pipelines using Java Spring Boot, Oracle SQL, and Apache Kafka to migrate data (27+ million records) efficiently across multiple resources.
-- Managed multiple triggers on 250,000+ records daily, ensuring smooth and timely updates.
-- Implemented feature enhancements based on client requirements, improving data handling and query performance.
-- Conducted data modifications, ensuring data consistency and accuracy for 7+ target systems.
-- Collaborated with cross-functional teams, optimized data processing workflows, and maintained Data Warehouses.
-- Automated tasks using Python, improving querying time by 17%.
-- Migrated servers to Azure, setting up cloud pipelines and infrastructure.
+- Initially started working on Java, Springboot, SQL and Kafka .
+
+- Achieved several Azure cloud certification
+
+- Joined Azure team, contributed to ETl pipelines.
+
+
 
 ### Programmer Intern, Cognizant, Bengaluru, KA
 _March 2022 – July 2022_
 
 - Designed and implemented robust ETL pipelines for consumer transaction data, leveraging Python, MySQL, and Azure services
-(Data Factory) to seamlessly migrate on-premises data to Azure Data Lake. Completed the DP 203 Certification(930+).
-- Created interactive dashboards and compelling plots using Seaborn, matplotlib, and Plotly to visualize insights from large-scale
-datasets, empowering executives to make informed, data-driven decisions for project structure improvements and enhancements.
-Industrial Training February 2021 – April 2021
+(Data Factory ,Azure Data Lake etc ).
+
+- Completed the DP 203 Certification(930+).
+  
+- Created interactive dashboards and compelling plots using Seaborn, matplotlib, and Plotly.
+  
+  
+
 
 ### Industrial Trainee, Think Next, Mohali, PB
+Industrial Training February 2021 – April 2021
+
 
 - Acquired a solid understanding of mathematical concepts underlying AI, such as linear algebra, calculus, and probability theory.
 - Contributed to team projects by analyzing datasets, performing pre-processing, feature engineering, and implementing ML
