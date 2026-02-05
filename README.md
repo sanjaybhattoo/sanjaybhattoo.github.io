@@ -1,22 +1,22 @@
 
 # Hi!
 
- I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about Data Engineering, AI, Machine Learning and Coding. 
+ I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about Data Engineering, AI, Machine Learning and Coding. Currently exploring projects related to Data Mining, NLP, LLM and GenAI.
 
 ## Education
 
 ### Arizona State University, Tempe, AZ
 **M.S. in Computer Science, Artificial Intelligence (3.9/4.0)**  
 Course: Data Visualization,
-        Software security, 
+        Software security( A ), 
         Pattern Recognization in stats learning,
-        Data Processing at Scale,
-        Natural Language Processing,
-        Sementic Web Mining,
-        Inforamtion assurance and security,
-        Machine Learning,
-        Knowledge representation,
-        Data Mining.
+        Data Processing at Scale ( A ),
+        Natural Language Processing( A ),
+        Sementic Web Mining( A ),
+        Inforamtion assurance and security( A ),
+        Statistical Machine Learning( A ),
+        Knowledge representation( A ),
+        Data Mining( in progress ).
 
 [3.9/4.0]                                                     _August 2024 – May 2026_
                                                               
