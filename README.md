@@ -120,6 +120,7 @@ _August 2021 – December 2021_
 
 **Other side explorations : 
 
+-------------------------------------------------------------------------------------------------------------------------------
 
 **[Speech Recognition with Hidden Markov Models (HMMs) | Natural Language Processing | Python, Probabilistic Models]**
 
@@ -129,7 +130,7 @@ Developed a speech recognition system based on Hidden Markov Models (HMMs) and o
 I Viterbi implemented the algorithm for the decoding of optimal state sequences.
 Worked on sequence modeling, emission probability, and transition dynamics of spoken inputs.
 
-
+-------------------------------------------------------------------------------------------------------------------------------
 
 
 **[Dashboard for Interactive Data Visualization Data Visualization | D3.js, JavaScript, HTML, CSS]**
@@ -145,7 +146,7 @@ Late 2024
 
 
 
-
+-------------------------------------------------------------------------------------------------------------------------------
 
 **[The Chrome Extension for Intelligent Phishing Detection  | Information Security & Assurance | Chrome Extensions, Python, JavaScript, and Machine Learning]**
 August through nov of 2025
@@ -156,7 +157,7 @@ August through nov of 2025
 
 
 
-
+-------------------------------------------------------------------------------------------------------------------------------
 ---
 
 
