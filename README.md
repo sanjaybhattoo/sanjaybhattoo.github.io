@@ -100,6 +100,7 @@ algorithms to extract actionable insights.
 
 ### Projects
 
+
 **Virtual Assistant for Claims Compensability Evaluation**  
 _Artificial Intelligence Project – Python, ML, LLM_  
 _January 2023 – Present_
@@ -114,6 +115,61 @@ _June 2024 – August 2024_
 _Data Science Prediction Model – Python, Machine Learning_  
 _August 2021 – December 2021_
 - Achieved an accuracy rate exceeding 85% using data manipulation and machine learning techniques.
+
+
+
+Other side explorations : 
+
+
+Speech Recognition with Hidden Markov Models (HMMs)
+
+Natural Language Processing | Python, Probabilistic Models
+
+Feb 2025 – Mar 2025
+
+Developed a speech recognition system based on Hidden Markov Models (HMMs) and other concepts.
+
+I Viterbi implemented the algorithm for the decoding of optimal state sequences.
+
+Worked on sequence modeling, emission probability, and transition dynamics of spoken inputs.
+
+
+
+
+Dashboard for Interactive Data Visualization Data Visualization | D3.js, JavaScript, HTML, CSS
+Late 2024
+
+Using D3.js, an interactive dashboard with an emphasis on dynamic, user-driven visual exploration was created.
+
+incorporated interactive elements like
+
+Tooltips for hover
+
+Filtering by clicking
+
+Updates to dynamic scales and axes
+
+placed more emphasis on interactive data storytelling than static charts.
+
+centered on managing real-world datasets and using animations and transitions to facilitate intuitive exploration.
+
+
+
+
+
+e Chrome Extension for Intelligent Phishing Detection
+
+Information Security & Assurance | Chrome Extensions, Python, JavaScript, and Machine Learning
+August through nov of 2025
+
+created a Chrome browser extension to evaluate a website's security before a user interacts with it.
+
+A machine learning-based phishing detection model was put into practice to instantly categorize URLs as malicious or safe.
+
+retrieved and examined website elements for prediction, including lexical patterns, domain attributes, and URL structure.
+
+
+
 
 ---
 
@@ -147,13 +203,7 @@ _August 2021 – December 2021_
 - Implemented a plan to transition my home to 100% renewable energy by installing 2 kW solar panels and applied the same approach to family farms, leveraging government schemes to enhance energy efficiency.
 - Developing an application to streamline and manage cattle-related data, optimizing data tracking for improved farm management and decision-making.
 
----
 
-
-
-## Quotes
-
-"You've got to find what you love. And that is as true for your work as it is for your lovers. Your work is going to fill a large part of your life, and the only way to be truly satisfied is to do what you believe is great work. And the only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle. As with all matters of the heart, you'll know when you find it.   - Steve Jobs "
 
 
 ---
