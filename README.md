@@ -118,55 +118,45 @@ _August 2021 – December 2021_
 
 
 
-Other side explorations : 
+**Other side explorations : 
 
 
-Speech Recognition with Hidden Markov Models (HMMs)
+**Speech Recognition with Hidden Markov Models (HMMs)
 
 Natural Language Processing | Python, Probabilistic Models
 
 Feb 2025 – Mar 2025
 
 Developed a speech recognition system based on Hidden Markov Models (HMMs) and other concepts.
-
 I Viterbi implemented the algorithm for the decoding of optimal state sequences.
-
 Worked on sequence modeling, emission probability, and transition dynamics of spoken inputs.
 
 
 
 
-Dashboard for Interactive Data Visualization Data Visualization | D3.js, JavaScript, HTML, CSS
+**Dashboard for Interactive Data Visualization Data Visualization | D3.js, JavaScript, HTML, CSS
 Late 2024
 
-Using D3.js, an interactive dashboard with an emphasis on dynamic, user-driven visual exploration was created.
-
-incorporated interactive elements like
-
-Tooltips for hover
-
-Filtering by clicking
-
-Updates to dynamic scales and axes
-
-placed more emphasis on interactive data storytelling than static charts.
-
-centered on managing real-world datasets and using animations and transitions to facilitate intuitive exploration.
+- Using D3.js, an interactive dashboard with an emphasis on dynamic, user-driven visual exploration was created.
+- incorporated interactive elements like
+- Tooltips for hover
+- Filtering by clicking
+- Updates to dynamic scales and axes
+- placed more emphasis on interactive data storytelling than static charts.
+- centered on managing real-world datasets and using animations and transitions to facilitate intuitive exploration.
 
 
 
 
 
-e Chrome Extension for Intelligent Phishing Detection
+**The Chrome Extension for Intelligent Phishing Detection
 
 Information Security & Assurance | Chrome Extensions, Python, JavaScript, and Machine Learning
 August through nov of 2025
 
-created a Chrome browser extension to evaluate a website's security before a user interacts with it.
-
-A machine learning-based phishing detection model was put into practice to instantly categorize URLs as malicious or safe.
-
-retrieved and examined website elements for prediction, including lexical patterns, domain attributes, and URL structure.
+- created a Chrome browser extension to evaluate a website's security before a user interacts with it.
+- A machine learning-based phishing detection model was put into practice to instantly categorize URLs as malicious or safe.
+- retrieved and examined website elements for prediction, including lexical patterns, domain attributes, and URL structure.
 
 
 
