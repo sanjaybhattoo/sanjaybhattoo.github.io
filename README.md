@@ -121,9 +121,7 @@ _August 2021 – December 2021_
 **Other side explorations : 
 
 
-**Speech Recognition with Hidden Markov Models (HMMs)
-
-Natural Language Processing | Python, Probabilistic Models
+**[Speech Recognition with Hidden Markov Models (HMMs) | Natural Language Processing | Python, Probabilistic Models]**
 
 Feb 2025 – Mar 2025
 
@@ -134,7 +132,7 @@ Worked on sequence modeling, emission probability, and transition dynamics of sp
 
 
 
-**Dashboard for Interactive Data Visualization Data Visualization | D3.js, JavaScript, HTML, CSS
+**[Dashboard for Interactive Data Visualization Data Visualization | D3.js, JavaScript, HTML, CSS]**
 Late 2024
 
 - Using D3.js, an interactive dashboard with an emphasis on dynamic, user-driven visual exploration was created.
@@ -149,9 +147,7 @@ Late 2024
 
 
 
-**The Chrome Extension for Intelligent Phishing Detection
-
-Information Security & Assurance | Chrome Extensions, Python, JavaScript, and Machine Learning
+**[The Chrome Extension for Intelligent Phishing Detection  | Information Security & Assurance | Chrome Extensions, Python, JavaScript, and Machine Learning]**
 August through nov of 2025
 
 - created a Chrome browser extension to evaluate a website's security before a user interacts with it.
