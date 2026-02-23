@@ -1,7 +1,7 @@
 
 # Hi!
 
- I’m **Sanjay Kumar**, currently pursuing a Master's in Computer Science. I'm passionate about Data Engineering, AI, Machine Learning and Coding. Currently exploring projects related to Data Mining, NLP, LLM and GenAI.
+ I currently pursuing a Master's in Computer Science. I'm passionate about Data Engineering, AI, Machine Learning and Coding. Currently exploring projects related to Data Mining, NLP, LLM and GenAI.
 
 ## Education
 
