@@ -214,6 +214,17 @@ h1{
   transition:all .3s ease;
 }
 
+.card.full {
+  grid-column: 1 / -1;
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .card.full {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card:hover{
   background:#151515;
   transform:translateY(-6px);
@@ -388,32 +399,47 @@ footer{
         </div>
       </article>
 
-      <article class="card">
-        <h3><i class="fa-solid fa-link" style="color:var(--accent)"></i> Links</h3>
-        <p style="color:var(--muted)">Quick access to my public profiles.</p>
-        <div class="actions" style="margin-top:.75rem">
-          <a class="btn" href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/sanjay-bhattoo/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
-          <a class="btn" href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer"><i class="fa-brands fa-medium"></i> Medium</a>
-        </div>
-      </article>
+      
+      <article class="card full">
+  <!-- LEFT: Story -->
+  <div>
+    <h3>
+      <i class="fa-solid fa-compass" style="color:var(--accent)"></i>
+      Defining Moment
+    </h3>
+    <p>
+      I grew up in a remote village with limited access to resources.
+      Early in my academic journey, I received a letter of appreciation
+      from the national education ministry for my performance.
+    </p>
+    <p style="margin-top:.6rem;">
+      That moment gave me the confidence to move to the city and pursue
+      science — setting the foundation for my path into engineering.
+    </p>
+  </div>
 
-         <article class="card">
-  <h3>
-    <i class="fa-solid fa-compass" style="color:var(--accent)"></i>
-    Defining Moment in my Life
-  </h3>
-  <p>
-    I grew up in a remote village with limited access to resources.
-    Early in my academic journey, I received a letter of appreciation
-    from the national education ministry, India for my performance.
-  </p>
-  <p style="margin-top:.6rem;">
-    That moment gave me the confidence to move to the city and pursue
-    science — setting the foundation for my path into engineering and becoming the first generation to get an degree.
-  </p>
+
+
 </article>
-    </section>
+
+<div>
+      <p style="color:var(--muted); margin-bottom:.75rem;">
+        Find me online
+      </p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/sanjay-bhattoo/" target="_blank" rel="noreferrer">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn
+        </a>
+        <a class="btn" href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer">
+          <i class="fa-brands fa-medium"></i> Medium
+        </a>
+      </div>
+    </div>
+  </section>
+       
   </main>
 
   <footer>
@@ -428,7 +454,7 @@ footer{
       <i class="fab fa-linkedin"></i>
     </a>
 
-    <a href="https://medium.com/feed/@bhattoo70" title="Medium" aria-label="Medium" style="color:inherit">
+    <a href="https://medium.com/@bhattoo70" title="Medium" aria-label="Medium" style="color:inherit">
       <i class="fab fa-medium"></i>
     </a>
   </div>
