@@ -1,0 +1,433 @@
+<!-- =========================
+     about.html (UPDATED)
+     Base structure = projects.html
+     ========================= -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>About - Sanjay Kumar</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="cursor-effects.css" />
+
+<style>
+:root{
+  --max-w:1100px;
+
+  /* TRUE BLACK SYSTEM */
+  --bg:#000000;
+  --bg-soft:#0a0a0a;
+  --card:#111111;
+  --glass:rgba(0,0,0,0.75);
+
+  --accent:#ffffff;          /* white accent */
+  --accent-soft:#d1d5db;     /* subtle grey highlight */
+
+  --text:#f5f5f5;
+  --muted:#9ca3af;
+  --border:#1f1f1f;
+
+  --shadow:0 20px 60px rgba(0,0,0,0.8);
+  --radius:18px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+}
+
+/* ---------------- NAV ---------------- */
+
+nav{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+  background:var(--glass);
+  border-bottom:1px solid var(--border);
+}
+
+.nav-container{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:1.2rem 1.5rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:800;
+}
+
+.brand-mark{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  display:grid;
+  place-items:center;
+  background:#0f0f0f;
+  font-weight:900;
+}
+
+.nav-links{
+  display:flex;
+  gap:1.2rem;
+  list-style:none;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:var(--muted);
+  padding:6px 10px;
+  border-radius:8px;
+  transition:all .25s ease;
+}
+
+.nav-links a:hover{
+  color:var(--text);
+  background:#141414;
+}
+
+.nav-links a.active{
+  color:var(--text);
+}
+
+/* ---------------- MAIN ---------------- */
+
+.container{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:4rem 1.5rem;
+}
+
+h1{
+  font-size:2.4rem;
+  margin-bottom:.75rem;
+  letter-spacing:.5px;
+}
+
+.subhead{
+  color:var(--muted);
+  max-width:70ch;
+  margin-bottom:2.5rem;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero{
+  display:grid;
+  grid-template-columns:250px 1fr;
+  gap:3rem;
+  align-items:center;
+  margin-bottom:4rem;
+}
+
+.avatar{
+  width:200px;
+  height:200px;
+  border-radius:18px;
+  object-fit:cover;
+  border:1px solid var(--border);
+  background:#111;
+  transition:transform .3s ease;
+}
+
+.avatar:hover{
+  transform:scale(1.03);
+}
+
+.hero h2{
+  font-size:2.5rem;
+  margin-bottom:.75rem;
+}
+
+.hero p{
+  color:var(--muted);
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+.actions{
+  display:flex;
+  gap:1rem;
+  margin-top:1.5rem;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:.6rem 1rem;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#121212;
+  color:var(--text);
+  font-weight:600;
+  text-decoration:none;
+  transition:all .25s ease;
+}
+
+.btn:hover{
+  background:#1a1a1a;
+  border-color:#2a2a2a;
+  transform:translateY(-2px);
+}
+
+.btn-primary{
+  background:#ffffff;
+  color:#000000;
+  border:none;
+}
+
+.btn-primary:hover{
+  background:#e5e5e5;
+}
+
+/* ---------------- CARDS ---------------- */
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:2.5rem;
+}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:2rem;
+  transition:all .3s ease;
+}
+
+.card:hover{
+  background:#151515;
+  transform:translateY(-6px);
+}
+
+.card h3{
+  margin-bottom:1rem;
+  font-size:1.15rem;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+/* Pills */
+.pill-row{
+  display:flex;
+  gap:.6rem;
+  flex-wrap:wrap;
+  margin-top:1rem;
+}
+
+.pill{
+  border:1px solid #222;
+  background:#0f0f0f;
+  color:#d4d4d4;
+  padding:.3rem .7rem;
+  border-radius:999px;
+  font-size:.8rem;
+  font-weight:600;
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+  border-top:1px solid var(--border);
+  margin-top:5rem;
+  padding:3rem 1.5rem;
+  background:#050505;
+}
+
+.footer-content{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+}
+
+.footer-content a{
+  width:50px;
+  height:50px;
+  border-radius:12px;
+  border:1px solid var(--border);
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all .25s ease;
+}
+
+.footer-content a:hover{
+  background:#1a1a1a;
+  transform:translateY(-3px);
+}
+
+.footer-content i{
+  color:#f5f5f5;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width:900px){
+  .cards{grid-template-columns:1fr;}
+}
+
+@media (max-width:720px){
+  .hero{grid-template-columns:1fr;}
+  .avatar{width:150px;height:150px;}
+  h1{font-size:1.8rem;}
+}
+</style>
+
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <a class="logo" href="about.html">
+        <span class="brand-mark">SK</span>
+        <span>About</span>
+      </a>
+
+      <ul class="nav-links" aria-label="Primary navigation">
+        <li><a class="active" href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a href="experiences.html"><i class="fa-solid fa-briefcase"></i> Experiences</a></li>
+        <li><a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a></li>
+        <li><a href="medium.html"><i class="fa-regular fa-file-lines"></i> Blog</a></li>
+        <li><a href="github.html"><i class="fa-brands fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Craft. Build. Innovate.</h1>
+      <p class="subhead">
+        Hi I’m Sanjay Kumar — Data engineer focused on cloud systems, data pipelines, and production grade engineering.
+        I care about reliability, measurable impact, and clean developer experience.
+      </p>
+    </header>
+
+    <section class="hero" aria-label="Profile">
+      <img class="avatar" src="sanjay.jpeg" alt="Sanjay Kumar portrait" />
+      <div>
+        <h2>Engineer who loves data</h2>
+        <p>
+  I  build systems that scale: streaming pipelines, cloud-native services, and user-facing apps.
+</p>
+<p style="margin-top:.6rem;">
+  I prefer pragmatic architecture: strong observability, cost-awareness, and simple interfaces.
+</p>
+
+        <div class="actions">
+          <button id="copyBioBtn" class="btn btn-primary"><i class="fa-regular fa-copy"></i> Copy Bio</button>
+          <a class="btn btn-ghost" href="assets/Sanjay_Kumar_Resume.pdf" target="_blank" rel="noreferrer">
+            <i class="fa-solid fa-download"></i> Resume
+          </a>
+          <a class="btn" href="projects.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Projects</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="cards" aria-label="Highlights">
+      <article class="card">
+        <h3><i class="fa-solid fa-layer-group" style="color:var(--accent)"></i> Focus Areas</h3>
+        <p style="color:var(--muted)">
+          Data engineering, cloud platforms, scalable backend systems, and performance first web experiences.Currently exploring LLMs
+          and generative AI — the next frontier of software development and human-computer interaction.
+        </p>
+        <div class="pill-row">
+          <span class="pill"><i class="fa-solid fa-database"></i> Kafka / Spark</span>
+          <span class="pill"><i class="fa-brands fa-aws"></i> AWS</span>
+          <span class="pill"><i class="fa-solid fa-diagram-project"></i> Microservices</span>
+          <span class="pill"><i class="fa-solid fa-chart-line"></i> Observability</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h3><i class="fa-solid fa-screwdriver-wrench" style="color:var(--accent)"></i> Toolbox</h3>
+        <p style="color:var(--muted)">Skills I reach for to build, ship, and operate systems.</p>
+        <div class="pill-row">
+          <span class="pill"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="pill"><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span class="pill"><i class="fa-solid fa-database"></i> Postgres</span>
+          <span class="pill"><i class="fa-brands fa-docker"></i> Docker</span>
+          <span class="pill"><i class="fa-brands fa-kubernetes"></i> Kubernetes</span>
+          <span class="pill"><i class="fa-brands fa-aws"></i> AWS</span>
+          <span class="pill"><i class="fa-solid fa-bolt"></i> Spark</span>
+          <span class="pill"><i class="fa-brands fa-apache"></i> Airflow</span>
+          <span class="pill"><i class="fa-solid fa-stream"></i> Kafka</span>
+          <span class="pill"><i class="fa-brands fa-java"></i> Java</span>
+          <span class="pill"><i class="fa-brands fa-microsoft"></i> Azure</span>
+
+        </div>
+        <p style="color:var(--muted)">Tools I reach for to build, ship, and operate systems.</p>
+        <div class="pill-row">
+          <span class="pill"><i class="fa-brands fa-microsoft"></i> Azure Data Factory</span>
+          <span class="pill"><i class="fa-solid fa-code"></i> VSCode</span>
+          <span class="pill"><i class="fa-brands fa-google"></i> Google Collab</span>
+          <span class="pill"><i class="fa-solid fa-book-open"></i> Jupyter</span>
+          <span class="pill"><i class="fa-brands fa-kubernetes"></i> Kubernetes</span>
+
+        </div>
+      </article>
+
+      <article class="card">
+        <h3><i class="fa-solid fa-link" style="color:var(--accent)"></i> Links</h3>
+        <p style="color:var(--muted)">Quick access to my public profiles.</p>
+        <div class="actions" style="margin-top:.75rem">
+          <a class="btn" href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/sanjay-bhattoo/" target="_blank" rel="noreferrer"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a class="btn" href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer"><i class="fa-brands fa-medium"></i> Medium</a>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+  <div class="footer-content footer-center-icons">
+    <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub" style="color:inherit">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email" style="color:inherit">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/sanjay-bhattoo/" title="LinkedIn" aria-label="LinkedIn" style="color:inherit">
+      <i class="fab fa-linkedin"></i>
+    </a>
+
+    <a href="https://medium.com/feed/@bhattoo70" title="Medium" aria-label="Medium" style="color:inherit">
+      <i class="fab fa-medium"></i>
+    </a>
+  </div>
+</footer>
+
+
+  <script>
+    document.getElementById('copyBioBtn').addEventListener('click', function(){
+      const bio =
+        "Sanjay Kumar is a full-stack engineer focused on cloud systems, data pipelines, and production-grade software. He prioritizes reliability, measurable outcomes, and clean developer experience.";
+      navigator.clipboard.writeText(bio).then(()=>{
+        const prev = this.innerHTML;
+        this.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
+        setTimeout(()=> this.innerHTML = prev, 1100);
+      }).catch(()=> alert("Copy failed — please copy manually."));
+    });
+  </script>
+
+  <script src="cursor-effects.js"></script>
+</body>
+</html>
