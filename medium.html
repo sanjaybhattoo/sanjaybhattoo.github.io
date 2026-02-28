@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Blog - Sanjay Kumar</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="cursor-effects.css?v=4" />
+
+  <style>
+    :root{
+      --max-w: 1100px;
+
+      --bg:#000;
+      --bg-soft:#070707;
+
+      --card: rgba(17,17,17,0.82);
+      --card-solid:#111;
+
+      --text:#f5f5f5;
+      --muted:#9ca3af;
+
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.16);
+
+      --shadow: 0 22px 70px rgba(0,0,0,0.75);
+      --radius: 16px;
+
+      --accent:#ffffff;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* ---------------- NAV ---------------- */
+    nav{
+      position:sticky;top:0;z-index:1000;
+      background: rgba(0,0,0,0.75);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+    }
+    .nav-container{
+      max-width:var(--max-w);
+      margin:0 auto;
+      padding:1.2rem 1.5rem;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .logo{
+      display:inline-flex;align-items:center;gap:12px;
+      text-decoration:none;color:var(--text);font-weight:900;
+    }
+    .brand-mark{
+      width:40px;height:40px;border-radius:12px;
+      border:1px solid var(--border);
+      display:grid;place-items:center;
+      background:#0f0f0f;
+      font-weight:900;
+    }
+    .nav-links{display:flex;gap:1rem;list-style:none;align-items:center;flex-wrap:wrap}
+    .nav-links a{
+      display:inline-flex;align-items:center;gap:8px;
+      text-decoration:none;color:var(--muted);
+      padding:6px 10px;border-radius:10px;
+      transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+    }
+    .nav-links a:hover{color:var(--text); background:rgba(255,255,255,0.08); transform:translateY(-2px)}
+    .nav-links a.active{color:var(--text); background:rgba(255,255,255,0.10)}
+    .nav-links i{font-size:0.95rem}
+
+    /* ---------------- PAGE ---------------- */
+    .container{max-width:var(--max-w);margin:0 auto;padding:3.2rem 1.5rem 2.5rem}
+    h1{font-size:2.2rem;line-height:1.15;margin-bottom:.55rem}
+    .subhead{color:var(--muted);max-width:75ch;margin-bottom:1.25rem;line-height:1.75}
+
+    /* Status box */
+    .status{
+      margin-top:1rem;
+      padding:1rem 1rem;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background: rgba(255,255,255,0.05);
+      color:var(--muted);
+      backdrop-filter: blur(12px);
+    }
+
+    /* ---------------- GRID (2 per row) ---------------- */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+      margin-top: 1.25rem;
+      align-items: stretch;
+    }
+    @media (max-width: 860px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    /* ---------------- POST CARD ---------------- */
+    .post{
+      position:relative;
+      border:1px solid var(--border);
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      transition: transform 220ms ease, border-color 220ms ease;
+      display:flex;
+      flex-direction:column;
+      min-height: 0;
+    }
+
+    .post::before{
+      content:"";
+      position:absolute;
+      inset:-90px;
+      background:
+        radial-gradient(circle at 25% 18%, rgba(255,255,255,0.10), transparent 55%),
+        radial-gradient(circle at 80% 85%, rgba(255,255,255,0.06), transparent 60%);
+      opacity:0;
+      transition: opacity 260ms ease;
+      pointer-events:none;
+    }
+
+    .post:hover{
+      transform: translateY(-8px);
+      border-color: var(--border-strong);
+    }
+    .post:hover::before{ opacity: 1; }
+
+    .post-top{
+      padding: 1.05rem 1.05rem .55rem;
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+    }
+
+    /* icon placement kept (rounded rect box) */
+    .post-icon{
+      width:44px;height:44px;border-radius:12px;
+      display:grid;place-items:center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: rgba(255,255,255,0.92);
+      flex:0 0 auto;
+    }
+
+    .post-title{min-width:0}
+    .post-title h3{
+      margin:0;
+      font-size:1.03rem;
+      line-height:1.25;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .meta{
+      color:var(--muted);
+      font-size:.86rem;
+      margin-top:4px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    /* Clamp snippet so cards don’t feel huge */
+    .post-body{
+      padding: 0 1.05rem .9rem;
+      color: rgba(255,255,255,0.70);
+      font-size: .94rem;
+      line-height: 1.65;
+
+      display:-webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+
+    .post-actions{
+      margin-top:auto;
+      padding: .85rem 1.05rem;
+      border-top:1px solid var(--border);
+      background: rgba(0,0,0,0.35);
+      display:flex;
+      gap:.6rem;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:.48rem .75rem;border-radius:10px;
+      border:1px solid var(--border);
+      text-decoration:none;color:var(--text);
+      background: rgba(255,255,255,0.05);
+      font-weight:900;
+      font-size:.9rem;
+      transition: transform 150ms ease, background 150ms ease, border-color 150ms ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform:translateY(-2px);
+      background: rgba(255,255,255,0.08);
+      border-color: var(--border-strong);
+    }
+    .btn-primary{
+      background:#fff;
+      color:#000;
+      border-color:transparent;
+    }
+    .btn-primary:hover{ background:#eaeaea; }
+    .btn-ghost{ background: rgba(255,255,255,0.05); }
+
+    /* ---------------- FOOTER ---------------- */
+    footer{
+      border-top: 1px solid var(--border);
+      margin-top: 3.5rem;
+      padding: 3rem 1.5rem;
+      background: var(--bg-soft);
+    }
+    main.container{ padding-bottom: 2rem; }
+
+    .footer-content.footer-center-icons{
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 14px;
+    }
+    .footer-content.footer-center-icons a{
+      width:56px;height:56px;border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      display:flex;align-items:center;justify-content:center;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      text-decoration:none;
+    }
+    .footer-content.footer-center-icons a:hover{
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.09);
+      border-color: var(--border-strong);
+    }
+    .footer-content.footer-center-icons i{
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.92);
+      transition: transform 460ms ease;
+    }
+    .footer-content.footer-center-icons a:hover i{ transform: rotate(1080deg); }
+
+    @media (prefers-reduced-motion: reduce){
+      .footer-content.footer-center-icons i{ transition:none; }
+      .footer-content.footer-center-icons a:hover i{ transform:none; }
+    }
+
+    @media (max-width:640px){
+      h1{font-size:1.65rem}
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <a class="logo" href="medium.html">
+        <span class="brand-mark">SK</span>
+        <span>Blog</span>
+      </a>
+
+      <ul class="nav-links" aria-label="Primary navigation">
+        <li><a href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a href="experiences.html"><i class="fa-solid fa-briefcase"></i> Experiences</a></li>
+        <li><a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a></li>
+        <li><a class="active" href="medium.html"><i class="fa-regular fa-file-lines"></i> Blog</a></li>
+        <li><a href="github.html"><i class="fa-brands fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>Writing</h1>
+      <p class="subhead">
+        One of my favorite hobbies is capturing thoughts, ideas, and things I find meaningful—whether through quick notes or deeper reflections. 
+        I used to keep everything in my personal diary, but recently I've started sharing some of those pieces publicly on Medium.
+      
+        Below are my latest posts pulled from my Medium feed. Feel free to explore, and I'd love to hear your thoughts!
+    </p>
+      <div class="status" id="status">Loading Medium posts…</div>
+    </header>
+
+    <section class="grid" id="grid" aria-label="Blog posts" style="display:none"></section>
+
+    <div style="margin-top:1.25rem">
+      <a class="btn btn-primary" href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer">
+        <i class="fa-brands fa-medium"></i> Visit My Medium
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-content footer-center-icons">
+      <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub" style="color:inherit">
+        <i class="fab fa-github"></i>
+      </a>
+      <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email" style="color:inherit">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/sanjay-bhattoo/" title="LinkedIn" aria-label="LinkedIn" style="color:inherit">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://medium.com/feed/@bhattoo70" title="Medium" aria-label="Medium" style="color:inherit">
+        <i class="fab fa-medium"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    const mediumRss = "https://medium.com/feed/@bhattoo70";
+    const rssToJson = "https://api.rss2json.com/v1/api.json?rss_url=" + encodeURIComponent(mediumRss);
+
+    const statusEl = document.getElementById("status");
+    const gridEl = document.getElementById("grid");
+
+    function stripHtml(html){
+      const d = document.createElement("div");
+      d.innerHTML = html || "";
+      return (d.textContent || "").replace(/\s+/g," ").trim();
+    }
+    function fmtDate(pub){
+      const d = new Date(pub);
+      if (Number.isNaN(d.getTime())) return "";
+      return d.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});
+    }
+    function estimateReadTime(text){
+      const words = (text||"").split(/\s+/).filter(Boolean).length;
+      return Math.max(1, Math.round(words/200)) + " min read";
+    }
+
+    function postCard(item){
+      const title = item.title || "Untitled";
+      const link = item.link || "#";
+      const desc = stripHtml(item.description || "");
+      const snippet = desc.length > 180 ? desc.slice(0,180) + "…" : desc;
+
+      const el = document.createElement("article");
+      el.className = "post";
+      el.innerHTML = `
+        <div class="post-top">
+          <div class="post-icon" aria-hidden="true"><i class="fa-regular fa-file-lines"></i></div>
+          <div class="post-title">
+            <h3 title="${title.replace(/"/g,'&quot;')}">${title}</h3>
+            <div class="meta">
+              <span><i class="fa-regular fa-calendar"></i> ${fmtDate(item.pubDate)}</span>
+              <span><i class="fa-regular fa-clock"></i> ${estimateReadTime(desc)}</span>
+            </div>
+          </div>
+        </div>
+        <div class="post-body">${snippet}</div>
+        <div class="post-actions">
+          <span style="color:var(--muted);font-weight:900"><i class="fa-brands fa-medium"></i> Medium</span>
+          <a class="btn btn-ghost" href="${link}" target="_blank" rel="noreferrer">
+            Read <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+      `;
+      return el;
+    }
+
+    async function loadPosts(){
+      try{
+        const r = await fetch(rssToJson, { cache:"no-store" });
+        if(!r.ok) throw new Error("HTTP " + r.status);
+        const data = await r.json();
+        const items = (data.items || []).slice(0, 10);
+
+        if(!items.length) throw new Error("No posts found in feed.");
+
+        gridEl.innerHTML = "";
+        items.forEach(item => gridEl.appendChild(postCard(item)));
+
+        statusEl.style.display = "none";
+        gridEl.style.display = "";
+      }catch(err){
+        statusEl.innerHTML =
+          `Couldn’t load Medium posts automatically.<br><b>${(err && err.message) ? err.message : "Unknown error"}</b><br><br>
+           You can still read everything on <a href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer" style="color:var(--accent);font-weight:900">Medium</a>.`;
+      }
+    }
+    loadPosts();
+  </script>
+
+  <script src="cursor-effects.js?v=4"></script>
+</body>
+</html>
