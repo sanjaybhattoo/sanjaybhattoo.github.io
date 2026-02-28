@@ -1,0 +1,900 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Experiences - Sanjay Kumar</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="cursor-effects.css?v=4" />
+
+  <style>
+    :root{
+      --max-w: 1100px;
+
+      /* TRUE BLACK SYSTEM */
+      --bg: #000000;
+      --bg-soft: #070707;
+      --card: rgba(17,17,17,0.82);
+      --card-solid: #111111;
+      --glass: rgba(0,0,0,0.75);
+
+      --text: #f5f5f5;
+      --muted: #9ca3af;
+
+      --border: rgba(255,255,255,0.10);
+      --border-strong: rgba(255,255,255,0.16);
+
+      --shadow: 0 22px 70px rgba(0,0,0,0.75);
+      --radius: 18px;
+
+      /* Monochrome accent */
+      --accent: #ffffff;
+      --accent-soft: rgba(255,255,255,0.75);
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ---------------- NAV ---------------- */
+    nav{
+      position:sticky; top:0; z-index:1000;
+      background: var(--glass);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    .nav-container{
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 1.2rem 1.5rem;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .logo{
+      display:inline-flex; align-items:center; gap:12px;
+      text-decoration:none; color: var(--text); font-weight: 900;
+      letter-spacing: .2px;
+    }
+    .brand-mark{
+      width:40px;height:40px;border-radius:12px;
+      border:1px solid var(--border);
+      display:grid;place-items:center;
+      background:#0f0f0f;
+      font-weight:900;
+    }
+    .nav-links{
+      display:flex; gap:1.1rem; list-style:none; align-items:center; flex-wrap:wrap;
+    }
+    .nav-links a{
+      display:inline-flex; align-items:center; gap:8px;
+      text-decoration:none; color: var(--muted);
+      padding:6px 10px; border-radius:10px;
+      transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+    }
+    .nav-links a:hover{
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-2px);
+    }
+    .nav-links a.active{
+      color: var(--text);
+      background: rgba(255,255,255,0.10);
+    }
+    .nav-links i{font-size:0.95rem; opacity: .95}
+
+    /* ---------------- PAGE ---------------- */
+    .container{
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.4rem 1.5rem 2.5rem;
+    }
+    h1{
+      font-size: 2.25rem;
+      line-height: 1.15;
+      margin-bottom: .65rem;
+      letter-spacing: .2px;
+    }
+    .subhead{
+      color: var(--muted);
+      max-width: 75ch;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+
+    /* ---------------- TIMELINE ---------------- */
+    .timeline{
+      position:relative;
+      margin-top: 2rem;
+      padding-left: 110px; /* gutter for year markers */
+    }
+
+    /* timeline spine */
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:52px;
+      top:0;
+      bottom:0;
+      width: 2px;
+      border-radius: 3px;
+      background: linear-gradient(180deg,
+        rgba(255,255,255,0.45),
+        rgba(255,255,255,0.12)
+      );
+      opacity: 1;
+    }
+
+    /* =============================
+   TIMELINE SPINE ANIMATION
+   ============================= */
+
+.timeline::after{
+  content:"";
+  position:absolute;
+  left:52px;
+  top:0;
+  bottom:0;
+  width:2px;
+  border-radius:3px;
+  pointer-events:none;
+
+  /* A soft highlight "scan" */
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(255,255,255,0.0) 25%,
+    rgba(255,255,255,0.22) 45%,
+    rgba(255,255,255,0.0) 65%,
+    transparent 100%
+  );
+
+  transform: translateY(-40%);
+  opacity: 0;
+}
+
+/* Only animate when timeline is in view */
+.timeline.is-animating::after{
+  opacity: 1;
+  animation: spineScan 2.6s ease-in-out infinite;
+}
+
+@keyframes spineScan{
+  0%   { transform: translateY(-55%); opacity: 0.0; }
+  18%  { opacity: 0.75; }
+  50%  { transform: translateY(0%);   opacity: 0.55; }
+  82%  { opacity: 0.75; }
+  100% { transform: translateY(55%);  opacity: 0.0; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .timeline.is-animating::after{ animation:none; opacity:0; }
+}
+
+
+    .year-marker{
+      position:relative;
+      margin: 2.25rem 0 1rem;
+      left:-110px;
+      width:86px;
+      display:flex;
+      justify-content:flex-end;
+      pointer-events:none;
+      z-index:2;
+    }
+    .year-marker::after{
+      content: attr(data-year);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      height: 32px;
+      padding: 0 .9rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      color: var(--accent-soft);
+      font-weight: 900;
+      font-size: .9rem;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+      backdrop-filter: blur(10px);
+    }
+
+    /* ---------------- EXPERIENCE CARD ---------------- */
+    .experience-card{
+      position:relative;
+      border: 1px solid var(--border);
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.25rem;
+      margin-bottom: 1.4rem;
+      transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+      overflow:hidden;
+
+      opacity:0;
+      transform: translateY(18px);
+      animation: rise .6s ease forwards;
+    }
+
+    /* subtle premium glow on hover */
+    .experience-card::before{
+      content:"";
+      position:absolute;
+      inset:-90px;
+      background:
+        radial-gradient(circle at 25% 18%, rgba(255,255,255,0.10), transparent 55%),
+        radial-gradient(circle at 80% 85%, rgba(255,255,255,0.06), transparent 60%);
+      opacity: 0;
+      transition: opacity 260ms ease;
+      pointer-events:none;
+    }
+
+    .experience-card:hover{
+      transform: translateY(-8px);
+      border-color: var(--border-strong);
+      box-shadow: 0 26px 90px rgba(0,0,0,0.85);
+    }
+    .experience-card:hover::before{ opacity: 1; }
+
+    @keyframes rise{ to{opacity:1;transform:none} }
+
+    .timeline-dot{
+      position:absolute;
+      left:44px;
+      top:24px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.85);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 30px rgba(255,255,255,0.12);
+    }
+
+    .experience-header{
+      display:flex;
+      align-items:flex-start;
+      gap:16px;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      margin-bottom:.9rem;
+    }
+
+    .left{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      min-width: 0;
+    }
+
+    .company-logo{
+      width: 72px;
+      height: 72px;
+      border-radius: 14px;
+      display:grid;
+      place-items:center;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.06);
+      flex:0 0 auto;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.55);
+    }
+
+    /* icon color on black */
+    .company-logo i{ color: rgba(255,255,255,0.92) !important; }
+
+    .title{ min-width: 0; }
+    .title h3{
+      margin:0;
+      font-size: 1.12rem;
+      line-height: 1.25;
+      letter-spacing: .2px;
+    }
+    .title .company{
+      color: rgba(255,255,255,0.92);
+      font-weight: 900;
+      margin-top: 4px;
+    }
+    .meta{
+      color: var(--muted);
+      font-size: .92rem;
+      margin-top: 6px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: rgba(255,255,255,0.85);
+      padding: .36rem .75rem;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: .85rem;
+      white-space:nowrap;
+      backdrop-filter: blur(10px);
+    }
+    .badge i{ opacity: .95; }
+
+    .summary{
+      color: var(--muted);
+      margin-top: .9rem;
+      line-height: 1.8;
+    }
+
+    .tech-row{
+      margin-top: 1.05rem;
+      display:flex;
+      gap:.55rem;
+      flex-wrap:wrap;
+    }
+    .tech-row span{
+      font-size: .75rem;
+      padding: .30rem .65rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: rgba(255,255,255,0.80);
+      font-weight: 800;
+    }
+
+    /* ---------------- REVEAL + DETAILS ---------------- */
+    .reveal{
+      margin-top: 1.15rem;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      padding: .75rem .95rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      cursor: pointer;
+      user-select: none;
+      font-weight: 900;
+      color: rgba(255,255,255,0.92);
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+    .reveal:hover{
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.08);
+      border-color: var(--border-strong);
+    }
+    .reveal i:last-child{
+      transition: transform 180ms ease;
+      opacity: .9;
+    }
+
+    .details{
+      display:none;
+      margin-top: .9rem;
+      padding: 1.05rem 1.05rem;
+      border-radius: 14px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid var(--border);
+      color: rgba(255,255,255,0.86);
+      backdrop-filter: blur(14px);
+    }
+    .experience-card.open .details{ display:block; }
+
+    .experience-card.open .reveal i:last-child{
+      transform: rotate(180deg);
+    }
+
+    .details ul{
+      margin:0;
+      padding-left: 1.1rem;
+    }
+    .details li{
+      margin: .45rem 0;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.80);
+    }
+
+    .timeline-end{
+      position:absolute;
+      left:34px;
+      bottom:-34px;
+      width:40px;height:40px;border-radius:50%;
+      background: rgba(255,255,255,0.06);
+      border:1px solid var(--border);
+      display:grid;place-items:center;
+      color: rgba(255,255,255,0.85);
+      box-shadow: 0 18px 50px rgba(0,0,0,0.75);
+      backdrop-filter: blur(10px);
+    }
+
+    /* ---------------- DIVIDER + EDUCATION ---------------- */
+    .section-divider{
+      margin: 3.25rem 0 2.25rem;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      color: var(--muted);
+    }
+    .section-divider::before,
+    .section-divider::after{
+      content:"";
+      height: 1px;
+      flex:1;
+      background: rgba(255,255,255,0.10);
+    }
+    .section-divider span{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-weight: 900;
+      font-size: .95rem;
+      padding: .55rem .95rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.85);
+      backdrop-filter: blur(10px);
+      white-space:nowrap;
+    }
+
+    .education-wrap{
+      display:grid;
+      gap: 1.25rem;
+    }
+    .section-title{
+      font-size: 1.25rem;
+      font-weight: 900;
+      margin-bottom: .25rem;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      color: rgba(255,255,255,0.92);
+    }
+    .section-note{
+      color: var(--muted);
+      margin-bottom: .8rem;
+      line-height: 1.75;
+      max-width: 75ch;
+    }
+
+    .education-card{
+      border-style: dashed;
+      background: rgba(255,255,255,0.05);
+    }
+
+    /* ---------------- FOOTER ---------------- */
+    footer{
+      border-top: 1px solid var(--border);
+      margin-top: 3.75rem;
+      padding: 3.25rem 1.5rem;
+      background: var(--bg-soft);
+    }
+    main.container{ padding-bottom: 2rem; }
+
+    .footer-content.footer-center-icons{
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 14px;
+    }
+    .footer-content.footer-center-icons a{
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      text-decoration:none;
+    }
+    .footer-content.footer-center-icons a:hover{
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.09);
+      border-color: var(--border-strong);
+    }
+    .footer-content.footer-center-icons i{
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.92);
+      transition: transform 320ms ease;
+    }
+    .footer-content.footer-center-icons a:hover i{ transform: rotate(360deg); }
+
+    @media (prefers-reduced-motion: reduce){
+      .footer-content.footer-center-icons i{ transition:none; }
+      .footer-content.footer-center-icons a:hover i{ transform:none; }
+    }
+
+    /* ---------------- MOBILE ---------------- */
+    @media (max-width:640px){
+      h1{font-size:1.65rem}
+
+      .timeline{ padding-left: 78px; }
+      .timeline::before{ left: 34px; }
+      .timeline-dot{ left: 25px; }
+      .timeline-end{ left: 18px; }
+
+      .year-marker{
+        left: -78px;
+        width: 60px;
+      }
+
+      .company-logo{ width: 46px; height: 46px; }
+    }
+
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="nav-container">
+      <a class="logo" href="experiences.html">
+        <span class="brand-mark">SK</span>
+        <span>Experiences</span>
+      </a>
+
+      <ul class="nav-links" aria-label="Primary navigation">
+        <li><a href="about.html"><i class="fa-solid fa-user"></i> About</a></li>
+        <li><a class="active" href="experiences.html"><i class="fa-solid fa-briefcase"></i> Experiences</a></li>
+        <li><a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a></li>
+        <li><a href="medium.html"><i class="fa-regular fa-file-lines"></i> Blog</a></li>
+        <li><a href="github.html"><i class="fa-brands fa-github"></i> GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <header>
+      <h1>My Journey</h1>
+      <p class="subhead">
+        Roles and experiences where I’ve shipped systems, improved performance, and built scalable foundations.
+      </p>
+    </header>
+
+    <!-- ================== EXPERIENCE TIMELINE ================== -->
+    <section class="timeline" aria-label="Timeline">
+
+      <div class="year-marker" data-year="2025"></div>
+
+      <article class="experience-card" id="exp1">
+        <div class="timeline-dot" aria-hidden="true"></div>
+
+        <div class="experience-header">
+          <div class="left">
+            <div class="company-logo" aria-hidden="true">
+              <i class="fa-brands fa-amazon"></i>
+            </div>
+
+            <div class="title">
+              <h3>Data Engineer Intern</h3>
+              <div class="company">Amazon</div>
+              <div class="meta">May 2025 – Aug 2025 • Irvine, CA</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+            <span class="badge"><i class="fa-solid fa-gauge-high"></i> Glue Pipeline</span>
+            <span class="badge"><i class="fa-solid fa-shield-halved"></i> Schema Inference</span>
+          </div>
+        </div>
+
+        <p class="summary">
+          Engineered ETL production and quality improvements with AWS Glue, Bedrock, CI/CD, observability, and pragmatic architecture decisions. Led AI orchestration efforts to automate schema detection and system alerts.
+        </p>
+
+        <div class="tech-row">
+          <span>Kafka</span>
+          <span>Spark</span>
+          <span>AWS</span>
+          <span>CI/CD</span>
+        </div>
+
+        <div class="reveal" role="button" tabindex="0" aria-expanded="false">
+          <i class="fa-solid fa-arrow-trend-up"></i> Key Contributions
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="details" aria-hidden="true">
+          <ul>
+            <li>Architected structured logging + tracing patterns to reduce MTTR and improve debuggability.</li>
+            <li>Collaborated with Data Science team to design and deliver a real-time data orchestration system integrating LLMs(AWS Bedrock) to automate schema detection and system alerts.</li>
+            <li>I was selected to present my internship work at Seattle head office.</li>
+            <li>Participated in an AI hackathon at the organizational level with my team (placed 2nd out of 18 teams).</li>
+            <li>Implemented CI/CD guardrails like tests, checks, rollbacks for safer releases.</li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="year-marker" data-year="2024"></div>
+
+      <article class="experience-card" id="exp2">
+        <div class="timeline-dot" aria-hidden="true"></div>
+
+        <div class="experience-header">
+          <div class="left">
+            <div class="company-logo" aria-hidden="true">
+              <i class="fa-solid fa-building"></i>
+            </div>
+
+            <div class="title">
+              <h3>Data Engineer (Programmer Analyst)</h3>
+              <div class="company">Cognizant Technology Solutions</div>
+              <div class="meta">Aug 2022 – Jun 2024 • On-site</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+            <span class="badge"><i class="fa-solid fa-bolt"></i> Streaming</span>
+            <span class="badge"><i class="fa-solid fa-chart-line"></i> Metrics</span>
+          </div>
+        </div>
+
+        <p class="summary">
+          Built and maintained batch + streaming Azure pipelines and operationalized data quality checks and dashboards.
+        </p>
+
+        <div class="tech-row">
+          <span>Kafka</span>
+          <span>Spark</span>
+          <span>Azure</span>
+          <span>Java</span>
+          <span>Databricks</span>
+        </div>
+
+        <div class="reveal" role="button" tabindex="0" aria-expanded="false">
+          <i class="fa-solid fa-arrow-trend-up"></i> Key Contributions
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="details" aria-hidden="true">
+          <ul>
+            <li>Implemented validation checks to reduce bad data propagation across downstream consumers.</li>
+            <li>Optimized jobs via partitioning and incremental processing patterns to reduce compute cost.</li>
+            <li>Initially started working on Java, Springboot, SQL and Kafka.</li>
+            <li>Achieved several Azure cloud certifications for Data Engineering.</li>
+            <li>Contributed to ETL pipelines.</li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="year-marker" data-year="2022"></div>
+
+      <article class="experience-card" id="exp3">
+        <div class="timeline-dot" aria-hidden="true"></div>
+
+        <div class="experience-header">
+          <div class="left">
+            <div class="company-logo" aria-hidden="true">
+              <i class="fa-solid fa-building"></i>
+            </div>
+
+            <div class="title">
+              <h3>Data Engineer Intern (Programmer Analyst)</h3>
+              <div class="company">Cognizant Technology Solutions</div>
+              <div class="meta">March 2022 – July 2024 • Bengaluru, India</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+            <span class="badge"><i class="fa-solid fa-cloud"></i> Azure</span>
+            <span class="badge"><i class="fa-solid fa-chart-line"></i> Dashboards</span>
+          </div>
+        </div>
+
+        <p class="summary">
+          Built and maintained batch + streaming pipelines and operationalized data quality checks and dashboards.
+        </p>
+
+        <div class="tech-row">
+          <span>Kafka</span>
+          <span>Spark</span>
+          <span>AWS</span>
+          <span>Airflow</span>
+        </div>
+
+        <div class="reveal" role="button" tabindex="0" aria-expanded="false">
+          <i class="fa-solid fa-arrow-trend-up"></i> Key Contributions
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="details" aria-hidden="true">
+          <ul>
+            <li>Designed and implemented robust ETL pipelines for consumer transaction data, leveraging Python, MySQL, and Azure services (Data Factory ,Azure Data Lake etc ).</li>
+            <li>Completed the DP 203 Certification(930+).</li>
+            <li>Created interactive dashboards and compelling plots using Seaborn, matplotlib, and Plotly.</li>
+            <li>Implemented data validation checks and monitoring dashboards to ensure data quality and reliability.</li>
+            <li>Collaborated with cross-functional teams to gather requirements and deliver data solutions that met business needs.</li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="year-marker" data-year="2021"></div>
+
+      <article class="experience-card" id="exp4">
+        <div class="timeline-dot" aria-hidden="true"></div>
+
+        <div class="experience-header">
+          <div class="left">
+            <div class="company-logo" aria-hidden="true">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+
+            <div class="title">
+              <h3>ML/AI Intern</h3>
+              <div class="company">ThinkNext Technologies</div>
+              <div class="meta">Feb 2021 – Apr 2021 • On-site</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+            <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i> ML</span>
+            <span class="badge"><i class="fa-solid fa-chart-line"></i> Metrics</span>
+          </div>
+        </div>
+
+        <p class="summary">
+          Built foundational ML experiments and helped ship prototypes with measurable evaluation and iteration loops for a startup.
+        </p>
+
+        <div class="tech-row">
+          <span>Python</span>
+          <span>ML</span>
+          <span>Data Prep</span>
+          <span>Evaluation</span>
+        </div>
+
+        <div class="reveal" role="button" tabindex="0" aria-expanded="false">
+          <i class="fa-solid fa-arrow-trend-up"></i> Key Contributions
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="details" aria-hidden="true">
+          <ul>
+            <li>Worked on data preprocessing + feature pipelines to support experiments.</li>
+            <li>Acquired a solid understanding of mathematical concepts underlying AI, such as linear algebra, calculus, and probability theory.</li>
+            <li>Contributed to team projects by analyzing datasets, performing pre-processing, feature engineering, and implementing ML algorithms to extract actionable insights.</li>
+            <li>Assisted with evaluation tracking and result reporting for iterations.</li>
+            <li>Collaborated with mentors to improve model quality and stability.</li>
+          </ul>
+        </div>
+      </article>
+
+      <div class="timeline-end" aria-hidden="true">
+        <i class="fa-solid fa-flag-checkered"></i>
+      </div>
+    </section>
+
+    <!-- ================== DIVIDER (Experience → Education) ================== -->
+    <div class="section-divider" aria-hidden="true">
+      <span><i class="fa-solid fa-graduation-cap"></i> Education</span>
+    </div>
+
+    <!-- ================== EDUCATION (separate from timeline) ================== -->
+    <section class="education-wrap" aria-label="Education">
+      <div>
+        <div class="section-title">
+          <i class="fa-solid fa-graduation-cap"></i> Education
+        </div>
+        <p class="section-note">
+          Academic foundation that supports my work in distributed systems, data engineering, and cloud-native architecture.
+        </p>
+      </div>
+
+      <article class="experience-card education-card" id="edu1">
+        <div class="experience-header">
+          <div class="left">
+            <div class="company-logo" aria-hidden="true">
+              <i class="fa-solid fa-school"></i>
+            </div>
+
+            <div class="title">
+              <h3>Master of Science — Computer Science</h3>
+              <div class="company">Arizona State University</div>
+              <div class="meta">Aug 2024 – May 2026 • Tempe, AZ</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap">
+            <span class="badge"><i class="fa-solid fa-brain"></i> Data + Systems</span>
+          </div>
+        </div>
+
+        <p class="summary">
+          Focus: Data Engineering, Cloud, NLP and AI systems. Coursework emphasizes scalable pipelines, distributed computing,
+          and production-grade reliability patterns.
+        </p>
+
+        <div class="tech-row">
+          <span>Distributed Systems</span>
+          <span>Data Engineering</span>
+          <span>Cloud Computing</span>
+          <span>ML Systems</span>
+        </div>
+
+        <div class="reveal" role="button" tabindex="0" aria-expanded="false">
+          <i class="fa-solid fa-list-check"></i> Coursework / Highlights
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+        <div class="details" aria-hidden="true">
+          <ul>
+            <li>Relevant coursework: Data Processing at Scale, NLP, Data Mining, Software Security.</li>
+            <li>Project: Scalable pipeline for processing large datasets using Apache Spark + AWS.</li>
+            <li>GPA: 3.9/4.0</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="experience-card education-card" id="edu2">
+        <div class="experience-header">
+          <div class="left">
+            <div class="company-logo" aria-hidden="true">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="title">
+              <h3>Bachelor of Technology — Computer Science</h3>
+              <div class="company">Jaypee University of Information Technology</div>
+              <div class="meta">2018 – 2022 • Solan, India</div>
+            </div>
+          </div>
+
+          <span class="badge"><i class="fa-solid fa-code"></i> Foundations</span>
+        </div>
+
+        <p class="summary">
+          Focused on software engineering fundamentals, algorithms, databases, and systems programming.
+        </p>
+
+        <div class="tech-row">
+          <span>DSA</span>
+          <span>Databases</span>
+          <span>OS</span>
+          <span>Networks</span>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <footer>
+  <div class="footer-content footer-center-icons">
+    <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub" style="color:inherit">
+      <i class="fab fa-github"></i>
+    </a>
+    <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email" style="color:inherit">
+      <i class="fas fa-envelope"></i>
+    </a>
+    <a href="https://www.linkedin.com/in/sanjay-bhattoo/" title="LinkedIn" aria-label="LinkedIn" style="color:inherit">
+      <i class="fab fa-linkedin"></i>
+    </a>
+
+    <a href="https://medium.com/feed/@bhattoo70" title="Medium" aria-label="Medium" style="color:inherit">
+      <i class="fab fa-medium"></i>
+    </a>
+  </div>
+</footer>
+
+  <script>
+    // Toggle details (consistent, mobile-friendly)
+    document.querySelectorAll('.experience-card .reveal').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const card = btn.closest('.experience-card');
+        const open = card.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      btn.addEventListener('keyup', (e)=>{
+        if(e.key === 'Enter' || e.key === ' ') btn.click();
+      });
+    });
+  </script>
+
+  <script src="cursor-effects.js?v=4"></script>
+</body>
+</html>
