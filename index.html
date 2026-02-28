@@ -304,6 +304,76 @@ footer{
   .avatar{width:150px;height:150px;}
   h1{font-size:1.8rem;}
 }
+
+     /* ---------------- MODAL ---------------- */
+.modal{
+  position:fixed;
+  inset:0;
+  display:none;
+  z-index:2000;
+}
+
+.modal.show{ display:block; }
+
+.modal-backdrop{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.72);
+  backdrop-filter: blur(10px);
+}
+
+.modal-card{
+  position:relative;
+  width:min(520px, calc(100% - 2.5rem));
+  margin: 12vh auto 0;
+  background: #0b0b0b;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 1.4rem 1.4rem;
+  animation: modalIn .22s ease-out;
+}
+
+@keyframes modalIn{
+  from { transform: translateY(10px) scale(0.98); opacity:0; }
+  to   { transform: translateY(0) scale(1); opacity:1; }
+}
+
+.modal-top{
+  display:flex;
+  gap:1rem;
+  align-items:flex-start;
+}
+
+.modal-icon{
+  width:44px; height:44px;
+  border-radius: 14px;
+  display:grid;
+  place-items:center;
+  background:#121212;
+  border:1px solid var(--border);
+  color:#ffffff;
+}
+
+.modal-title{
+  font-weight:900;
+  letter-spacing:.2px;
+  font-size:1.1rem;
+}
+
+.modal-sub{
+  margin-top:.25rem;
+  color: var(--muted);
+  font-size:.95rem;
+}
+
+.modal-actions{
+  display:flex;
+  gap:.8rem;
+  justify-content:flex-end;
+  margin-top:1.25rem;
+  flex-wrap:wrap;
+}
 </style>
 
 </head>
@@ -348,9 +418,33 @@ footer{
 
         <div class="actions">
           <button id="copyBioBtn" class="btn btn-primary"><i class="fa-regular fa-copy"></i> Copy Bio</button>
-          <a class="btn btn-ghost" href="assets/Sanjay_Kumar_Resume.pdf" target="_blank" rel="noreferrer">
-            <i class="fa-solid fa-download"></i> Resume
-          </a>
+         <a class="btn btn-ghost" id="resumeBtn" href="assets/Sanjay_Kumar_Resume.pdf" target="_blank" rel="noreferrer">
+  <i class="fa-solid fa-download"></i> Resume
+</a>
+
+             <!-- Resume modal -->
+<div class="modal" id="resumeModal" aria-hidden="true">
+  <div class="modal-backdrop" data-close="1"></div>
+
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+    <div class="modal-top">
+      <div class="modal-icon"><i class="fa-solid fa-hourglass-half"></i></div>
+      <div>
+        <div class="modal-title" id="resumeTitle">Resume coming soon</div>
+        <div class="modal-sub">I refining resume. Check back shortly.</div>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <a class="btn" href="mailto:bhattoo70@gmail.com?subject=Resume%20Request&body=Hi%20Sanjay%2C%20can%20you%20share%20your%20resume%3F" target="_blank" rel="noreferrer">
+        <i class="fa-solid fa-envelope"></i> Request via email
+      </a>
+      <button class="btn btn-primary" id="resumeCloseBtn">
+        <i class="fa-solid fa-check"></i> Got it
+      </button>
+    </div>
+  </div>
+</div>
           <a class="btn" href="projects.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Projects & Certifications</a>
         </div>
       </div>
@@ -471,6 +565,43 @@ footer{
         setTimeout(()=> this.innerHTML = prev, 1100);
       }).catch(()=> alert("Copy failed — please copy manually."));
     });
+     
+  // Resume "coming soon" modal
+  const resumeBtn = document.getElementById("resumeBtn");
+  const resumeModal = document.getElementById("resumeModal");
+  const resumeCloseBtn = document.getElementById("resumeCloseBtn");
+
+  function openResumeModal() {
+    resumeModal.classList.add("show");
+    resumeModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeResumeModal() {
+    resumeModal.classList.remove("show");
+    resumeModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  // Intercept click: show modal instead of opening PDF
+  resumeBtn?.addEventListener("click", (e) => {
+    e.preventDefault(); // stop opening the PDF
+    openResumeModal();
+  });
+
+  // Close actions
+  resumeCloseBtn?.addEventListener("click", closeResumeModal);
+
+  resumeModal?.addEventListener("click", (e) => {
+    // click outside the card closes
+    if (e.target?.dataset?.close) closeResumeModal();
+  });
+
+  // Escape to close
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && resumeModal.classList.contains("show")) closeResumeModal();
+  });
+
   </script>
 
   <script src="cursor-effects.js"></script>
