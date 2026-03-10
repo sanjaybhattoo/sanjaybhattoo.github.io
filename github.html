@@ -3,618 +3,303 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>GitHub - Sanjay Kumar</title>
-
+  <title>GitHub — Sanjay Kumar</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="alternate icon" href="favico.ico">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="cursor-effects.css?v=4" />
-
+  <link rel="alternate icon" href="favico.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="cursor-effects.css?v=4"/>
   <style>
-    :root{
-      --max-w: 1100px;
-
-      --bg:#000;
-      --bg-soft:#070707;
-
-      --card: rgba(17,17,17,0.82);
-      --glass: rgba(0,0,0,0.75);
-
-      --text:#f5f5f5;
-      --muted:#9ca3af;
-
-      --border: rgba(255,255,255,0.10);
-      --border-strong: rgba(255,255,255,0.16);
-
-      --shadow: 0 22px 70px rgba(0,0,0,0.75);
-      --radius: 16px;
-
-      --accent:#ffffff;
-    }
-
-    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--bg:#0a0a0b;--surface:#111114;--surface-2:#161618;--border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.13);--text:#e8e8e8;--muted:#7a7a85;--subtle:#3a3a42;--max-w:1080px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x:hidden;
-    }
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 
-    /* ---------------- NAV ---------------- */
-    nav{
-      position:sticky;top:0;z-index:1000;
-      background:var(--glass);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--border);
-    }
-    .nav-container{
-      max-width:var(--max-w);
-      margin:0 auto;
-      padding:1.2rem 1.5rem;
-      display:flex;align-items:center;justify-content:space-between;gap:12px;
-    }
-    .logo{
-      display:inline-flex;align-items:center;gap:12px;
-      text-decoration:none;color:var(--text);font-weight:900;
-    }
-    .brand-mark{
-      width:40px;height:40px;border-radius:12px;
-      border:1px solid var(--border);
-      display:grid;place-items:center;
-      background:#0f0f0f;
-      font-weight:900;
-    }
-    .nav-links{display:flex;gap:1rem;list-style:none;align-items:center;flex-wrap:wrap}
-    .nav-links a{
-      display:inline-flex;align-items:center;gap:8px;
-      text-decoration:none;color:var(--muted);
-      padding:6px 10px;border-radius:10px;
-      transition: transform 160ms ease, background 160ms ease, color 160ms ease;
-    }
-    .nav-links a:hover{color:var(--text); background:rgba(255,255,255,0.08); transform:translateY(-2px)}
-    .nav-links a.active{color:var(--text); background:rgba(255,255,255,0.10)}
-    .nav-links i{font-size:0.95rem}
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,0.88);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .logo-mark{width:36px;height:36px;border:1px solid var(--border-mid);border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:0.82rem;color:var(--text);background:var(--surface)}
+    .logo-name{font-size:0.95rem;font-weight:600}
+    .nav-links{display:flex;gap:0.25rem;list-style:none}
+    .nav-links a{display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--muted);font-size:0.88rem;font-weight:500;padding:7px 13px;border-radius:8px;transition:color 0.2s,background 0.2s}
+    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.05)}
+    .nav-links a.active{color:var(--text);background:rgba(255,255,255,0.08)}
 
-    /* ---------------- PAGE ---------------- */
-    .container{max-width:var(--max-w);margin:0 auto;padding:3.2rem 1.5rem 2.5rem}
-    h1{font-size:2.2rem;line-height:1.15;margin-bottom:.55rem}
-    .subhead{color:var(--muted);max-width:75ch;margin-bottom:1.25rem;line-height:1.75}
+    /* PAGE HEADER */
+    .page-header{max-width:var(--max-w);margin:0 auto;padding:3.5rem 2rem 0;animation:fadeUp 0.4s ease both 0.05s}
+    h1{font-size:2rem;font-weight:700;line-height:1.2;letter-spacing:-0.02em;color:var(--text);margin-bottom:0.5rem}
+    .page-desc{font-size:0.95rem;color:var(--muted);max-width:64ch;line-height:1.8}
 
-    .status{
-      margin-top:1rem;
-      padding:1rem;
-      border:1px solid var(--border);
-      border-radius:14px;
-      background: rgba(255,255,255,0.05);
-      color:var(--muted);
-      backdrop-filter: blur(12px);
-    }
+    /* MAIN */
+    main{max-width:var(--max-w);margin:0 auto;padding:1.8rem 2rem 5rem;animation:fadeUp 0.4s ease both 0.1s}
 
-    /* ---------------- STATS ---------------- */
-    .stats{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-      margin-top: 1.25rem;
-    }
-    @media (max-width:720px){
-      .stats{ grid-template-columns: 1fr; }
-    }
-    .stat{
-      background: rgba(255,255,255,0.05);
-      border:1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1rem;
-      text-align:center;
-      backdrop-filter: blur(14px);
-    }
-    .stat .num{font-weight:900;font-size:1.6rem;color:rgba(255,255,255,0.92)}
-    .stat .lbl{color:var(--muted);font-weight:900;margin-top:.25rem}
+    /* STATUS */
+    .status{padding:0.75rem 1.1rem;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--muted);font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.03em;margin-bottom:1.5rem}
 
-    /* ---------------- CONTROLS ---------------- */
-    .controls{
-      display:flex;gap:.75rem;flex-wrap:wrap;align-items:center;
-      margin: 1.35rem 0 1.1rem;
-    }
-    .search{
-      flex: 1 1 320px;
-      display:flex;align-items:center;gap:10px;
-      padding:.7rem .9rem;
-      border:1px solid var(--border);
-      border-radius:14px;
-      background: rgba(255,255,255,0.05);
-      color: var(--text);
-      backdrop-filter: blur(12px);
-    }
-    .search i{color:var(--muted)}
-    .search input{
-      width:100%;
-      border:none;outline:none;
-      background:transparent;
-      color:var(--text);
-      font-size:.98rem;
-    }
-    .pill-row{display:flex;gap:.55rem;flex-wrap:wrap}
-    .pill{
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      color: var(--muted);
-      padding:.5rem .75rem;
-      border-radius:999px;
-      cursor:pointer;user-select:none;
-      transition: transform 160ms ease, background 160ms ease, color 160ms ease, border-color 160ms ease;
-      display:inline-flex;align-items:center;gap:8px;
-      font-weight:900;font-size:.9rem;
-    }
-    .pill:hover{transform:translateY(-2px); color:var(--text); background: rgba(255,255,255,0.08)}
-    .pill.active{
-      color: var(--text);
-      background: rgba(255,255,255,0.10);
-      border-color: var(--border-strong);
-    }
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:1.5rem}
+    @media(max-width:560px){.stats{grid-template-columns:1fr}}
+    .stat{background:var(--surface);padding:1.25rem 1rem;text-align:center;transition:background 0.2s}
+    .stat:hover{background:var(--surface-2)}
+    .stat .num{font-weight:700;font-size:1.75rem;color:var(--text);letter-spacing:-0.03em;font-family:'Inter',sans-serif}
+    .stat .lbl{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-top:0.3rem}
 
-    /* ---------------- REPO GRID ---------------- */
-    .repo-grid{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem;
-      margin-top: 1rem;
-      align-items: stretch;
-    }
-    @media (max-width: 860px){
-      .repo-grid{ grid-template-columns: 1fr; }
-    }
+    /* CONTROLS */
+    .controls{display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center;margin-bottom:1.25rem}
+    .search-wrap{flex:1 1 280px;display:flex;align-items:center;gap:9px;padding:0.55rem 0.9rem;border:1px solid var(--border);border-radius:10px;background:var(--surface);transition:border-color 0.2s}
+    .search-wrap:focus-within{border-color:var(--border-mid)}
+    .search-wrap input{width:100%;border:none;outline:none;background:transparent;color:var(--text);font-size:0.88rem;font-family:'Inter',sans-serif}
+    .search-wrap input::placeholder{color:var(--muted)}
+    .search-wrap svg{color:var(--muted);flex:0 0 auto}
 
-    /* ---------------- REPO CARD ---------------- */
-    .repo{
-      position:relative;
-      border:1px solid var(--border);
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.05rem 1.05rem 1rem;
-      transition: transform 220ms ease, border-color 220ms ease;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      min-height: 0;
-      backdrop-filter: blur(16px);
-    }
-    .repo::before{
-      content:"";
-      position:absolute;
-      inset:-90px;
-      background:
-        radial-gradient(circle at 25% 18%, rgba(255,255,255,0.10), transparent 55%),
-        radial-gradient(circle at 80% 85%, rgba(255,255,255,0.06), transparent 60%);
-      opacity:0;
-      transition: opacity 260ms ease;
-      pointer-events:none;
-    }
-    .repo:hover{
-      transform: translateY(-8px);
-      border-color: var(--border-strong);
-    }
-    .repo:hover::before{ opacity: 1; }
+    /* SORT PILLS */
+    .sort-pills{display:flex;gap:0.4rem;flex-wrap:wrap}
+    .spill{display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:600;padding:0.42rem 0.85rem;border-radius:8px;border:1px solid var(--border);color:var(--muted);background:transparent;cursor:pointer;transition:all 0.18s;white-space:nowrap}
+    .spill:hover{color:var(--text);border-color:var(--border-mid);background:var(--surface-2)}
+    .spill.active{color:var(--text);background:rgba(255,255,255,0.08);border-color:var(--border-mid)}
 
-    .repo-top{display:flex;gap:12px;align-items:flex-start}
-    .repo-icon{
-      width:44px;height:44px;border-radius:12px;
-      display:grid;place-items:center;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.10);
-      color: rgba(255,255,255,0.92);
-      flex:0 0 auto;
-    }
+    /* REPO GRID */
+    .repo-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:1.5rem}
+    @media(max-width:720px){.repo-grid{grid-template-columns:1fr}}
 
-    .repo-title{min-width:0;flex:1}
-    .repo-title h3{
-      margin:0;
-      font-size:1.03rem;
-      line-height:1.25;
-      white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-    }
+    /* REPO CARD */
+    .repo{background:var(--surface);padding:1.4rem;display:flex;flex-direction:column;transition:background 0.2s;position:relative;overflow:hidden}
+    .repo:hover{background:var(--surface-2)}
+    .repo::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:rgba(255,255,255,0.1);opacity:0;transition:opacity 0.3s}
+    .repo:hover::after{opacity:1}
 
-    .repo-meta{
-      display:flex;
-      gap: 10px;
-      flex-wrap:wrap;
-      color: var(--muted);
-      font-weight:900;
-      font-size:.86rem;
-      margin-top: 4px;
-    }
+    .repo-top{display:flex;gap:11px;align-items:flex-start;margin-bottom:0.85rem}
+    .repo-icon{width:38px;height:38px;border-radius:10px;border:1px solid var(--border);background:rgba(255,255,255,0.05);display:grid;place-items:center;color:var(--text);flex:0 0 auto}
 
-    /* Clamp description so card stays compact */
-    .repo-desc{
-      color: rgba(255,255,255,0.70);
-      font-size:.93rem;
-      line-height: 1.65;
-      margin-top:.75rem;
+    .repo-title-wrap{min-width:0;flex:1}
+    .repo-title-wrap h3{font-size:0.95rem;font-weight:600;color:var(--text);letter-spacing:-0.01em;margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .repo-meta{display:flex;gap:0.75rem;flex-wrap:wrap;font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted);letter-spacing:0.03em}
+    .repo-meta span{display:flex;align-items:center;gap:4px}
 
-      display:-webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow:hidden;
-    }
+    .repo-desc{font-size:0.875rem;color:var(--muted);line-height:1.7;flex:1;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 
-    .tag-row{
-      display:flex;
-      gap:.5rem;
-      flex-wrap:wrap;
-      margin-top: .85rem;
-    }
-    .tag{
-      background: rgba(255,255,255,0.06);
-      border:1px solid rgba(255,255,255,0.10);
-      color: rgba(255,255,255,0.75);
-      padding:.22rem .55rem;
-      border-radius:999px;
-      font-size:.78rem;
-      font-weight:900;
-    }
+    .tag-row{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:1rem}
+    .tag{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted);padding:0.22rem 0.55rem;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,0.03);display:inline-flex;align-items:center;gap:4px}
 
-    .actions{
-      display:flex;
-      gap:.55rem;
-      flex-wrap:wrap;
-      margin-top: auto;
-      padding-top: .9rem;
-    }
+    .repo-actions{margin-top:auto;padding-top:0.85rem;border-top:1px solid var(--border)}
+    .btn{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:600;padding:0.42rem 0.85rem;border-radius:8px;border:1px solid var(--border);color:var(--muted);background:transparent;transition:all 0.18s;cursor:pointer;white-space:nowrap}
+    .btn:hover{color:var(--text);border-color:var(--border-mid);background:var(--surface-2)}
+    .btn-primary{background:rgba(255,255,255,0.08);color:var(--text);border-color:var(--border-mid)}
+    .btn-primary:hover{background:rgba(255,255,255,0.13)}
 
-    .btn{
-      display:inline-flex;align-items:center;gap:8px;
-      padding:.48rem .75rem;border-radius:10px;
-      border:1px solid var(--border);
-      text-decoration:none;color:var(--text);
-      background: rgba(255,255,255,0.05);
-      font-weight:900;
-      font-size:.9rem;
-      transition: transform 150ms ease, background 150ms ease, border-color 150ms ease;
-      cursor:pointer;
-      white-space:nowrap;
-    }
-    .btn:hover{
-      transform:translateY(-2px);
-      background: rgba(255,255,255,0.08);
-      border-color: var(--border-strong);
-    }
-    .btn-primary{
-      background:#fff;
-      color:#000;
-      border-color:transparent;
-    }
-    .btn-primary:hover{ background:#eaeaea; }
+    /* VISIT ROW */
+    .visit-row{display:flex;align-items:center;gap:12px}
 
-    /* ---------------- FOOTER ---------------- */
-    footer{
-      border-top: 1px solid var(--border);
-      margin-top: 3.5rem;
-      padding: 3rem 1.5rem;
-      background: var(--bg-soft);
-    }
-    .footer-content.footer-center-icons{
-      max-width: var(--max-w);
-      margin: 0 auto;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap: 14px;
-    }
-    .footer-content.footer-center-icons a{
-      width:56px;height:56px;border-radius:14px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,0.05);
-      display:flex;align-items:center;justify-content:center;
-      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
-      text-decoration:none;
-    }
-    .footer-content.footer-center-icons a:hover{
-      transform: translateY(-3px);
-      background: rgba(255,255,255,0.09);
-      border-color: var(--border-strong);
-    }
-    .footer-content.footer-center-icons i{
-      font-size: 1.15rem;
-      color: rgba(255,255,255,0.92);
-      transition: transform 420ms ease;
-    }
-    .footer-content.footer-center-icons a:hover i{ transform: rotate(720deg); }
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem;background:var(--bg)}
+    .footer-inner{max-width:var(--max-w);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+    .footer-links{display:flex;gap:0.65rem}
+    .footer-links a{width:42px;height:42px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;color:var(--muted);text-decoration:none;transition:background 0.2s,color 0.2s,border-color 0.2s}
+    .footer-links a:hover{background:var(--surface-2);color:var(--text);border-color:var(--border-mid)}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--subtle);letter-spacing:0.05em}
 
-    @media (prefers-reduced-motion: reduce){
-      .footer-content.footer-center-icons i{ transition:none; }
-      .footer-content.footer-center-icons a:hover i{ transform:none; }
-    }
-
-    @media (max-width:640px){
-      h1{font-size:1.65rem}
-    }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:680px){h1{font-size:1.6rem}.page-header{padding:2.5rem 1.2rem 0}main{padding-left:1.2rem;padding-right:1.2rem}.nav-inner{padding:0 1.2rem}}
+    @media(max-width:480px){.nav-links a span{display:none}}
   </style>
 </head>
-
 <body>
-  <nav>
-    <div class="nav-container">
-      <a class="logo" href="github.html">
-        <span class="brand-mark">SK</span>
-        <span>GitHub</span>
-      </a>
 
-      <ul class="nav-links" aria-label="Primary navigation">
-        <li><a href="index.html"><i class="fa-solid fa-user"></i> About</a></li>
-        <li><a href="experiences.html"><i class="fa-solid fa-briefcase"></i> Experiences</a></li>
-        <li><a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a></li>
-        <li><a href="medium.html"><i class="fa-regular fa-file-lines"></i> Blog</a></li>
-        <li><a class="active" href="github.html"><i class="fa-brands fa-github"></i> GitHub</a></li>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="logo" href="github.html">
+        <span class="logo-mark">SK</span>
+        <span class="logo-name">Sanjay Kumar</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg><span>About</span></a></li>
+        <li><a href="experiences.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.33C18 2.99 16.21 1 14 1c-1.36 0-2.5.72-3.17 1.78L10 4.27l-.83-1.49C8.5 1.72 7.36 1 6 1 3.79 1 2 2.99 2 4.67c0 .45.11.89.18 1.33H0v14h24V6h-4zm-8 12H4V8h8v10zm8 0h-6V8h6v10z"/></svg><span>Experience</span></a></li>
+        <li><a href="projects.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg><span>Projects</span></a></li>
+        <li><a href="medium.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg><span>Blog</span></a></li>
+        <li><a class="active" href="github.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg><span>GitHub</span></a></li>
       </ul>
     </div>
   </nav>
 
-  <main class="container">
-    <header>
-      <h1>Open-source</h1>
-      <p class="subhead">
-        Repositories (ranked by recency + data/cloud keywords).
-      </p>
-      <div class="status" id="status">Loading GitHub data…</div>
-    </header>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Open-source</h1>
+    <p class="page-desc">Repositories ranked by relevance — data pipelines, cloud infrastructure, and ML projects.</p>
+  </div>
 
-    <section class="stats" aria-label="GitHub stats">
+  <!-- MAIN -->
+  <main>
+    <div class="status" id="status">Loading GitHub data…</div>
+
+    <!-- STATS -->
+    <div class="stats">
       <div class="stat"><div class="num" id="statRepos">—</div><div class="lbl">Public Repos</div></div>
       <div class="stat"><div class="num" id="statFollowers">—</div><div class="lbl">Followers</div></div>
       <div class="stat"><div class="num" id="statFollowing">—</div><div class="lbl">Following</div></div>
-    </section>
+    </div>
 
-    <div class="controls" aria-label="Repo controls">
-      <div class="search" role="search" aria-label="Search repositories">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input id="searchInput" type="text" placeholder="Search repos (Kafka, Spark, AWS, LLM, etc.)" />
+    <!-- CONTROLS -->
+    <div class="controls">
+      <div class="search-wrap">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input id="searchInput" type="text" placeholder="Search repos — Kafka, Spark, AWS, LLM…"/>
       </div>
-
-      <div class="pill-row" aria-label="Sort repositories">
-        <button class="pill active" data-sort="relevant"><i class="fa-solid fa-star"></i> Featured</button>
-        <button class="pill" data-sort="updated"><i class="fa-regular fa-clock"></i> Recently Updated</button>
-        <button class="pill" data-sort="stars"><i class="fa-solid fa-fire"></i> Most Starred</button>
+      <div class="sort-pills">
+        <button class="spill active" data-sort="relevant">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          Featured
+        </button>
+        <button class="spill" data-sort="updated">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/></svg>
+          Recently Updated
+        </button>
+        <button class="spill" data-sort="stars">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 0.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67z"/></svg>
+          Most Starred
+        </button>
       </div>
     </div>
 
-    <section aria-label="Repositories" class="repo-grid" id="repoList"></section>
+    <!-- REPO GRID -->
+    <div class="repo-grid" id="repoList"></div>
 
-    <div style="margin-top:1.25rem">
+    <!-- VISIT -->
+    <div class="visit-row">
       <a class="btn btn-primary" href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer">
-        <i class="fa-brands fa-github"></i> Visit Profile
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        Visit Profile
       </a>
     </div>
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-content footer-center-icons">
-      <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub" style="color:inherit">
-        <i class="fab fa-github"></i>
-      </a>
-      <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email" style="color:inherit">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/sanjay-bhattoo/" title="LinkedIn" aria-label="LinkedIn" style="color:inherit">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="https://medium.com/@bhattoo70" title="Medium" aria-label="Medium" style="color:inherit">
-        <i class="fab fa-medium"></i>
-      </a>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
+        <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        <a href="https://www.linkedin.com/in/sanjay-bhattoo/" target="_blank" rel="noreferrer" title="LinkedIn" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+        <a href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer" title="Medium" aria-label="Medium"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
+      </div>
+      <div class="footer-copy">sanjay kumar · built with care</div>
     </div>
   </footer>
 
   <script>
     const GITHUB_USER = "sanjaybhattoo";
     const MAX_REPOS = 6;
+    const FEATURED_REPO_NAMES = ["Data_Mining_Exploration","Kafka_Spark_Streaming_Examples","Project-Old-CarPrice-prediction","CharacterCountD3"];
 
-    // Optional: if you have "flagship" repos, list them here to force a boost.
-    // Example: ["real-time-pipeline", "llm-rag-assistant"]
-    const FEATURED_REPO_NAMES = ["Data_Mining_Exploration", "Kafka_Spark_Streaming_Examples", "Project-Old-CarPrice-prediction", "CharacterCountD3"];
-
-    const statusEl = document.getElementById("status");
-    const repoListEl = document.getElementById("repoList");
-    const statRepos = document.getElementById("statRepos");
+    const statusEl    = document.getElementById("status");
+    const repoListEl  = document.getElementById("repoList");
+    const statRepos   = document.getElementById("statRepos");
     const statFollowers = document.getElementById("statFollowers");
     const statFollowing = document.getElementById("statFollowing");
-
-    const pills = Array.from(document.querySelectorAll(".pill"));
+    const pills       = Array.from(document.querySelectorAll(".spill"));
     const searchInput = document.getElementById("searchInput");
 
     let allRepos = [];
     let activeSort = "relevant";
 
-    function fmtCompact(n){
-      if(typeof n !== "number") return "—";
-      return new Intl.NumberFormat(undefined,{notation:"compact"}).format(n);
-    }
-    function fmtDate(iso){
-      const d = new Date(iso);
-      if(Number.isNaN(d.getTime())) return "";
-      return d.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"});
-    }
-    function daysSince(iso){
-      const d = new Date(iso);
-      if (Number.isNaN(d.getTime())) return 999999;
-      const ms = Date.now() - d.getTime();
-      return Math.max(0, Math.floor(ms / (1000*60*60*24)));
-    }
-    function normalize(s){ return (s || "").toLowerCase().trim(); }
+    function fmtCompact(n){ return typeof n!=="number"?"—":new Intl.NumberFormat(undefined,{notation:"compact"}).format(n) }
+    function fmtDate(iso){ const d=new Date(iso); return Number.isNaN(d.getTime())?"":d.toLocaleDateString(undefined,{year:"numeric",month:"short",day:"numeric"}) }
+    function daysSince(iso){ const d=new Date(iso); if(Number.isNaN(d.getTime()))return 999999; return Math.max(0,Math.floor((Date.now()-d.getTime())/(1000*60*60*24))) }
+    function normalize(s){ return (s||"").toLowerCase().trim() }
 
-    function pickIcon(repo){
-      const name = normalize(repo.name);
-      const desc = normalize(repo.description);
-      const hay = name + " " + desc;
-
-      if(hay.includes("kafka") || hay.includes("stream")) return "fa-bolt";
-      if(hay.includes("spark") || hay.includes("pyspark")) return "fa-bolt";
-      if(hay.includes("etl") || hay.includes("warehouse") || hay.includes("data") || hay.includes("pipeline")) return "fa-database";
-      if(hay.includes("airflow") || hay.includes("dag")) return "fa-diagram-project";
-      if(hay.includes("docker") || hay.includes("k8") || hay.includes("kubernetes")) return "fa-cubes";
-      if(hay.includes("ml") || hay.includes("llm") || hay.includes("rag") || hay.includes("nlp")) return "fa-wand-magic-sparkles";
-      if(hay.includes("aws") || hay.includes("azure") || hay.includes("gcp") || hay.includes("cloud")) return "fa-cloud";
-      return "fa-code";
+    function pickIconSvg(repo){
+      const hay = normalize(repo.name)+" "+normalize(repo.description);
+      if(hay.includes("kafka")||hay.includes("stream")) return `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>`;
+      if(hay.includes("spark")||hay.includes("pyspark")) return `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>`;
+      if(hay.includes("etl")||hay.includes("data")||hay.includes("pipeline")||hay.includes("warehouse")) return `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C7.58 3 4 4.79 4 7s3.58 4 8 4 8-1.79 8-4-3.58-4-8-4zM4 9v3c0 2.21 3.58 4 8 4s8-1.79 8-4V9c0 2.21-3.58 4-8 4S4 11.21 4 9zm0 5v3c0 2.21 3.58 4 8 4s8-1.79 8-4v-3c0 2.21-3.58 4-8 4s-8-1.79-8-4z"/></svg>`;
+      if(hay.includes("ml")||hay.includes("llm")||hay.includes("rag")||hay.includes("nlp")) return `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zm-5 9a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm10 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>`;
+      if(hay.includes("aws")||hay.includes("azure")||hay.includes("cloud")) return `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04A7.49 7.49 0 0 0 12 4C9.11 4 6.6 5.64 5.35 8.04A5.994 5.994 0 0 0 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>`;
+      return `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>`;
     }
 
-    // Relevance scoring:
-    // - Stars/forks/watchers = impact signals
-    // - Recent push = "alive"
-    // - Description present + keyword boosts = "portfolio relevance"
     function relevanceScore(repo){
-      const stars = repo.stargazers_count || 0;
-      const forks = repo.forks_count || 0;
-      const watchers = repo.watchers_count || 0;
-
-      const ds = daysSince(repo.pushed_at || repo.updated_at);
-      const recencyBoost =
-        ds <= 7  ? 18 :
-        ds <= 30 ? 12 :
-        ds <= 90 ? 7  :
-        ds <= 180? 4  : 0;
-
-      const hasDescBoost = (repo.description && repo.description.trim().length > 20) ? 6 : 0;
-
-      const hay = normalize(repo.name) + " " + normalize(repo.description);
-      const keywordBoosts = [
-        ["kafka", 10], ["spark", 10], ["pyspark", 10], ["airflow", 9],
-        ["etl", 9], ["pipeline", 9], ["stream", 8], ["warehouse", 8],
-        ["aws", 8], ["azure", 7], ["kubernetes", 7], ["docker", 6],
-        ["llm", 8], ["rag", 8], ["ml", 6], ["nlp", 6],
-        ["observability", 6], ["terraform", 6], ["ci/cd", 5], ["cicd", 5]
-      ];
-
-      let kw = 0;
-      for (const [k, w] of keywordBoosts){
-        if (hay.includes(k)) kw += w;
-      }
-
-      const featuredBoost = FEATURED_REPO_NAMES.includes(repo.name) ? 40 : 0;
-
-      // Weighted impact: stars matter most, forks next, watchers light signal
-      return (stars * 3) + (forks * 2) + (watchers * 1) + recencyBoost + hasDescBoost + kw + featuredBoost;
+      const stars=repo.stargazers_count||0, forks=repo.forks_count||0, watchers=repo.watchers_count||0;
+      const ds=daysSince(repo.pushed_at||repo.updated_at);
+      const recency=ds<=7?18:ds<=30?12:ds<=90?7:ds<=180?4:0;
+      const hasDesc=(repo.description&&repo.description.trim().length>20)?6:0;
+      const hay=normalize(repo.name)+" "+normalize(repo.description);
+      const kws=[["kafka",10],["spark",10],["pyspark",10],["airflow",9],["etl",9],["pipeline",9],["stream",8],["warehouse",8],["aws",8],["azure",7],["kubernetes",7],["docker",6],["llm",8],["rag",8],["ml",6],["nlp",6]];
+      let kw=0; for(const[k,w] of kws) if(hay.includes(k)) kw+=w;
+      const featured=FEATURED_REPO_NAMES.includes(repo.name)?40:0;
+      return (stars*3)+(forks*2)+(watchers)+recency+hasDesc+kw+featured;
     }
 
     function repoCard(repo){
-      const icon = pickIcon(repo);
-
-      const name = repo.name || "repo";
-      const desc = repo.description || "No description provided.";
-      const lang = repo.language || "Unknown";
-      const stars = repo.stargazers_count || 0;
-      const forks = repo.forks_count || 0;
-      const updated = fmtDate(repo.updated_at);
-      const url = repo.html_url;
-
-      const el = document.createElement("article");
-      el.className = "repo";
-      el.innerHTML = `
+      const el=document.createElement("article");
+      el.className="repo";
+      el.innerHTML=`
         <div class="repo-top">
-          <div class="repo-icon" aria-hidden="true"><i class="fa-solid ${icon}"></i></div>
-          <div class="repo-title">
-            <h3 title="${name.replace(/"/g,'&quot;')}">${name}</h3>
+          <div class="repo-icon" aria-hidden="true">${pickIconSvg(repo)}</div>
+          <div class="repo-title-wrap">
+            <h3 title="${(repo.name||"").replace(/"/g,'&quot;')}">${repo.name||"repo"}</h3>
             <div class="repo-meta">
-              <span><i class="fa-regular fa-calendar"></i> Updated ${updated}</span>
-              <span><i class="fa-solid fa-code"></i> ${lang}</span>
+              <span><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>${fmtDate(repo.updated_at)}</span>
+              <span><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>${repo.language||"—"}</span>
             </div>
           </div>
         </div>
-
-        <div class="repo-desc">${desc}</div>
-
-        <div class="tag-row" aria-label="Repo stats">
-          <span class="tag"><i class="fa-solid fa-star"></i> ${stars}</span>
-          <span class="tag"><i class="fa-solid fa-code-branch"></i> ${forks}</span>
-          <span class="tag"><i class="fa-solid fa-eye"></i> ${repo.watchers_count || 0}</span>
+        <div class="repo-desc">${repo.description||"No description provided."}</div>
+        <div class="tag-row">
+          <span class="tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>${repo.stargazers_count||0}</span>
+          <span class="tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1l-5.5 5.5L6 1H2l10 10L2 21h4l5.5-5.5L17 21h4L11 11 21 1z"/></svg>${repo.forks_count||0}</span>
+          <span class="tag"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>${repo.watchers_count||0}</span>
         </div>
-
-        <div class="actions">
-          <a class="btn" href="${url}" target="_blank" rel="noreferrer">
-            <i class="fa-brands fa-github"></i> Code
+        <div class="repo-actions">
+          <a class="btn" href="${repo.html_url||"#"}" target="_blank" rel="noreferrer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+            View Code
           </a>
-        </div>
-      `;
+        </div>`;
       return el;
     }
 
-    async function fetchJson(url){
-      const r = await fetch(url, {
-        headers: {
-          "Accept": "application/vnd.github+json",
-        }
-      });
-      if(!r.ok) throw new Error("GitHub API error " + r.status);
-      return r.json();
+    function applyRender(){
+      const q=normalize(searchInput.value);
+      let repos=[...allRepos].filter(r=>!r.fork);
+      if(q) repos=repos.filter(r=>(normalize(r.name)+" "+normalize(r.description)+" "+normalize(r.language)).includes(q));
+      if(activeSort==="updated") repos.sort((a,b)=>new Date(b.updated_at)-new Date(a.updated_at));
+      else if(activeSort==="stars") repos.sort((a,b)=>(b.stargazers_count||0)-(a.stargazers_count||0));
+      else repos.sort((a,b)=>relevanceScore(b)-relevanceScore(a));
+      repos=repos.slice(0,MAX_REPOS);
+      repoListEl.innerHTML="";
+      repos.forEach(r=>repoListEl.appendChild(repoCard(r)));
+      const label=activeSort==="updated"?"recently updated":activeSort==="stars"?"most starred":"featured";
+      statusEl.textContent=`Showing ${repos.length} ${label} repos from @${GITHUB_USER}.`;
     }
 
-    function applyRender(){
-      const q = normalize(searchInput.value);
-
-      let repos = [...allRepos].filter(r => !r.fork);
-
-      // Search match
-      if (q){
-        repos = repos.filter(r => {
-          const hay = normalize(r.name) + " " + normalize(r.description) + " " + normalize(r.language);
-          return hay.includes(q);
-        });
-      }
-
-      // Sort
-      if (activeSort === "updated"){
-        repos.sort((a,b) => new Date(b.updated_at) - new Date(a.updated_at));
-      } else if (activeSort === "stars"){
-        repos.sort((a,b) => (b.stargazers_count||0) - (a.stargazers_count||0));
-      } else {
-        repos.sort((a,b) => relevanceScore(b) - relevanceScore(a));
-      }
-
-      repos = repos.slice(0, MAX_REPOS);
-
-      repoListEl.innerHTML = "";
-      repos.forEach(r => repoListEl.appendChild(repoCard(r)));
-
-      const label =
-        activeSort === "updated" ? "recently updated" :
-        activeSort === "stars" ? "most starred" :
-        "featured (most relevant)";
-
-      statusEl.textContent = `Showing ${repos.length} ${label} repos from @${GITHUB_USER}.`;
+    async function fetchJson(url){
+      const r=await fetch(url,{headers:{"Accept":"application/vnd.github+json"}});
+      if(!r.ok) throw new Error("GitHub API error "+r.status);
+      return r.json();
     }
 
     async function loadGitHub(){
       try{
-        const user = await fetchJson(`https://api.github.com/users/${GITHUB_USER}`);
-        statRepos.textContent = fmtCompact(user.public_repos);
-        statFollowers.textContent = fmtCompact(user.followers);
-        statFollowing.textContent = fmtCompact(user.following);
-
-        // pull a larger set and rank locally
-        allRepos = await fetchJson(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`);
-
+        const user=await fetchJson(`https://api.github.com/users/${GITHUB_USER}`);
+        statRepos.textContent=fmtCompact(user.public_repos);
+        statFollowers.textContent=fmtCompact(user.followers);
+        statFollowing.textContent=fmtCompact(user.following);
+        allRepos=await fetchJson(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&sort=updated`);
         applyRender();
       }catch(err){
-        statusEl.innerHTML =
-          `Couldn’t load GitHub data right now.<br><b>${(err && err.message) ? err.message : "Unknown error"}</b>`;
+        statusEl.innerHTML=`Couldn't load GitHub data. <b>${(err&&err.message)?err.message:"Unknown error"}</b>`;
       }
     }
 
-    pills.forEach(p => {
-      p.addEventListener("click", () => {
-        pills.forEach(x => x.classList.remove("active"));
-        p.classList.add("active");
-        activeSort = p.dataset.sort || "relevant";
-        applyRender();
-      });
-    });
-
-    searchInput.addEventListener("input", applyRender);
-
+    pills.forEach(p=>p.addEventListener("click",()=>{
+      pills.forEach(x=>x.classList.remove("active"));
+      p.classList.add("active");
+      activeSort=p.dataset.sort||"relevant";
+      applyRender();
+    }));
+    searchInput.addEventListener("input",applyRender);
     loadGitHub();
   </script>
-
   <script src="cursor-effects.js?v=4"></script>
 </body>
 </html>
