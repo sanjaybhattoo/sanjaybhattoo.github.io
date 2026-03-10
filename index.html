@@ -1,612 +1,296 @@
-<!-- =========================
-     about.html (UPDATED)
-     Base structure = projects.html
-     ========================= -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>About - Sanjay Kumar</title>
-
-
+  <title>About — Sanjay Kumar</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link rel="alternate icon" href="favicon.svg">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="cursor-effects.css" />
+  <link rel="alternate icon" href="favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="cursor-effects.css?v=4"/>
+  <style>
+    :root{--bg:#0a0a0b;--surface:#111114;--surface-2:#161618;--border:rgba(255,255,255,0.08);--border-mid:rgba(255,255,255,0.13);--text:#e8e8e8;--muted:#7a7a85;--subtle:#3a3a42;--max-w:1080px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
 
-<style>
-:root{
-  --max-w:1100px;
+    /* NAV */
+    nav{position:sticky;top:0;z-index:100;background:rgba(10,10,11,0.88);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border)}
+    .nav-inner{max-width:var(--max-w);margin:0 auto;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between}
+    .logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+    .logo-mark{width:36px;height:36px;border:1px solid var(--border-mid);border-radius:8px;display:grid;place-items:center;font-weight:700;font-size:0.82rem;color:var(--text);background:var(--surface)}
+    .logo-name{font-size:0.95rem;font-weight:600}
+    .nav-links{display:flex;gap:0.25rem;list-style:none}
+    .nav-links a{display:flex;align-items:center;gap:7px;text-decoration:none;color:var(--muted);font-size:0.88rem;font-weight:500;padding:7px 13px;border-radius:8px;transition:color 0.2s,background 0.2s}
+    .nav-links a:hover{color:var(--text);background:rgba(255,255,255,0.05)}
+    .nav-links a.active{color:var(--text);background:rgba(255,255,255,0.08)}
 
-  /* TRUE BLACK SYSTEM */
-  --bg:#000000;
-  --bg-soft:#0a0a0a;
-  --card:#111111;
-  --glass:rgba(0,0,0,0.75);
+    /* PAGE */
+    .page-header{max-width:var(--max-w);margin:0 auto;padding:3.5rem 2rem 0;animation:fadeUp 0.4s ease both 0.05s}
+    h1{font-size:2rem;font-weight:700;line-height:1.2;letter-spacing:-0.02em;color:var(--text);margin-bottom:0.5rem}
+    .page-desc{font-size:0.95rem;color:var(--muted);max-width:64ch;line-height:1.8}
+    main{max-width:var(--max-w);margin:0 auto;padding:2rem 2rem 5rem;animation:fadeUp 0.4s ease both 0.1s}
 
-  --accent:#ffffff;          /* white accent */
-  --accent-soft:#d1d5db;     /* subtle grey highlight */
+    /* HERO */
+    .hero{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:center;padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin-bottom:1px}
+    .avatar{width:180px;height:180px;border-radius:14px;object-fit:cover;border:1px solid var(--border);background:var(--surface-2);transition:transform 0.3s ease;display:block}
+    .avatar:hover{transform:scale(1.04)}
+    .hero-text h2{font-size:1.5rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:0.5rem;color:var(--text)}
+    .hero-text p{font-size:0.92rem;color:var(--muted);line-height:1.75}
+    .hero-text p+p{margin-top:0.5rem}
 
-  --text:#f5f5f5;
-  --muted:#9ca3af;
-  --border:#1f1f1f;
+    /* ACTIONS */
+    .actions{display:flex;gap:0.65rem;margin-top:1.25rem;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:7px;text-decoration:none;font-family:'Inter',sans-serif;font-size:0.82rem;font-weight:600;padding:0.42rem 0.85rem;border-radius:8px;border:1px solid var(--border);color:var(--muted);background:transparent;transition:all 0.18s;cursor:pointer;white-space:nowrap}
+    .btn:hover{color:var(--text);border-color:var(--border-mid);background:var(--surface-2)}
+    .btn-primary{background:rgba(255,255,255,0.08);color:var(--text);border-color:var(--border-mid)}
+    .btn-primary:hover{background:rgba(255,255,255,0.13)}
 
-  --shadow:0 20px 60px rgba(0,0,0,0.8);
-  --radius:18px;
-}
+    /* CARD GRID */
+    .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:1px}
+    .card{background:var(--surface);padding:1.5rem;transition:background 0.2s;position:relative;overflow:hidden}
+    .card:hover{background:var(--surface-2)}
+    .card::after{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:rgba(255,255,255,0.1);opacity:0;transition:opacity 0.3s}
+    .card:hover::after{opacity:1}
+    .card.full{grid-column:1/-1}
+    .card h3{font-size:0.9rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;display:flex;align-items:center;gap:8px;letter-spacing:-0.01em}
+    .card h3 svg{color:var(--muted);flex:0 0 auto}
+    .card p{font-size:0.88rem;color:var(--muted);line-height:1.75}
+    .card p+p{margin-top:0.5rem}
 
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+    /* SECTION LABEL */
+    .section-label{font-family:'DM Mono',monospace;font-size:0.7rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.65rem;display:flex;align-items:center;gap:8px}
+    .section-label::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--muted);opacity:0.5}
 
-body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",Arial;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.7;
-}
+    /* PILLS */
+    .pill-row{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:0.85rem}
+    .pill{font-family:'DM Mono',monospace;font-size:0.7rem;font-weight:500;color:var(--muted);padding:0.28rem 0.7rem;border-radius:999px;border:1px solid var(--border);background:rgba(255,255,255,0.03);letter-spacing:0.02em;white-space:nowrap}
 
-/* ---------------- NAV ---------------- */
+    /* FIND ME ROW */
+    .find-me{padding:1.5rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;margin-top:1px}
+    .find-me .section-label{margin-bottom:0.85rem}
 
-nav{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  backdrop-filter:blur(10px);
-  background:var(--glass);
-  border-bottom:1px solid var(--border);
-}
+    /* MODAL */
+    .modal{position:fixed;inset:0;display:none;z-index:2000}
+    .modal.show{display:block}
+    .modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,0.72);backdrop-filter:blur(10px)}
+    .modal-card{position:relative;width:min(480px,calc(100% - 2.5rem));margin:14vh auto 0;background:var(--surface);border:1px solid var(--border-mid);border-radius:16px;padding:1.5rem;animation:modalIn 0.22s ease-out}
+    @keyframes modalIn{from{transform:translateY(10px) scale(0.98);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
+    .modal-top{display:flex;gap:1rem;align-items:flex-start}
+    .modal-icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--surface-2);border:1px solid var(--border);color:var(--text);flex:0 0 auto}
+    .modal-title{font-weight:700;font-size:1rem;color:var(--text);margin-bottom:0.25rem}
+    .modal-sub{font-size:0.88rem;color:var(--muted)}
+    .modal-actions{display:flex;gap:0.65rem;justify-content:flex-end;margin-top:1.25rem;flex-wrap:wrap}
 
-.nav-container{
-  max-width:var(--max-w);
-  margin:0 auto;
-  padding:1.2rem 1.5rem;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
+    /* FOOTER */
+    footer{border-top:1px solid var(--border);padding:2.5rem 2rem;background:var(--bg)}
+    .footer-inner{max-width:var(--max-w);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+    .footer-links{display:flex;gap:0.65rem}
+    .footer-links a{width:42px;height:42px;border-radius:10px;background:var(--surface);border:1px solid var(--border);display:grid;place-items:center;color:var(--muted);text-decoration:none;transition:background 0.2s,color 0.2s,border-color 0.2s}
+    .footer-links a:hover{background:var(--surface-2);color:var(--text);border-color:var(--border-mid)}
+    .footer-copy{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--subtle);letter-spacing:0.05em}
 
-.logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  text-decoration:none;
-  color:var(--text);
-  font-weight:800;
-}
-
-.brand-mark{
-  width:40px;
-  height:40px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  display:grid;
-  place-items:center;
-  background:#0f0f0f;
-  font-weight:900;
-}
-
-.nav-links{
-  display:flex;
-  gap:1.2rem;
-  list-style:none;
-}
-
-.nav-links a{
-  text-decoration:none;
-  color:var(--muted);
-  padding:6px 10px;
-  border-radius:8px;
-  transition:all .25s ease;
-}
-
-.nav-links a:hover{
-  color:var(--text);
-  background:#141414;
-}
-
-.nav-links a.active{
-  color:var(--text);
-}
-
-/* ---------------- MAIN ---------------- */
-
-.container{
-  max-width:var(--max-w);
-  margin:0 auto;
-  padding:4rem 1.5rem;
-}
-
-h1{
-  font-size:2.4rem;
-  margin-bottom:.75rem;
-  letter-spacing:.5px;
-}
-
-.subhead{
-  color:var(--muted);
-  max-width:70ch;
-  margin-bottom:2.5rem;
-}
-
-/* ---------------- HERO ---------------- */
-
-.hero{
-  display:grid;
-  grid-template-columns:250px 1fr;
-  gap:3rem;
-  align-items:center;
-  margin-bottom:4rem;
-}
-
-.avatar{
-  width:240px;
-  height:240px;
-  border-radius:18px;
-  object-fit:cover;
-  border:1px solid var(--border);
-  background:#111;
-  transition:transform .3s ease;
-}
-
-.avatar:hover{
-  transform:scale(1.23);
-}
-
-.hero h2{
-  font-size:2.5rem;
-  margin-bottom:.75rem;
-}
-
-.hero p{
-  color:var(--muted);
-}
-
-/* ---------------- BUTTONS ---------------- */
-
-.actions{
-  display:flex;
-  gap:1rem;
-  margin-top:1.5rem;
-  flex-wrap:wrap;
-}
-
-.btn{
-  padding:.6rem 1rem;
-  border-radius:10px;
-  border:1px solid var(--border);
-  background:#121212;
-  color:var(--text);
-  font-weight:600;
-  text-decoration:none;
-  transition:all .25s ease;
-}
-
-.btn:hover{
-  background:#1a1a1a;
-  border-color:#2a2a2a;
-  transform:translateY(-2px);
-}
-
-.btn-primary{
-  background:#ffffff;
-  color:#000000;
-  border:none;
-}
-
-.btn-primary:hover{
-  background:#e5e5e5;
-}
-
-/* ---------------- CARDS ---------------- */
-
-.cards{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:2.5rem;
-}
-
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:2rem;
-  transition:all .3s ease;
-}
-
-.card.full {
-  grid-column: 1 / -1;
-  max-width: 100%;
-}
-
-@media (max-width: 900px) {
-  .card.full {
-    grid-template-columns: 1fr;
-  }
-}
-
-.card:hover{
-  background:#151515;
-  transform:translateY(-6px);
-}
-
-.card h3{
-  margin-bottom:1rem;
-  font-size:1.15rem;
-}
-
-.card p{
-  color:var(--muted);
-}
-
-/* Pills */
-.pill-row{
-  display:flex;
-  gap:.6rem;
-  flex-wrap:wrap;
-  margin-top:1rem;
-}
-
-.pill{
-  border:1px solid #222;
-  background:#0f0f0f;
-  color:#d4d4d4;
-  padding:.3rem .7rem;
-  border-radius:999px;
-  font-size:.8rem;
-  font-weight:600;
-}
-
-/* ---------------- FOOTER ---------------- */
-
-footer{
-  border-top:1px solid var(--border);
-  margin-top:5rem;
-  padding:3rem 1.5rem;
-  background:#050505;
-}
-
-.footer-content{
-  display:flex;
-  justify-content:center;
-  gap:18px;
-}
-
-.footer-content a{
-  width:50px;
-  height:50px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:#111;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:all .25s ease;
-}
-
-.footer-content a:hover{
-  background:#1a1a1a;
-  transform:translateY(-3px);
-}
-
-.footer-content i{
-  color:#f5f5f5;
-}
-
-/* ---------------- RESPONSIVE ---------------- */
-
-@media (max-width:900px){
-  .cards{grid-template-columns:1fr;}
-}
-
-@media (max-width:720px){
-  .hero{grid-template-columns:1fr;}
-  .avatar{width:150px;height:150px;}
-  h1{font-size:1.8rem;}
-}
-
-     /* ---------------- MODAL ---------------- */
-.modal{
-  position:fixed;
-  inset:0;
-  display:none;
-  z-index:2000;
-}
-
-.modal.show{ display:block; }
-
-.modal-backdrop{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.72);
-  backdrop-filter: blur(10px);
-}
-
-.modal-card{
-  position:relative;
-  width:min(520px, calc(100% - 2.5rem));
-  margin: 12vh auto 0;
-  background: #0b0b0b;
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  box-shadow: var(--shadow);
-  padding: 1.4rem 1.4rem;
-  animation: modalIn .22s ease-out;
-}
-
-@keyframes modalIn{
-  from { transform: translateY(10px) scale(0.98); opacity:0; }
-  to   { transform: translateY(0) scale(1); opacity:1; }
-}
-
-.modal-top{
-  display:flex;
-  gap:1rem;
-  align-items:flex-start;
-}
-
-.modal-icon{
-  width:44px; height:44px;
-  border-radius: 14px;
-  display:grid;
-  place-items:center;
-  background:#121212;
-  border:1px solid var(--border);
-  color:#ffffff;
-}
-
-.modal-title{
-  font-weight:900;
-  letter-spacing:.2px;
-  font-size:1.1rem;
-}
-
-.modal-sub{
-  margin-top:.25rem;
-  color: var(--muted);
-  font-size:.95rem;
-}
-
-.modal-actions{
-  display:flex;
-  gap:.8rem;
-  justify-content:flex-end;
-  margin-top:1.25rem;
-  flex-wrap:wrap;
-}
-</style>
-
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+    @media(max-width:720px){.hero{grid-template-columns:1fr}.avatar{width:120px;height:120px}.card-grid{grid-template-columns:1fr}.card.full{grid-column:1}.nav-inner{padding:0 1.2rem}.page-header{padding:2.5rem 1.2rem 0}main{padding-left:1.2rem;padding-right:1.2rem}h1{font-size:1.6rem}}
+    @media(max-width:480px){.nav-links a span{display:none}}
+  </style>
 </head>
-
 <body>
-  <nav>
-    <div class="nav-container">
-      <a class="logo" href="index.html">
-        <span class="brand-mark">SK</span>
-        <span>About</span>
-      </a>
 
-      <ul class="nav-links" aria-label="Primary navigation">
-        <li><a class="active" href="index.html"><i class="fa-solid fa-user"></i> About</a></li>
-        <li><a href="experiences.html"><i class="fa-solid fa-briefcase"></i> Experiences</a></li>
-        <li><a href="projects.html"><i class="fa-solid fa-code"></i> Projects</a></li>
-        <li><a href="medium.html"><i class="fa-regular fa-file-lines"></i> Blog</a></li>
-        <li><a href="github.html"><i class="fa-brands fa-github"></i> GitHub</a></li>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark">SK</span>
+        <span class="logo-name">Sanjay Kumar</span>
+      </a>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg><span>About</span></a></li>
+        <li><a href="experiences.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.33C18 2.99 16.21 1 14 1c-1.36 0-2.5.72-3.17 1.78L10 4.27l-.83-1.49C8.5 1.72 7.36 1 6 1 3.79 1 2 2.99 2 4.67c0 .45.11.89.18 1.33H0v14h24V6h-4zm-8 12H4V8h8v10zm8 0h-6V8h6v10z"/></svg><span>Experience</span></a></li>
+        <li><a href="projects.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg><span>Projects</span></a></li>
+        <li><a href="medium.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg><span>Blog</span></a></li>
+        <li><a href="github.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg><span>GitHub</span></a></li>
       </ul>
     </div>
   </nav>
 
-  <main class="container">
-    <header>
-      <h1>Craft. Build. Innovate.</h1>
-      <p class="subhead">
-        Hi I’m Sanjay Kumar — Data engineer focused on data pipelines, cloud systems and production grade engineering.
-        Skills in streaming systems, distributed computing, and reliable operations at scale. 
-      </p>
-    </header>
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>Craft. Build. Innovate.</h1>
+    <p class="page-desc">Hi, I'm Sanjay Kumar — data engineer focused on data pipelines, cloud systems, and production-grade engineering. Skills in streaming systems, distributed computing, and reliable operations at scale.</p>
+  </div>
 
-    <section class="hero" aria-label="Profile">
-      <img class="avatar" src="assets/images/logo1.jpg" alt="Sanjay Kumar portrait" />
-      <div>
-        <h2>Curious about Distributed systems</h2>
-        <p>
-          Data engineer with hands on experience building streaming pipelines, cloud-native architectures, 
-    and distributed systems that process data in production environments.
-</p>
-<p style="margin-top:.6rem;">
-  I prefer pragmatic architecture: strong observability, cost-awareness, and simple interfaces.
-</p>
+  <!-- MAIN -->
+  <main>
 
+    <!-- HERO CARD -->
+    <div class="hero">
+      <img class="avatar" src="assets/images/logo1.jpg" alt="Sanjay Kumar portrait"/>
+      <div class="hero-text">
+        <h2>Curious about Distributed Systems</h2>
+        <p>Data engineer with hands-on experience building streaming pipelines, cloud-native architectures, and distributed systems that process data in production environments.</p>
+        <p>I prefer pragmatic architecture: strong observability, cost-awareness, and simple interfaces.</p>
         <div class="actions">
-          <button id="copyBioBtn" class="btn btn-primary"><i class="fa-regular fa-copy"></i> Copy Bio</button>
-         <a class="btn btn-ghost" id="resumeBtn" href="assets/Sanjay_Kumar_Resume.pdf" target="_blank" rel="noreferrer">
-  <i class="fa-solid fa-download"></i> Resume
-</a>
-
-             <!-- Resume modal -->
-<div class="modal" id="resumeModal" aria-hidden="true">
-  <div class="modal-backdrop" data-close="1"></div>
-
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
-    <div class="modal-top">
-      <div class="modal-icon"><i class="fa-solid fa-hourglass-half"></i></div>
-      <div>
-        <div class="modal-title" id="resumeTitle">Resume coming soon</div>
-        <div class="modal-sub">I am refining resume. Check back shortly.</div>
+          <button id="copyBioBtn" class="btn btn-primary">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy Bio
+          </button>
+          <a class="btn" id="resumeBtn" href="assets/Sanjay_Kumar_Resume.pdf" target="_blank" rel="noreferrer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Resume
+          </a>
+          <a class="btn" href="projects.html">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 19H5V5h7V3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+            Projects &amp; Certifications
+          </a>
+        </div>
       </div>
     </div>
 
-    <div class="modal-actions">
-      <a class="btn" href="mailto:bhattoo70@gmail.com?subject=Resume%20Request&body=Hi%20Sanjay%2C%20can%20you%20share%20your%20resume%3F" target="_blank" rel="noreferrer">
-        <i class="fa-solid fa-envelope"></i> Request via email
-      </a>
-      <button class="btn btn-primary" id="resumeCloseBtn">
-        <i class="fa-solid fa-check"></i> Got it
-      </button>
-    </div>
-  </div>
-</div>
-          <a class="btn" href="projects.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Projects & Certifications</a>
+    <!-- RESUME MODAL -->
+    <div class="modal" id="resumeModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close="1"></div>
+      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="resumeTitle">
+        <div class="modal-top">
+          <div class="modal-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <div>
+            <div class="modal-title" id="resumeTitle">Resume coming soon</div>
+            <div class="modal-sub">I am refining my resume. Check back shortly.</div>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <a class="btn" href="mailto:bhattoo70@gmail.com?subject=Resume%20Request&body=Hi%20Sanjay%2C%20can%20you%20share%20your%20resume%3F" target="_blank" rel="noreferrer">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            Request via email
+          </a>
+          <button class="btn btn-primary" id="resumeCloseBtn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg>
+            Got it
+          </button>
         </div>
       </div>
-    </section>
+    </div>
 
-    <section class="cards" aria-label="Highlights">
+    <!-- CARD GRID -->
+    <div class="card-grid">
+
+      <!-- FOCUS AREAS -->
       <article class="card">
-        <h3><i class="fa-solid fa-layer-group" style="color:var(--accent)"></i> Focus Areas</h3>
-        <p style="color:var(--muted)">
-          Data engineering, Cloud platforms, Scalable backend systems, and performance first web experiences.
-          Currently exploring projects on LLMs and generative AI at ASU — the next frontier of software development and human-computer interaction.
-        </p>
+        <h3>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+          Focus Areas
+        </h3>
+        <p>Data engineering, cloud platforms, scalable backend systems, and performance-first web experiences. Currently exploring LLMs and generative AI at ASU.</p>
         <div class="pill-row">
-          <span class="pill"><i class="fa-solid fa-database"></i> Kafka / Spark</span>
-             <span class="pill"><i class="fa-solid fa-microscope"></i> Testing</span>
-          <span class="pill"><i class="fa-solid fa-magnifying-glass-chart"></i> Observability</span>
-        <span class="pill"><i class="fa-solid fa-code"></i> CI/CD</span>
-          <span class="pill"><i class="fa-solid fa-diagram-project"></i> Microservices</span>
-         
+          <span class="pill">Kafka / Spark</span>
+          <span class="pill">Testing</span>
+          <span class="pill">Observability</span>
+          <span class="pill">CI/CD</span>
+          <span class="pill">Microservices</span>
         </div>
       </article>
 
+      <!-- TOOLBOX -->
       <article class="card">
-        <h3><i class="fa-solid fa-screwdriver-wrench" style="color:var(--accent)"></i> Toolbox</h3>
-        <p style="color:var(--muted)">Skills I reach for to build, ship, and operate systems.</p>
-        <div class="pill-row">
-          <span class="pill"><i class="fa-brands fa-python"></i> Python</span>
-          <span class="pill"><i class="fa-brands fa-js"></i> JavaScript</span>
-          <span class="pill"><i class="fa-solid fa-database"></i> Postgres</span>
-          <span class="pill"><i class="fa-brands fa-docker"></i> Docker</span>
-          <span class="pill"><i class="fa-brands fa-kubernetes"></i> Kubernetes</span>
-          <span class="pill"><i class="fa-solid fa-bolt"></i> Spark</span>
-          <span class="pill"><i class="fa-brands fa-apache"></i> Airflow</span>
-          <span class="pill"><i class="fa-solid fa-stream"></i> Kafka</span>
-          <span class="pill"><i class="fa-brands fa-java"></i> Java</span>
-          <span class="pill"><i class="fa-brands fa-microsoft"></i> Azure</span>
-
+        <h3>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg>
+          Toolbox
+        </h3>
+        <div class="section-label">Languages &amp; Frameworks</div>
+        <div class="pill-row" style="margin-top:0">
+          <span class="pill">Python</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">Java</span>
+          <span class="pill">Postgres</span>
+          <span class="pill">Spark</span>
+          <span class="pill">Kafka</span>
+          <span class="pill">Airflow</span>
         </div>
-        <p style="color:var(--muted)">Tools I reach for to build, ship, and operate systems.</p>
-        <div class="pill-row">
-          <span class="pill"><i class="fa-brands fa-microsoft"></i> Azure Cloud</span>
-          <span class="pill"><i class="fa-brands fa-aws"></i> AWS Cloud</span>
-          <span class="pill"><i class="fa-solid fa-code"></i> VSCode</span>
-          <span class="pill"><i class="fa-brands fa-google"></i> Google Collab</span>
-          <span class="pill"><i class="fa-solid fa-book-open"></i> Jupyter</span>
-          <span class="pill"><i class="fa-brands fa-kubernetes"></i> Kubernetes</span>
-
+        <div class="section-label" style="margin-top:1rem">Platforms &amp; Tools</div>
+        <div class="pill-row" style="margin-top:0">
+          <span class="pill">Azure</span>
+          <span class="pill">AWS</span>
+          <span class="pill">Docker</span>
+          <span class="pill">Kubernetes</span>
+          <span class="pill">Databricks</span>
+          <span class="pill">Jupyter</span>
+          <span class="pill">VSCode</span>
         </div>
       </article>
 
-      
+      <!-- DEFINING MOMENT -->
       <article class="card full">
-  <!-- LEFT: Story -->
-  <div>
-    <h3>
-      <i class="fa-solid fa-compass" style="color:var(--accent)"></i>
-      Defining Moment
-    </h3>
-    <p>
-      I grew up in a remote village with limited access to resources.
-      Early in my academic journey, I received a letter of appreciation
-      from the national education ministry for my performance.
-    </p>
-    <p style="margin-top:.6rem;">
-      That moment gave me the confidence to move to the city and pursue
-      science — setting the foundation for my path into engineering.
-    </p>
-  </div>
+        <h3>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          Defining Moment
+        </h3>
+        <p>I grew up in a remote village with limited access to resources. Early in my academic journey, I received a letter of appreciation from the national education ministry for my performance.</p>
+        <p style="margin-top:0.6rem">That moment gave me the confidence to move to the city and pursue science — setting the foundation for my path into engineering.</p>
+      </article>
 
+    </div>
 
-
-</article>
-
-<div>
-      <p style="color:var(--muted); margin-bottom:.75rem;">
-        Find me online
-      </p>
+    <!-- FIND ME -->
+    <div class="find-me">
+      <div class="section-label">Find me online</div>
       <div class="actions">
         <a class="btn" href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer">
-          <i class="fa-brands fa-github"></i> GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub
         </a>
         <a class="btn" href="https://www.linkedin.com/in/sanjay-bhattoo/" target="_blank" rel="noreferrer">
-          <i class="fa-brands fa-linkedin"></i> LinkedIn
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
         </a>
         <a class="btn" href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer">
-          <i class="fa-brands fa-medium"></i> Medium
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          Medium
         </a>
       </div>
     </div>
-  </section>
-       
+
   </main>
 
+  <!-- FOOTER -->
   <footer>
-  <div class="footer-content footer-center-icons">
-    <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub" style="color:inherit">
-      <i class="fab fa-github"></i>
-    </a>
-    <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email" style="color:inherit">
-      <i class="fas fa-envelope"></i>
-    </a>
-    <a href="https://www.linkedin.com/in/sanjay-bhattoo/" title="LinkedIn" aria-label="LinkedIn" style="color:inherit">
-      <i class="fab fa-linkedin"></i>
-    </a>
-
-    <a href="https://medium.com/@bhattoo70" title="Medium" aria-label="Medium" style="color:inherit">
-      <i class="fab fa-medium"></i>
-    </a>
-  </div>
-</footer>
-
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg></a>
+        <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        <a href="https://www.linkedin.com/in/sanjay-bhattoo/" target="_blank" rel="noreferrer" title="LinkedIn" aria-label="LinkedIn"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
+        <a href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer" title="Medium" aria-label="Medium"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg></a>
+      </div>
+      <div class="footer-copy">sanjay kumar · built with care</div>
+    </div>
+  </footer>
 
   <script>
+    // Copy Bio
     document.getElementById('copyBioBtn').addEventListener('click', function(){
-      const bio =
-        "Sanjay Kumar is a full-stack engineer focused on cloud systems, data pipelines, and production-grade software. He prioritizes reliability, measurable outcomes, and clean developer experience.";
+      const bio = "Sanjay Kumar is a data engineer focused on cloud systems, streaming pipelines, and production-grade software. He prioritizes reliability, measurable outcomes, and clean developer experience.";
       navigator.clipboard.writeText(bio).then(()=>{
         const prev = this.innerHTML;
-        this.innerHTML = '<i class="fa-solid fa-check"></i> Copied';
-        setTimeout(()=> this.innerHTML = prev, 1100);
+        this.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17 4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/></svg> Copied!';
+        setTimeout(()=> this.innerHTML = prev, 1200);
       }).catch(()=> alert("Copy failed — please copy manually."));
     });
-     
-  // Resume "coming soon" modal
-  const resumeBtn = document.getElementById("resumeBtn");
-  const resumeModal = document.getElementById("resumeModal");
-  const resumeCloseBtn = document.getElementById("resumeCloseBtn");
 
-  function openResumeModal() {
-    resumeModal.classList.add("show");
-    resumeModal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-  }
+    // Resume modal
+    const resumeBtn       = document.getElementById("resumeBtn");
+    const resumeModal     = document.getElementById("resumeModal");
+    const resumeCloseBtn  = document.getElementById("resumeCloseBtn");
 
-  function closeResumeModal() {
-    resumeModal.classList.remove("show");
-    resumeModal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-  }
+    function openResumeModal(){ resumeModal.classList.add("show"); resumeModal.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
+    function closeResumeModal(){ resumeModal.classList.remove("show"); resumeModal.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
 
-  // Intercept click: show modal instead of opening PDF
-  resumeBtn?.addEventListener("click", (e) => {
-    e.preventDefault(); // stop opening the PDF
-    openResumeModal();
-  });
-
-  // Close actions
-  resumeCloseBtn?.addEventListener("click", closeResumeModal);
-
-  resumeModal?.addEventListener("click", (e) => {
-    // click outside the card closes
-    if (e.target?.dataset?.close) closeResumeModal();
-  });
-
-  // Escape to close
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && resumeModal.classList.contains("show")) closeResumeModal();
-  });
-
+    resumeBtn?.addEventListener("click", e=>{ e.preventDefault(); openResumeModal(); });
+    resumeCloseBtn?.addEventListener("click", closeResumeModal);
+    resumeModal?.addEventListener("click", e=>{ if(e.target?.dataset?.close) closeResumeModal(); });
+    document.addEventListener("keydown", e=>{ if(e.key==="Escape" && resumeModal.classList.contains("show")) closeResumeModal(); });
   </script>
 
-  <script src="cursor-effects.js"></script>
+  <script src="cursor-effects.js?v=4"></script>
 </body>
 </html>
