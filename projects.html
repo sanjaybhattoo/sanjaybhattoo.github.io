@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Projects — Sanjay Kumar</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 
   <style>
@@ -24,6 +23,20 @@
       --max-w: 1080px;
     }
 
+    html[data-theme="light"] {
+      --bg: #f8f7f6;
+      --surface: #ffffff;
+      --surface-2: #f3f2f0;
+      --border: rgba(0,0,0,0.08);
+      --border-mid: rgba(0,0,0,0.13);
+      --text: #1a1a1a;
+      --muted: #5a5a60;
+      --subtle: #d0d0d8;
+      --accent: #1a1a1a;
+      --accent-dim: rgba(0,0,0,0.07);
+      --accent-glow: rgba(0,0,0,0.04);
+    }
+
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -34,16 +47,22 @@
       color: var(--text);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
     }
-
-
 
     /* ── NAV ── */
     nav {
-      position: sticky; top: 0; z-index: 100;
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background: rgba(10,10,11,0.85);
       backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    html[data-theme="light"] nav {
+      background: rgba(248,247,246,0.85);
     }
 
     .nav-inner {
@@ -57,19 +76,26 @@
     }
 
     .logo {
-      display: flex; align-items: center; gap: 12px;
-      text-decoration: none; color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
     }
 
     .logo-mark {
-      width: 36px; height: 36px;
+      width: 36px;
+      height: 36px;
       border: 1px solid var(--border-mid);
       border-radius: 8px;
-      display: grid; place-items: center;
+      display: grid;
+      place-items: center;
       font-family: 'Inter', sans-serif;
-      font-weight: 700; font-size: 0.82rem;
+      font-weight: 700;
+      font-size: 0.82rem;
       color: var(--text);
       background: var(--surface);
+      transition: all 0.3s ease;
     }
 
     .logo-name {
@@ -79,12 +105,75 @@
       letter-spacing: 0.2px;
     }
 
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-mid);
+      border-radius: 8px;
+      padding: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    html[data-theme="light"] .theme-toggle {
+      background: rgba(0,0,0,0.04);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--border-mid);
+    }
+
+    html[data-theme="light"] .theme-toggle:hover {
+      background: rgba(0,0,0,0.07);
+    }
+
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      padding: 0;
+    }
+
+    .theme-btn:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    html[data-theme="light"] .theme-btn:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    .theme-btn.active {
+      color: var(--text);
+      background: var(--surface);
+    }
+
     .nav-links {
-      display: flex; gap: 0.25rem; list-style: none;
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
     }
 
     .nav-links a {
-      display: flex; align-items: center; gap: 7px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
       text-decoration: none;
       color: var(--muted);
       font-size: 0.88rem;
@@ -95,8 +184,24 @@
       letter-spacing: 0.2px;
     }
 
-    .nav-links a:hover { color: var(--text); background: rgba(255,255,255,0.05); }
-    .nav-links a.active { color: var(--text); background: rgba(255,255,255,0.08); }
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    html[data-theme="light"] .nav-links a:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+    }
+
+    html[data-theme="light"] .nav-links a.active {
+      background: rgba(0,0,0,0.08);
+    }
+
     .nav-links i { font-size: 0.82rem; }
 
     .page-header {
@@ -136,13 +241,15 @@
     }
 
     .search-box {
-      display: flex; align-items: center; gap: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       flex: 1 1 280px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 0.65rem 1rem;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, background 0.3s ease;
     }
 
     .search-box:focus-within { border-color: var(--accent); }
@@ -150,7 +257,8 @@
     .search-box i { color: var(--muted); font-size: 0.85rem; }
 
     .search-box input {
-      border: none; outline: none;
+      border: none;
+      outline: none;
       background: transparent;
       color: var(--text);
       font-family: 'Inter', sans-serif;
@@ -161,7 +269,9 @@
     .search-box input::placeholder { color: var(--muted); }
 
     .filter-tabs {
-      display: flex; gap: 0.4rem; flex-wrap: wrap;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
     }
 
     .ftab {
@@ -175,12 +285,27 @@
       border-radius: 999px;
       cursor: pointer;
       transition: all 0.2s;
-      display: flex; align-items: center; gap: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       letter-spacing: 0.3px;
     }
 
-    .ftab:hover { color: var(--text); border-color: var(--border-mid); background: var(--surface); }
-    .ftab.active { color: var(--text); background: rgba(255,255,255,0.08); border-color: var(--border-mid); }
+    .ftab:hover {
+      color: var(--text);
+      border-color: var(--border-mid);
+      background: var(--surface);
+    }
+
+    .ftab.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+      border-color: var(--border-mid);
+    }
+
+    html[data-theme="light"] .ftab.active {
+      background: rgba(0,0,0,0.08);
+    }
 
     /* ── MAIN CONTAINER ── */
     main {
@@ -243,11 +368,17 @@
     .project-card::after {
       content: '';
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 2px;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
       background: rgba(255,255,255,0.15);
       opacity: 0;
       transition: opacity 0.3s;
+    }
+
+    html[data-theme="light"] .project-card::after {
+      background: rgba(0,0,0,0.15);
     }
 
     .project-card:hover { background: var(--surface-2); }
@@ -269,7 +400,8 @@
     .card-category::before {
       content: '';
       display: inline-block;
-      width: 5px; height: 5px;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
       background: var(--muted);
       opacity: 0.5;
@@ -299,7 +431,9 @@
     }
 
     .card-stack {
-      display: flex; gap: 0.4rem; flex-wrap: wrap;
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
       margin-bottom: 1.5rem;
     }
 
@@ -313,16 +447,21 @@
       padding: 3px 9px;
       border-radius: 6px;
       letter-spacing: 0.05em;
+      transition: all 0.3s ease;
     }
 
     .card-actions {
-      display: flex; gap: 0.55rem; flex-wrap: wrap;
+      display: flex;
+      gap: 0.55rem;
+      flex-wrap: wrap;
       padding-top: 1.2rem;
       border-top: 1px solid var(--border);
     }
 
     .btn {
-      display: inline-flex; align-items: center; gap: 7px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
       text-decoration: none;
       font-family: 'Inter', sans-serif;
       font-size: 0.83rem;
@@ -336,7 +475,11 @@
       letter-spacing: 0.2px;
     }
 
-    .btn:hover { color: var(--text); border-color: var(--border-mid); background: var(--surface-2); }
+    .btn:hover {
+      color: var(--text);
+      border-color: var(--border-mid);
+      background: var(--surface-2);
+    }
 
     .btn-primary {
       background: rgba(255,255,255,0.08);
@@ -345,12 +488,26 @@
       font-weight: 600;
     }
 
-    .btn-primary:hover { background: rgba(255,255,255,0.12); color: var(--text); }
+    html[data-theme="light"] .btn-primary {
+      background: rgba(0,0,0,0.08);
+    }
+
+    .btn-primary:hover {
+      background: rgba(255,255,255,0.12);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .btn-primary:hover {
+      background: rgba(0,0,0,0.12);
+    }
 
     /* ── SECTION HEADING ── */
     .section-heading {
-      display: flex; align-items: flex-end; justify-content: space-between;
-      gap: 16px; flex-wrap: wrap;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
       margin-bottom: 1.2rem;
     }
 
@@ -397,11 +554,13 @@
     .cert-card:hover { background: var(--surface-2); }
 
     .cert-icon {
-      width: 34px; height: 34px;
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
       background: var(--surface-2);
       border: 1px solid var(--border);
-      display: grid; place-items: center;
+      display: grid;
+      place-items: center;
       color: var(--muted);
       font-size: 0.88rem;
     }
@@ -423,13 +582,17 @@
 
     .cert-arrow {
       position: absolute;
-      top: 1.4rem; right: 1.4rem;
+      top: 1.4rem;
+      right: 1.4rem;
       color: var(--border-mid);
       font-size: 0.72rem;
       transition: color 0.2s, transform 0.2s;
     }
 
-    .cert-card:hover .cert-arrow { color: var(--muted); transform: translate(2px, -2px); }
+    .cert-card:hover .cert-arrow {
+      color: var(--muted);
+      transform: translate(2px, -2px);
+    }
 
     /* ── ACCORDION GRID ── */
     .accord-grid {
@@ -450,7 +613,9 @@
 
     .accord-head {
       padding: 1.4rem 1.6rem;
-      display: flex; align-items: center; gap: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
       cursor: pointer;
       transition: background 0.2s;
       user-select: none;
@@ -459,14 +624,17 @@
     .accord-head:hover { background: var(--surface-2); }
 
     .accord-icon {
-      width: 38px; height: 38px;
+      width: 38px;
+      height: 38px;
       border-radius: 10px;
       background: var(--surface-2);
       border: 1px solid var(--border);
-      display: grid; place-items: center;
+      display: grid;
+      place-items: center;
       color: var(--muted);
       font-size: 0.88rem;
       flex: 0 0 auto;
+      transition: all 0.3s ease;
     }
 
     .accord-info { flex: 1; min-width: 0; }
@@ -524,7 +692,14 @@
       line-height: 1.65;
     }
 
-    .accord-body li b { color: var(--text); font-weight: 600; }
+    html[data-theme="light"] .accord-body li {
+      color: rgba(26,26,26,0.65);
+    }
+
+    .accord-body li b {
+      color: var(--text);
+      font-weight: 600;
+    }
 
     .accord-subblock {
       margin-top: 1rem;
@@ -532,6 +707,11 @@
       background: rgba(255,255,255,0.03);
       border: 1px solid var(--border);
       border-radius: 10px;
+      transition: all 0.3s ease;
+    }
+
+    html[data-theme="light"] .accord-subblock {
+      background: rgba(0,0,0,0.03);
     }
 
     .accord-subblock .sub-title {
@@ -546,6 +726,7 @@
       border-top: 1px solid var(--border);
       padding: 2.5rem 2rem;
       background: var(--bg);
+      transition: all 0.3s ease;
     }
 
     .footer-inner {
@@ -558,21 +739,28 @@
     }
 
     .footer-links {
-      display: flex; gap: 0.75rem;
+      display: flex;
+      gap: 0.75rem;
     }
 
     .footer-links a {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       background: var(--surface);
       border: 1px solid var(--border);
-      display: grid; place-items: center;
+      display: grid;
+      place-items: center;
       color: var(--muted);
       text-decoration: none;
       transition: all 0.2s;
     }
 
-    .footer-links a:hover { background: var(--surface-2); color: var(--text); border-color: var(--border-mid); }
+    .footer-links a:hover {
+      background: var(--surface-2);
+      color: var(--text);
+      border-color: var(--border-mid);
+    }
 
     .footer-copy {
       font-size: 0.8rem;
@@ -622,13 +810,25 @@
         <span class="logo-mark">SK</span>
         <span class="logo-name">Sanjay Kumar</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="index.html"><i class="fa-solid fa-user"></i> <span>About</span></a></li>
-        <li><a href="experiences.html"><i class="fa-solid fa-briefcase"></i> <span>Experience</span></a></li>
-        <li><a class="active" href="projects.html"><i class="fa-solid fa-code"></i> <span>Projects</span></a></li>
-        <li><a href="medium.html"><i class="fa-regular fa-file-lines"></i> <span>Blog</span></a></li>
-        <li><a href="github.html"><i class="fa-brands fa-github"></i> <span>GitHub</span></a></li>
-      </ul>
+      <div style="display:flex;align-items:center;gap:2rem">
+        <ul class="nav-links">
+          <li><a href="index.html"><i class="fa-solid fa-user"></i> <span>About</span></a></li>
+          <li><a href="experiences.html"><i class="fa-solid fa-briefcase"></i> <span>Experience</span></a></li>
+          <li><a class="active" href="projects.html"><i class="fa-solid fa-code"></i> <span>Projects</span></a></li>
+          <li><a href="medium.html"><i class="fa-regular fa-file-lines"></i> <span>Blog</span></a></li>
+          <li><a href="github.html"><i class="fa-brands fa-github"></i> <span>GitHub</span></a></li>
+        </ul>
+
+        <!-- THEME TOGGLE -->
+        <div class="theme-toggle">
+          <button class="theme-btn active" id="darkBtn" title="Dark theme" aria-label="Dark theme">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="theme-btn" id="lightBtn" title="Light theme" aria-label="Light theme">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+        </div>
+      </div>
     </div>
   </nav>
 
@@ -644,15 +844,15 @@
   <!-- FILTERS -->
   <div class="filters">
     <div class="search-box">
-      <i class="fa-solid fa-magnifying-glass"></i>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21-4.35-4.35"></path></svg>
       <input id="searchInput" type="text" placeholder="Search by technology, topic…" />
     </div>
     <div class="filter-tabs">
-      <button class="ftab active" data-filter="all"><i class="fa-solid fa-layer-group"></i> All</button>
-      <button class="ftab" data-filter="data"><i class="fa-solid fa-database"></i> Data Eng</button>
-      <button class="ftab" data-filter="cloud"><i class="fa-solid fa-cloud"></i> Cloud</button>
-      <button class="ftab" data-filter="ml"><i class="fa-solid fa-brain"></i> AI / ML</button>
-      <button class="ftab" data-filter="web"><i class="fa-solid fa-chart-bar"></i> Analytics</button>
+      <button class="ftab active" data-filter="all"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8v8H3zm0-8h8v8H3zm10 0h8v8h-8zm0 8h8v8h-8z"/></svg> All</button>
+      <button class="ftab" data-filter="data"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5-2h2V9h-2v8zm-4 0h2v-6H9v6z"/></svg> Data Eng</button>
+      <button class="ftab" data-filter="cloud"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4c-1.48 0-2.85.43-4.01 1.17l1.46 1.46C10.21 5.23 11.08 5 12 5c3.04 0 5.5 2.46 5.5 5.5v.5H19c1.66 0 3 1.34 3 3 0 1.13-.64 2.11-1.56 2.62l1.45 1.45c.23-.35.37-.76.37-1.17 0-1.66-1.34-3-3-3h-.5v-.5c0-.82-.19-1.61-.52-2.31zM17 16.5h-5v2h5zM8 13h5v2H8z"/></svg> Cloud</button>
+      <button class="ftab" data-filter="ml"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/></svg> AI / ML</button>
+      <button class="ftab" data-filter="web"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M5 9.2h3V7H5c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-3.2h-2V19H5V9.2zm14-6H9c-1.1 0-2 .9-2 2v3h2V5h10v10h-3v2h3c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-3.02 7.2L15 7.59 17.42 10l-1.41 1.41L15 10.82l-1.02 1.59z"/></svg> Analytics</button>
     </div>
   </div>
 
@@ -675,7 +875,7 @@
           <span class="stack-tag">Evaluation</span>
         </div>
         <div class="card-actions">
-          <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg> GitHub</a>
         </div>
       </article>
 
@@ -691,7 +891,7 @@
           <span class="stack-tag">Zookeeper</span>
         </div>
         <div class="card-actions">
-          <a class="btn btn-primary" href="https://github.com/sanjaybhattoo/kafka_springboot_pipeline" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="btn btn-primary" href="https://github.com/sanjaybhattoo/kafka_springboot_pipeline" target="_blank" rel="noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg> GitHub</a>
         </div>
       </article>
 
@@ -707,7 +907,7 @@
           <span class="stack-tag">Regression</span>
         </div>
         <div class="card-actions">
-          <a class="btn btn-primary" href="https://github.com/sanjaybhattoo/Project-Old-CarPrice-prediction" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="btn btn-primary" href="https://github.com/sanjaybhattoo/Project-Old-CarPrice-prediction" target="_blank" rel="noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg> GitHub</a>
         </div>
       </article>
 
@@ -723,7 +923,7 @@
           <span class="stack-tag">Performance</span>
         </div>
         <div class="card-actions">
-          <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a class="btn btn-primary" href="#" target="_blank" rel="noreferrer"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg> GitHub</a>
         </div>
       </article>
 
@@ -744,28 +944,28 @@
 
     <div class="certs-grid">
       <a class="cert-card" href="assets/images/certifications/Certifications - sanjaykumar-4467Microsoft Docs.pdf" target="_blank" rel="noopener noreferrer">
-        <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
+        <div class="cert-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 24H0V11.6h11.4V24zM24 11.4H12.6V24H24V11.4zM11.4 11.4H0V0h11.4v11.4zm12.6 0H12.6V0H24v11.4z"/></svg></div>
         <div class="cert-name">Data Engineer Associate</div>
         <div class="cert-issuer">Microsoft Azure</div>
-        <i class="cert-arrow fa-solid fa-arrow-up-right"></i>
+        <svg class="cert-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7m10 0v10"/></svg>
       </a>
       <a class="cert-card" href="assets/images/certifications/google digital leader 2147393.pdf" target="_blank" rel="noopener noreferrer">
-        <div class="cert-icon"><i class="fa-brands fa-google"></i></div>
+        <div class="cert-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg></div>
         <div class="cert-name">Cloud Digital Leader</div>
         <div class="cert-issuer">Google Cloud</div>
-        <i class="cert-arrow fa-solid fa-arrow-up-right"></i>
+        <svg class="cert-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7m10 0v10"/></svg>
       </a>
       <a class="cert-card" href="assets/images/certifications/azure dev.pdf" target="_blank" rel="noopener noreferrer">
-        <div class="cert-icon"><i class="fa-brands fa-microsoft"></i></div>
+        <div class="cert-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.4 24H0V11.6h11.4V24zM24 11.4H12.6V24H24V11.4zM11.4 11.4H0V0h11.4v11.4zm12.6 0H12.6V0H24v11.4z"/></svg></div>
         <div class="cert-name">Azure Developer Associate</div>
         <div class="cert-issuer">Microsoft Azure</div>
-        <i class="cert-arrow fa-solid fa-arrow-up-right"></i>
+        <svg class="cert-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7m10 0v10"/></svg>
       </a>
       <a class="cert-card" href="assets/images/certifications/udemy/Githubandgit.jpg" target="_blank" rel="noopener noreferrer">
-        <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+        <div class="cert-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26H22L17.82 12.61L20.16 19.84L12 15.31L3.84 19.84L6.18 12.61L2 8.26H8.91L12 2Z"/></svg></div>
         <div class="cert-name">20+ Course Certifications</div>
         <div class="cert-issuer">Udemy</div>
-        <i class="cert-arrow fa-solid fa-arrow-up-right"></i>
+        <svg class="cert-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7m10 0v10"/></svg>
       </a>
     </div>
 
@@ -786,12 +986,12 @@
       <!-- Side explorations -->
       <div class="accord-card" data-expand data-category="ml,data,web">
         <div class="accord-head" role="button" tabindex="0" aria-expanded="false">
-          <div class="accord-icon"><i class="fa-solid fa-flask"></i></div>
+          <div class="accord-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M10 2v2H5v3H3V4c0-1.1.9-2 2-2h5zm11 8v-2h-2V7h-2V5h4v5zM8 21h11v2H8zm13-4h2v2h-2zm0-4h2v2h-2zM3 19h2v2H3zm0-4h2v2H3zm0-4h2v2H3zm16-8h2v2h-2z"/></svg></div>
           <div class="accord-info">
             <div class="accord-title">Other Side Explorations</div>
             <div class="accord-meta">NLP · Security · Visualization — 3 highlights</div>
           </div>
-          <i class="accord-chev fa-solid fa-chevron-down"></i>
+          <svg class="accord-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </div>
         <div class="accord-body" aria-hidden="true">
           <ul>
@@ -805,12 +1005,12 @@
       <!-- Extracurricular -->
       <div class="accord-card" data-expand data-category="all">
         <div class="accord-head" role="button" tabindex="0" aria-expanded="false">
-          <div class="accord-icon"><i class="fa-solid fa-people-group"></i></div>
+          <div class="accord-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg></div>
           <div class="accord-info">
             <div class="accord-title">Extra Curricular Activities</div>
             <div class="accord-meta">Volunteering · Community · Leadership</div>
           </div>
-          <i class="accord-chev fa-solid fa-chevron-down"></i>
+          <svg class="accord-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </div>
         <div class="accord-body" aria-hidden="true">
           <div class="accord-subblock">
@@ -835,12 +1035,12 @@
       <!-- School achievements -->
       <div class="accord-card" data-expand data-category="all">
         <div class="accord-head" role="button" tabindex="0" aria-expanded="false">
-          <div class="accord-icon"><i class="fa-solid fa-trophy"></i></div>
+          <div class="accord-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
           <div class="accord-info">
             <div class="accord-title">School Achievements</div>
             <div class="accord-meta">Recognition · Sports · Leadership</div>
           </div>
-          <i class="accord-chev fa-solid fa-chevron-down"></i>
+          <svg class="accord-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </div>
         <div class="accord-body" aria-hidden="true">
           <ul>
@@ -854,12 +1054,12 @@
       <!-- Extras -->
       <div class="accord-card" data-expand data-category="all">
         <div class="accord-head" role="button" tabindex="0" aria-expanded="false">
-          <div class="accord-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div class="accord-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.92 7.02C17.45 4.18 14.97 2 12 2c-2.5 0-4.607 1.357-5.740 3.375C3.993 5.797 2 8.145 2 10.978 2 15.139 5.477 18.5 9.75 18.5h8c3.59 0 6.5-2.91 6.5-6.5 0-3.313-2.423-6.022-5.58-6.48zM12 16.5l-4-4h3V9.5h2v3h3l-4 4z"/></svg></div>
           <div class="accord-info">
             <div class="accord-title">Extras / Ongoing Initiatives</div>
             <div class="accord-meta">Sustainability · Agriculture · Data</div>
           </div>
-          <i class="accord-chev fa-solid fa-chevron-down"></i>
+          <svg class="accord-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
         </div>
         <div class="accord-body" aria-hidden="true">
           <ul>
@@ -878,16 +1078,16 @@
     <div class="footer-inner">
       <div class="footer-links">
         <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub">
-          <i class="fa-brands fa-github"></i>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
         </a>
         <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email">
-          <i class="fa-solid fa-envelope"></i>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
         <a href="https://www.linkedin.com/in/sanjay-bhattoo/" target="_blank" rel="noreferrer" title="LinkedIn" aria-label="LinkedIn">
-          <i class="fa-brands fa-linkedin"></i>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
         </a>
         <a href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer" title="Medium" aria-label="Medium">
-          <i class="fa-brands fa-medium"></i>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
         </a>
       </div>
       <div class="footer-copy">sanjay kumar · built with care</div>
@@ -895,6 +1095,35 @@
   </footer>
 
   <script>
+    // ===== THEME MANAGEMENT =====
+    const darkBtn = document.getElementById('darkBtn');
+    const lightBtn = document.getElementById('lightBtn');
+    const html = document.documentElement;
+
+    // Load saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeButtons(savedTheme);
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateThemeButtons(theme);
+    }
+
+    function updateThemeButtons(theme) {
+      if (theme === 'dark') {
+        darkBtn.classList.add('active');
+        lightBtn.classList.remove('active');
+      } else {
+        lightBtn.classList.add('active');
+        darkBtn.classList.remove('active');
+      }
+    }
+
+    darkBtn.addEventListener('click', () => setTheme('dark'));
+    lightBtn.addEventListener('click', () => setTheme('light'));
+
     // ── FILTER + SEARCH ──
     const tabs = [...document.querySelectorAll('.ftab')];
     const searchInput = document.getElementById('searchInput');
@@ -966,3 +1195,5 @@
       });
     });
   </script>
+</body>
+</html>
