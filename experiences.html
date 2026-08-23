@@ -1,1 +1,1219 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Experience — Sanjay Kumar</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon" href="favico.ico">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="cursor-effects.css?v=4"/>
+
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --surface: #111114;
+      --surface-2: #161618;
+      --border: rgba(255,255,255,0.08);
+      --border-mid: rgba(255,255,255,0.13);
+      --text: #e8e8e8;
+      --muted: #7a7a85;
+      --subtle: #3a3a42;
+      --max-w: 1080px;
+    }
+
+    html[data-theme="light"] {
+      --bg: #f8f7f6;
+      --surface: #ffffff;
+      --surface-2: #f3f2f0;
+      --border: rgba(0,0,0,0.08);
+      --border-mid: rgba(0,0,0,0.13);
+      --text: #1a1a1a;
+      --muted: #5a5a60;
+      --subtle: #d0d0d8;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,11,0.88);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s ease, border-color 0.3s ease;
+    }
+
+    html[data-theme="light"] nav {
+      background: rgba(248,247,246,0.88);
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--border-mid);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      font-weight: 700;
+      font-size: 0.82rem;
+      color: var(--text);
+      background: var(--surface);
+      transition: all 0.3s ease;
+    }
+
+    .logo-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border-mid);
+      border-radius: 8px;
+      padding: 0.35rem;
+      transition: all 0.2s;
+    }
+
+    html[data-theme="light"] .theme-toggle {
+      background: rgba(0,0,0,0.04);
+    }
+
+    .theme-toggle:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--border-mid);
+    }
+
+    html[data-theme="light"] .theme-toggle:hover {
+      background: rgba(0,0,0,0.07);
+    }
+
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border: none;
+      border-radius: 6px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+      padding: 0;
+    }
+
+    .theme-btn:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    html[data-theme="light"] .theme-btn:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    .theme-btn.active {
+      color: var(--text);
+      background: var(--surface);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 500;
+      padding: 7px 13px;
+      border-radius: 8px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+    }
+
+    html[data-theme="light"] .nav-links a:hover {
+      background: rgba(0,0,0,0.05);
+    }
+
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(255,255,255,0.08);
+    }
+
+    html[data-theme="light"] .nav-links a.active {
+      background: rgba(0,0,0,0.08);
+    }
+
+    .nav-links i { font-size: 0.82rem; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 3.5rem 2rem 0;
+    }
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+    .page-desc {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 58ch;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── MAIN ── */
+    main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 24px;
+      width: 1px;
+      background: var(--border);
+    }
+
+    /* ── YEAR LABEL ── */
+    .year-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 2rem 0 1rem;
+      position: relative;
+    }
+    .year-label::before {
+      content: '';
+      position: absolute;
+      left: -32px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--border-mid);
+    }
+    .year-label span {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .year-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ── EXPERIENCE CARD ── */
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: border-color 0.2s, background 0.3s ease;
+      position: relative;
+    }
+    .exp-card:hover {
+      border-color: var(--border-mid);
+    }
+
+    /* dot on timeline */
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      left: -33px;
+      top: 26px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--surface-2);
+      border: 1px solid var(--border-mid);
+    }
+
+    .card-main {
+      padding: 1.4rem 1.5rem;
+    }
+
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .card-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      min-width: 0;
+      flex: 1;
+    }
+
+    .co-icon {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 44px;
+      border-radius: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    /* Per-company icon colors */
+    #exp1 .co-icon { background: rgba(255, 153, 0, 0.12); border-color: rgba(255,153,0,0.2); color: #ff9900; }
+    #exp2 .co-icon { background: rgba(0, 120, 212, 0.12); border-color: rgba(0,120,212,0.2); color: #2196f3; }
+    #exp3 .co-icon { background: rgba(0, 120, 212, 0.12); border-color: rgba(0,120,212,0.2); color: #2196f3; }
+    #exp4 .co-icon { background: rgba(134, 239, 172, 0.10); border-color: rgba(134,239,172,0.18); color: #6ee7a0; }
+    #edu1 .edu-icon { background: rgba(139, 0, 0, 0.15); border-color: rgba(180,0,0,0.25); color: #f87171; }
+    #edu2 .edu-icon { background: rgba(168, 85, 247, 0.12); border-color: rgba(168,85,247,0.2); color: #c084fc; }
+
+    .card-info { min-width: 0; }
+
+    .card-role {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+
+    .card-company {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: rgba(232,232,232,0.7);
+      margin-bottom: 4px;
+      transition: color 0.3s ease;
+    }
+
+    html[data-theme="light"] .card-company {
+      color: rgba(26,26,26,0.7);
+    }
+
+    .card-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .card-badges {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+
+    .badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .card-summary {
+      margin-top: 0.9rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .stack {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.85rem;
+    }
+
+    .stack-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      padding: 3px 9px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    /* ── TOGGLE BUTTON ── */
+    .toggle-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      padding: 0.75rem 1.5rem;
+      background: transparent;
+      border: none;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.83rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      text-align: left;
+    }
+
+    .toggle-btn:hover {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .toggle-btn:hover {
+      background: rgba(0,0,0,0.03);
+    }
+
+    .toggle-btn .t-icon { opacity: 0.45; flex: 0 0 auto; }
+    .toggle-btn .t-chev {
+      flex: 0 0 auto;
+      transition: transform 0.25s ease;
+      opacity: 0.45;
+    }
+    .exp-card.open .toggle-btn .t-chev { transform: rotate(180deg); }
+    .exp-card.open .toggle-btn { color: var(--text); }
+
+    /* ── DETAILS PANEL ── */
+    .details-panel {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.35s ease;
+    }
+
+    .exp-card.open .details-panel {
+      max-height: 800px;
+    }
+
+    .details-inner {
+      padding: 1.1rem 1.5rem 1.4rem;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    html[data-theme="light"] .details-inner {
+      background: rgba(0,0,0,0.03);
+    }
+
+    .details-inner ul {
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .details-inner li {
+      display: flex;
+      gap: 10px;
+      font-size: 0.875rem;
+      color: rgba(232,232,232,0.65);
+      line-height: 1.7;
+    }
+
+    html[data-theme="light"] .details-inner li {
+      color: rgba(26,26,26,0.65);
+    }
+
+    .details-inner li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--muted);
+      flex: 0 0 4px;
+      margin-top: 9px;
+      opacity: 0.5;
+    }
+
+    .details-inner li b {
+      color: rgba(232,232,232,0.85);
+      font-weight: 600;
+    }
+
+    html[data-theme="light"] .details-inner li b {
+      color: rgba(26,26,26,0.85);
+    }
+
+    /* ── DIVIDER ── */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 3rem 0 1.8rem;
+    }
+    .section-divider-line { flex: 1; height: 1px; background: var(--border); }
+    .section-divider-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-heading {
+      margin-bottom: 1.2rem;
+    }
+    .section-heading .s-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .section-heading .s-sub {
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* ── EDU CARDS (same grid style as certs) ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    @media (max-width: 680px) { .edu-grid { grid-template-columns: 1fr; } }
+
+    .edu-card {
+      background: var(--surface);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      overflow: hidden;
+      transition: background 0.3s ease;
+    }
+
+    .edu-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 0.9rem;
+    }
+
+    .edu-icon {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 40px;
+      border-radius: 10px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .edu-info .edu-degree {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 3px;
+    }
+    .edu-info .edu-school {
+      font-size: 0.85rem;
+      color: rgba(232,232,232,0.6);
+      font-weight: 500;
+      margin-bottom: 3px;
+      transition: color 0.3s ease;
+    }
+
+    html[data-theme="light"] .edu-info .edu-school {
+      color: rgba(26,26,26,0.6);
+    }
+
+    .edu-info .edu-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    .edu-desc {
+      font-size: 0.86rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 0.9rem;
+    }
+
+    .edu-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.9rem;
+    }
+
+    /* edu toggle */
+    .edu-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: calc(100% + 3rem);
+      margin: 0 -1.5rem -1.5rem;
+      padding: 0.7rem 1.5rem;
+      background: transparent;
+      border: none;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+      text-align: left;
+      margin-top: auto;
+    }
+    .edu-toggle:hover {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    html[data-theme="light"] .edu-toggle:hover {
+      background: rgba(0,0,0,0.03);
+    }
+
+    .edu-toggle .t-label { flex: 1; }
+    .edu-toggle .t-chev {
+      flex: 0 0 auto;
+      transition: transform 0.25s;
+      opacity: 0.45;
+    }
+    .edu-card.open .edu-toggle .t-chev { transform: rotate(180deg); }
+    .edu-card.open .edu-toggle { color: var(--text); }
+
+    .edu-details {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.32s ease;
+      width: calc(100% + 3rem);
+      margin: 0 -1.5rem;
+    }
+    .edu-card.open .edu-details { max-height: 400px; }
+
+    .edu-details-inner {
+      padding: 1rem 1.5rem 1.2rem;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    html[data-theme="light"] .edu-details-inner {
+      background: rgba(0,0,0,0.03);
+    }
+
+    .edu-details-inner ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .edu-details-inner li {
+      display: flex;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: rgba(232,232,232,0.6);
+      line-height: 1.65;
+    }
+
+    html[data-theme="light"] .edu-details-inner li {
+      color: rgba(26,26,26,0.6);
+    }
+
+    .edu-details-inner li::before {
+      content: '';
+      display: block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--muted);
+      flex: 0 0 4px;
+      margin-top: 9px;
+      opacity: 0.45;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 2rem;
+      background: var(--bg);
+      transition: all 0.3s ease;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .footer-links { display: flex; gap: 0.65rem; }
+    .footer-links a {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .footer-links a:hover {
+      background: var(--surface-2);
+      color: var(--text);
+      border-color: var(--border-mid);
+    }
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--subtle);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(14px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { animation: fadeUp 0.4s ease both 0.05s; }
+    main > * { animation: fadeUp 0.4s ease both; }
+    main > *:nth-child(1) { animation-delay: 0.1s; }
+    main > *:nth-child(2) { animation-delay: 0.15s; }
+    main > *:nth-child(3) { animation-delay: 0.2s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      h1 { font-size: 1.6rem; }
+      .page-header { padding: 2.5rem 1.2rem 0; }
+      main { padding-left: 1.2rem; padding-right: 1.2rem; }
+      .nav-inner { padding: 0 1.2rem; }
+    }
+    @media (max-width: 480px) {
+      .nav-links a span { display: none; }
+      .card-badges { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-inner">
+      <a class="logo" href="experiences.html">
+        <span class="logo-mark">SK</span>
+        <span class="logo-name">Sanjay Kumar</span>
+      </a>
+      <div style="display:flex;align-items:center;gap:2rem">
+        <ul class="nav-links">
+          <li><a href="index.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg> <span>About</span></a></li>
+          <li><a class="active" href="experiences.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 6h-2.18c.07-.44.18-.88.18-1.33C18 2.99 16.21 1 14 1c-1.36 0-2.5.72-3.17 1.78L10 4.27l-.83-1.49C8.5 1.72 7.36 1 6 1 3.79 1 2 2.99 2 4.67c0 .45.11.89.18 1.33H0v14h24V6h-4zm-8 12H4V8h8v10zm8 0h-6V8h6v10zM6 4.67C6 4.22 5.69 3 6 3c.31 0 .88.5 1.17 1L9 7H6.18C6.08 6.56 6 6.12 6 5.67v-1zm8-1.67c.31 0 1 1.22 1 1.67v1c0 .45-.08.89-.18 1.33H12l1.83-2.67c.17-.33.38-.86.17-1.33z"/></svg> <span>Experience</span></a></li>
+          <li><a href="projects.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6 4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0 4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg> <span>Projects</span></a></li>
+          <li><a href="medium.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 1.5L18.5 9H13V3.5zM6 20V4h5v7h7v9H6z"/></svg> <span>Blog</span></a></li>
+          <li><a href="github.html"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg> <span>GitHub</span></a></li>
+        </ul>
+
+        <!-- THEME TOGGLE -->
+        <div class="theme-toggle">
+          <button class="theme-btn active" id="darkBtn" title="Dark theme" aria-label="Dark theme">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="theme-btn" id="lightBtn" title="Light theme" aria-label="Light theme">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1>My Journey</h1>
+    <p class="page-desc">Roles where I've shipped systems, improved performance, and built scalable data foundations.</p>
+  </div>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- TIMELINE -->
+    <div class="timeline">
+
+      <!-- 2025 -->
+      <div class="year-label"><span>2025</span></div>
+
+      <div class="exp-card" id="exp1">
+        <div class="card-main">
+          <div class="card-top">
+            <div class="card-left">
+              <div class="co-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13.23 10.56v-.38c-.96.11-2.2.28-2.2 1.35 0 .6.41.87.88.87.4 0 .75-.12 1.02-.34.38-.3.3-.73.3-1.5zm1.5 3.63c-.1.09-.24.1-.35.04-.5-.41-.58-.6-.85-1-.81.83-1.39 1.08-2.44 1.08-1.25 0-2.22-.77-2.22-2.31 0-1.2.65-2.02 1.58-2.42.8-.35 1.93-.41 2.79-.51v-.19c0-.35.03-.76-.18-1.06-.18-.27-.53-.38-.84-.38-.57 0-1.08.3-1.2.9l-1.61-.17c.35-1.89 1.72-2.42 3.08-2.42.68 0 1.56.18 2.09.69.67.63.61 1.47.61 2.38v2.16c0 .65.27.93.52 1.28.09.12.11.27-.01.36l-1.97 1.67zm5.08 3.95c-2.56 1.9-6.28 2.9-9.5 2.9-4.49 0-8.54-1.66-11.6-4.42-.24-.22-.03-.52.26-.35 3.3 1.92 7.39 3.07 11.61 3.07 2.85 0 5.98-.59 8.86-1.81.43-.19.8.28.37.61zM21.46 17c-.33-.42-2.18-.2-3.01-.1-.25.03-.29-.19-.06-.35 1.47-1.04 3.89-.74 4.17-.39.28.35-.07 2.78-1.46 3.94-.21.18-.41.08-.32-.15.31-.78 1.01-2.53.68-2.95z"/></svg></div>
+              <div class="card-info">
+                <div class="card-role">Data Engineer Intern</div>
+                <div class="card-company">Amazon</div>
+                <div class="card-meta">May 2025 – Aug 2025 · Irvine, CA</div>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge">Glue Pipeline</span>
+              <span class="badge">Schema Inference</span>
+              <span class="badge">LLM Orchestration</span>
+            </div>
+          </div>
+          <p class="card-summary">
+            Engineered ETL production improvements with AWS Glue and Bedrock, led AI orchestration to automate schema detection and alerts, and improved observability across data systems.
+          </p>
+          <div class="stack">
+            <span class="stack-tag">Kafka</span>
+            <span class="stack-tag">Spark</span>
+            <span class="stack-tag">AWS Glue</span>
+            <span class="stack-tag">AWS Bedrock</span>
+            <span class="stack-tag">CI/CD</span>
+          </div>
+        </div>
+        <button class="toggle-btn" aria-expanded="false">
+          <svg class="t-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+          <span class="t-label">Key Contributions</span>
+          <svg class="t-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="details-panel" aria-hidden="true">
+          <div class="details-inner">
+            <ul>
+              <li>Architected structured logging and tracing patterns to reduce MTTR and improve debuggability across pipelines.</li>
+              <li>Collaborated with the Data Science team to design a real-time orchestration system integrating AWS Bedrock LLMs for automated schema detection and alerting.</li>
+              <li>Selected to present internship work at the Seattle headquarters.</li>
+              <li>Participated in an org-level AI hackathon — <b>placed 2nd out of 18 teams</b>.</li>
+              <li>Implemented CI/CD guardrails including tests, checks, and rollbacks for safer production releases.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="year-label"><span>2024</span></div>
+
+      <div class="exp-card" id="exp2">
+        <div class="card-main">
+          <div class="card-top">
+            <div class="card-left">
+              <div class="co-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 8v2h20V8L12 3zM4 11v7H2v2h20v-2h-2v-7h-2v7h-3v-7h-2v7H9v-7H7v7H4v-7H4zm0 0"/></svg></div>
+              <div class="card-info">
+                <div class="card-role">Data Engineer — Programmer Analyst</div>
+                <div class="card-company">Cognizant Technology Solutions</div>
+                <div class="card-meta">Aug 2022 – Jun 2024 · On-site</div>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge">Streaming</span>
+              <span class="badge">Data Quality</span>
+              <span class="badge">Dashboards</span>
+            </div>
+          </div>
+          <p class="card-summary">
+            Built and maintained batch and streaming Azure pipelines, operationalized data quality checks, and delivered analytics dashboards for downstream teams.
+          </p>
+          <div class="stack">
+            <span class="stack-tag">Kafka</span>
+            <span class="stack-tag">Spark</span>
+            <span class="stack-tag">Azure</span>
+            <span class="stack-tag">Java</span>
+            <span class="stack-tag">Databricks</span>
+            <span class="stack-tag">Spring Boot</span>
+          </div>
+        </div>
+        <button class="toggle-btn" aria-expanded="false">
+          <svg class="t-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+          <span class="t-label">Key Contributions</span>
+          <svg class="t-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="details-panel" aria-hidden="true">
+          <div class="details-inner">
+            <ul>
+              <li>Implemented validation checks to reduce bad data propagation across downstream consumers.</li>
+              <li>Optimized Spark jobs via partitioning and incremental processing patterns, reducing compute cost meaningfully.</li>
+              <li>Started on Java, Spring Boot, SQL, and Kafka — grew into full Azure data stack ownership.</li>
+              <li>Achieved multiple Azure cloud certifications including <b>DP-203 (930+)</b>.</li>
+              <li>Contributed to ETL pipelines supporting business-critical data flows.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="year-label"><span>2022</span></div>
+
+      <div class="exp-card" id="exp3">
+        <div class="card-main">
+          <div class="card-top">
+            <div class="card-left">
+              <div class="co-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L2 8v2h20V8L12 3zM4 11v7H2v2h20v-2h-2v-7h-2v7h-3v-7h-2v7H9v-7H7v7H4v-7H4zm0 0"/></svg></div>
+              <div class="card-info">
+                <div class="card-role">Data Engineer Intern — Programmer Analyst</div>
+                <div class="card-company">Cognizant Technology Solutions</div>
+                <div class="card-meta">Mar 2022 – Jul 2022 · Bengaluru, India</div>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge">Azure</span>
+              <span class="badge">ETL</span>
+              <span class="badge">Visualization</span>
+            </div>
+          </div>
+          <p class="card-summary">
+            Designed ETL pipelines for consumer transaction data and built interactive dashboards for business stakeholders using Python and Azure services.
+          </p>
+          <div class="stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Azure Data Factory</span>
+            <span class="stack-tag">Azure Data Lake</span>
+            <span class="stack-tag">MySQL</span>
+            <span class="stack-tag">Plotly</span>
+            <span class="stack-tag">Airflow</span>
+          </div>
+        </div>
+        <button class="toggle-btn" aria-expanded="false">
+          <svg class="t-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+          <span class="t-label">Key Contributions</span>
+          <svg class="t-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="details-panel" aria-hidden="true">
+          <div class="details-inner">
+            <ul>
+              <li>Designed and implemented robust ETL pipelines for consumer transaction data using Python, MySQL, and Azure (Data Factory, Data Lake).</li>
+              <li>Created interactive dashboards and plots using Seaborn, Matplotlib, and Plotly.</li>
+              <li>Implemented data validation checks and monitoring dashboards to ensure data quality.</li>
+              <li>Collaborated with cross-functional teams to gather requirements and deliver data solutions.</li>
+              <li>Completed <b>DP-203 certification (930+)</b> during internship.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2021 -->
+      <div class="year-label"><span>2021</span></div>
+
+      <div class="exp-card" id="exp4">
+        <div class="card-main">
+          <div class="card-top">
+            <div class="card-left">
+              <div class="co-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg></div>
+              <div class="card-info">
+                <div class="card-role">ML / AI Intern</div>
+                <div class="card-company">ThinkNext Technologies</div>
+                <div class="card-meta">Feb 2021 – Apr 2021 · On-site</div>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge">ML</span>
+              <span class="badge">Feature Engineering</span>
+            </div>
+          </div>
+          <p class="card-summary">
+            Built foundational ML experiments and prototypes with proper evaluation loops for an early-stage startup environment.
+          </p>
+          <div class="stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Scikit-learn</span>
+            <span class="stack-tag">Data Prep</span>
+            <span class="stack-tag">Evaluation</span>
+          </div>
+        </div>
+        <button class="toggle-btn" aria-expanded="false">
+          <svg class="t-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+          <span class="t-label">Key Contributions</span>
+          <svg class="t-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="details-panel" aria-hidden="true">
+          <div class="details-inner">
+            <ul>
+              <li>Worked on data preprocessing and feature pipelines to support model experiments.</li>
+              <li>Built foundational understanding of linear algebra, calculus, and probability as applied to ML models.</li>
+              <li>Contributed to team projects — dataset analysis, feature engineering, and ML algorithm implementation.</li>
+              <li>Worked on Several Python scripts to automatte tasks.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="exp-card" id="exp4">
+        <div class="card-main">
+          <div class="card-top">
+            <div class="card-left">
+              <div class="co-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg></div>
+              <div class="card-info">
+                <div class="card-role">ML / AI Intern</div>
+                <div class="card-company"></div>
+                <div class="card-meta">Apr 2021 – Feb 202w · On-site</div>
+              </div>
+            </div>
+            <div class="card-badges">
+              <span class="badge">Intern</span>
+              <span class="badge">Software Engineering</span>
+            </div>
+          </div>
+          <p class="card-summary">
+            Worked on Engineering projects revolving around EDA, Feature engineering and prediction.
+          </p>
+          <div class="stack">
+            <span class="stack-tag">Python</span>
+            <span class="stack-tag">Exploratory Data Analysis</span>
+            <span class="stack-tag">Prediction</span>
+            <span class="stack-tag">Data</span>
+          </div>
+        </div>
+        <button class="toggle-btn" aria-expanded="false">
+          <svg class="t-icon" width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/></svg>
+          <span class="t-label">Key Contributions</span>
+          <svg class="t-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="details-panel" aria-hidden="true">
+          <div class="details-inner">
+            <ul>
+              <li>Built foundational understanding of linear algebra, calculus, and probability as applied to ML models.</li>
+              <li>Contributed to team projects — dataset analysis, feature engineering, and ML algorithm implementation.</li>
+              <li>Gained Knowledge to Key concepts retated to data processing.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+
+    <!-- EDUCATION DIVIDER -->
+    <div class="section-divider">
+      <div class="section-divider-line"></div>
+      <div class="section-divider-label"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg> Education</div>
+      <div class="section-divider-line"></div>
+    </div>
+
+    <div class="section-heading">
+      <div class="s-title">Academic Background</div>
+      <div class="s-sub">Foundation in distributed systems, data engineering, and software fundamentals.</div>
+    </div>
+
+    <!-- EDU GRID -->
+    <div class="edu-grid">
+
+      <div class="edu-card" id="edu1">
+        <div class="edu-top">
+          <div class="edu-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></div>
+          <div class="edu-info">
+            <div class="edu-degree">M.S. Computer Science</div>
+            <div class="edu-school">Arizona State University</div>
+            <div class="edu-meta">Aug 2024 – May 2026 · Tempe, AZ</div>
+          </div>
+        </div>
+        <p class="edu-desc">Focus on Data Engineering, Cloud, NLP, and AI systems. Emphasis on scalable pipelines and distributed computing.</p>
+        <div class="edu-tags">
+          <span class="stack-tag">Distributed Systems</span>
+          <span class="stack-tag">Data Engineering</span>
+          <span class="stack-tag">ML Systems</span>
+          <span class="stack-tag">GPA 3.9</span>
+        </div>
+        <button class="edu-toggle" aria-expanded="false">
+          <span class="t-label">Coursework &amp; Highlights</span>
+          <svg class="t-chev" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="edu-details" aria-hidden="true">
+          <div class="edu-details-inner">
+            <ul>
+              <li>Coursework: Data Processing at Scale, NLP, Data Mining, Software Security.</li>
+              <li>Project: Scalable pipeline for large dataset processing using Apache Spark and AWS.</li>
+              <li>GPA: <b>3.9 / 4.0</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="edu-card" id="edu2">
+        <div class="edu-top">
+          <div class="edu-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg></div>
+          <div class="edu-info">
+            <div class="edu-degree">B.Tech Computer Science</div>
+            <div class="edu-school">Jaypee University of Information Technology</div>
+            <div class="edu-meta">2018 – 2022 · Solan, India</div>
+          </div>
+        </div>
+        <p class="edu-desc">Software engineering fundamentals, algorithms, databases, and systems programming.</p>
+        <div class="edu-tags">
+          <span class="stack-tag">DSA</span>
+          <span class="stack-tag">Databases</span>
+          <span class="stack-tag">OS</span>
+          <span class="stack-tag">Networks</span>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://github.com/sanjaybhattoo" target="_blank" rel="noreferrer" title="GitHub" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.34-3.369-1.34-.454-1.155-1.11-1.463-1.11-1.463-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z"/></svg>
+        </a>
+        <a href="mailto:bhattoo70@gmail.com" title="Email" aria-label="Email">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/sanjay-bhattoo/" target="_blank" rel="noreferrer" title="LinkedIn" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        </a>
+        <a href="https://medium.com/@bhattoo70" target="_blank" rel="noreferrer" title="Medium" aria-label="Medium">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zm7.42 0c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+        </a>
+      </div>
+      <div class="footer-copy">sanjay kumar · built with care</div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== THEME MANAGEMENT =====
+    const darkBtn = document.getElementById('darkBtn');
+    const lightBtn = document.getElementById('lightBtn');
+    const html = document.documentElement;
+
+    // Load saved theme or default to dark
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    html.setAttribute('data-theme', savedTheme);
+    updateThemeButtons(savedTheme);
+
+    function setTheme(theme) {
+      html.setAttribute('data-theme', theme);
+      localStorage.setItem('theme', theme);
+      updateThemeButtons(theme);
+    }
+
+    function updateThemeButtons(theme) {
+      if (theme === 'dark') {
+        darkBtn.classList.add('active');
+        lightBtn.classList.remove('active');
+      } else {
+        lightBtn.classList.add('active');
+        darkBtn.classList.remove('active');
+      }
+    }
+
+    darkBtn.addEventListener('click', () => setTheme('dark'));
+    lightBtn.addEventListener('click', () => setTheme('light'));
+
+    // ===== EXPERIENCE CARD TOGGLES =====
+    document.querySelectorAll('.exp-card .toggle-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.exp-card');
+        const isOpen = card.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+        btn.nextElementSibling.setAttribute('aria-hidden', !isOpen);
+      });
+      btn.addEventListener('keyup', e => {
+        if (e.key === 'Enter' || e.key === ' ') btn.click();
+      });
+    });
+
+    // ===== EDUCATION CARD TOGGLES =====
+    document.querySelectorAll('.edu-card .edu-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.edu-card');
+        const isOpen = card.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+        btn.nextElementSibling.setAttribute('aria-hidden', !isOpen);
+      });
+    });
+  </script>
+
+  <script src="cursor-effects.js?v=4"></script>
+</body>
+</html>
